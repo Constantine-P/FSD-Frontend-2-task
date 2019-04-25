@@ -1,0 +1,12 @@
+mixin nav
+	+b('nav').nav&attributes(attributes)
+		+b('ul').menu
+			-navItems = ['О нас', 'Услуги_', 'Вакансии', 'Новости', 'Соглашения_']
+			-for(var i=0; i<navItems.length; i++)
+			+e('li').item
+				if(navItems[i][navItems[i].length-1]==="_")
+					a(href='#home')=navItems[i].substr(0, navItems[i].length-1)
+					+e('img').item-arrow(src="../../resources/arrow_down-24px.svg")
+				else
+					a(href='#home')=navItems[i]
+		block
