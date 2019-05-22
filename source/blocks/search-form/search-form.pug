@@ -1,0 +1,26 @@
+mixin search-form
+	include ../pos-control/pos-control
+	include ../button-submit/button-submit
+	include ../search-form-stay-period-control/search-form-stay-period-control
+
+	+b.search-form
+		+e('form')(name = "room-search-form" id = "room-search-form" method = "GET" action="https://echo.htmlacademy.ru" enctype="text/plain")
+		+e('h1').header Найдём номера под ваши пожелания
+		+b.content
+			+search-form-stay-period-control#search-form-stay-period-control
+			+pos-control({
+				title: 'Гости',
+				form: 'room-search-form',
+				name: 'guests',
+				placeholder: 'Сколько гостей',
+				positions: [
+					{title: 'Взрослые', name: 'adults'},
+					{title: 'Дети', name: 'children'},
+					{title: 'Младенцы', name: 'babies', isShow: "true", wordForms: '["младенец", "младенца", "младенцев"]'},
+					{title: 'Пёсики', name: 'dags', isShow: "true", wordForms: '["пёсик", "пёсика", "пёсиков"]'}
+					]
+			})#guests-control
+			+button-submit({
+				value: 'Подобрать номер',
+				form: 'room-search-form'
+			})

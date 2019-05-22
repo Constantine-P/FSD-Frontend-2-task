@@ -1,0 +1,32 @@
+.date-control
+  background-color background-color
+  margin-top 21rem
+  position relative
+
+  &__title
+    font-size 12rem
+    margin 0
+
+  &__content
+    border 1px solid main-color-25
+    border-radius 4rem
+    size(150rem, 44rem)
+    margin-top 5rem
+    padding-left 15rem
+    padding-right 45rem
+
+    &:active, &:hover, &:focus
+      outline none
+
+    &_active
+      box-shadow 0 0 5px rgba(0, 0, 0, 0.3)
+      transition 200ms
+
+  &__arrow-down
+    display block
+    content ""
+    position absolute
+    size(24rem)
+    background-image url("../../resources/arrow_down-24px.svg")
+    top 30rem
+    right 10rem

@@ -8,6 +8,8 @@ block main
 	include ../../blocks/logo/logo
 	include ../../blocks/nav/nav
 	include ../../blocks/button/button
+	include ../../blocks/landing-main/landing-main
+	include ../../blocks/search-form/search-form
 
 	+b.page-inner
 		+page-header
@@ -15,3 +17,5 @@ block main
 			+nav
 				+button({value: 'Войти', width: 87, height: 34, units: 'rem'})._empty._marginLeft
 				+button({value: 'Зарегистрироваться', width: 196, height: 34, units: 'rem'})._marginLeft
+		+landing-main
+			+search-form

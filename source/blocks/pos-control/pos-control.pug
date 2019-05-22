@@ -1,0 +1,19 @@
+mixin pos-control(control)
+	+b.pos-control&attributes(attributes)
+		+e('h3').title=control.title
+		+e('input').content(type="text" placeholder=control.placeholder form = control.form name = control.name autocomplete = "off" required)
+		+e.arrow-down
+		+b.dropdown-menu.hidden
+			each position in control.positions
+				+b.position
+					+e.name=position.title
+					+b.position-number
+						+e.minus._non-active
+							em -
+						+e.value-view 0
+						+e('input').value(type="text" form = control.form name=position.name data-isshow=position.isShow data-title=position.title data-wordforms=position.wordForms)
+						+e.plus
+							em +
+			+b.buttons
+				+e.btn-clear Очистить
+				+e.btn-apply Применить

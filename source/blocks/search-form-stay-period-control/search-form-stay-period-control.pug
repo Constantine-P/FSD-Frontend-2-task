@@ -1,0 +1,7 @@
+mixin search-form-stay-period-control
+	include ../date-control/date-control
+	include ../calendar/calendar
+	+b.search-form-stay-period-control&attributes(attributes)
+		+date-control({title: 'ПРИБЫТИЕ', name: 'arrival-date', form: 'room-search-form'}).date-control_arrival
+		+date-control({title: 'ВЫЕЗД', name: 'departure-date', form: 'room-search-form'}).date-control_departure
+		+calendar

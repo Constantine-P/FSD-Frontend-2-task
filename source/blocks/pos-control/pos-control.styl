@@ -1,0 +1,102 @@
+.pos-control
+  background-color background-color
+  margin-top 21rem
+  position relative
+
+  &__title
+    font-size 12rem
+    margin 0
+    text-transform uppercase
+
+  &__content
+    border 1px solid main-color-25
+    border-radius 4rem
+    size(320rem, 44rem)
+    margin-top 5rem
+    padding-left 15rem
+    padding-right 45rem
+
+    &:active, &:hover, &:focus
+      outline none
+
+  &__arrow-down
+    display block
+    content ""
+    position absolute
+    size(24rem)
+    background-image url("../../resources/arrow_down-24px.svg")
+    top 30rem
+    right 10rem
+
+.pos-control .dropdown-menu
+  position absolute
+  background-color background-color
+  border 1px solid main-color-25
+  border-top none
+  border-radius 0 0 4rem 4rem
+  width 320rem
+  padding 15rem
+  padding-top 7rem
+  text-transform uppercase
+  font-weight bold
+  z-index 1
+  user-select none
+
+  .position
+    display flex
+    flex-direction row
+    justify-content space-between
+    align-items center
+    height 37rem
+
+    input
+      position absolute
+      left 400rem
+      display none
+
+    .position-number
+      display flex
+      flex-direction row
+      justify-content space-between
+      align-items center
+      width 92rem
+
+      &__minus, &__plus
+        display flex
+        justify-content center
+        align-items center
+        font-weight normal
+        circle(30rem)
+        border 1px solid main-color-50
+
+        &:hover
+          background-color stay-day-color
+
+        &_non-active
+          border-color main-color-25
+
+          &:hover
+            background none
+
+        > em
+          font-style normal
+
+.pos-control .buttons
+  display flex
+  justify-content space-between
+  margin-top 15rem
+
+  &__btn-clear, &__btn-apply
+    font-size 12rem
+    font-weight bold
+    color main-color-50
+    text-transform uppercase
+
+    &:hover
+      color button-color
+
+.pos-control__content_opened
+  border-radius 4rem 4rem 0 0
+
+.hidden
+  display none
