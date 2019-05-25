@@ -10,6 +10,7 @@ block main
 	include ../../blocks/button/button
 	include ../../blocks/landing-main/landing-main
 	include ../../blocks/search-form/search-form
+	include ../../blocks/page-footer/page-footer
 
 	+b.page-inner
 		+page-header
@@ -19,3 +20,4 @@ block main
 				+button({value: 'Зарегистрироваться', width: 196, height: 34, units: 'rem'})._marginLeft
 		+landing-main
 			+search-form
+		+page-footer
