@@ -5,19 +5,12 @@ block title
 block main
 
 	include ../../blocks/page-header/page-header
-	include ../../blocks/logo/logo
-	include ../../blocks/nav/nav
-	include ../../blocks/button/button
 	include ../../blocks/landing-main/landing-main
 	include ../../blocks/search-form/search-form
 	include ../../blocks/page-footer/page-footer
 
 	+b.page-inner
 		+page-header
-			+logo
-			+nav
-				+button({value: 'Войти', width: 87, height: 34, units: 'rem'})._empty._marginLeft
-				+button({value: 'Зарегистрироваться', width: 196, height: 34, units: 'rem'})._marginLeft
 		+landing-main
 			+search-form
 		+page-footer
