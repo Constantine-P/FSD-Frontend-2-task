@@ -19,10 +19,59 @@
       font-size 14rem
       list-style none
       font-family Montserrat
+      position relative
+      line-height 3
+
+      &:hover .dropdown-menu
+        animation dropdown 500ms forwards
+        z-index 1
 
       a
         text-decoration none
         color main-color-50
+
+      .dropdown-menu
+        display flex
+        position absolute
+        flex-direction column
+        top 40rem
+        min-width 110rem
+        background-color background-color
+        z-index -1
+        opacity 0
+        border 1px solid rgba(0, 0, 0, 0.12)
+        box-sizing border-box
+        box-shadow 0 0 25rem rgba(0, 0, 0, 0.1)
+        border-radius 4rem
+
+        &__row
+          line-height 2.5
+          white-space nowrap
+          padding 0 10rem 0 10rem
+          transition 250ms
+
+          &:hover
+            background-color main-color-05
+
+        &::after
+          display block
+          content ''
+          position absolute
+          top -10rem
+          left 10rem
+          border-bottom 10rem solid background-color
+          border-right  10rem solid transparent
+          border-left 10rem solid transparent
+
+        &::before
+          display block
+          content ''
+          position absolute
+          top -11rem
+          left 9rem
+          border-bottom 11rem solid rgba(0, 0, 0, 0.12)
+          border-right  11rem solid transparent
+          border-left 11rem solid transparent
 
     &__item-arrow
       color main-color-50
@@ -30,3 +79,7 @@
 
     &__item:last-child
       margin-right 0
+
+  @keyframes dropdown
+    from {opacity: 0; z-index: 1}
+    to {opacity: 1; z-index: 1}
