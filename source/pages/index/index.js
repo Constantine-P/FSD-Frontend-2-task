@@ -1,3 +1,6 @@
 import './index.styl';
-import '../../blocks/search-form-stay-period-control/stay-period-control'
-import '../../blocks/pos-control/pos-control'
+import PosControl from '../../scripts/PosControl';
+import StayPeriodControl from "../../scripts/StayPeriodControl";
+
+new PosControl('guests-control');
+new StayPeriodControl('search-form-stay-period-control');
