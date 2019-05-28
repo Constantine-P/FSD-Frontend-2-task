@@ -1,4 +1,4 @@
-function PosControl(id) {
+export default function PosControl(id) {
 	const posControl = document.getElementById(id);
 	const mainInput = posControl.querySelector('input');
 	const arrowDown = posControl.querySelector('.pos-control__arrow-down');
@@ -38,7 +38,7 @@ function PosControl(id) {
 			mainInput.value = getTotalCount();
 			dropdownMenu.classList.add('hidden');
 			mainInput.classList.remove('pos-control__content_opened');
-			for (i = 0; i < pluses.length; i++) {
+			for (let i = 0; i < pluses.length; i++) {
 				if (valueInputElements[i].dataset.isshow === "true" && valueInputElements[i].value > 0) {
 					mainInput.value += ', ' + valueInputElements[i].value + ' ' + numToWord(+valueInputElements[i].value, JSON.parse(valueInputElements[i].dataset.wordforms));
 				}
@@ -66,7 +66,7 @@ function PosControl(id) {
 
 	function clear() {
 		for (let i = 0; i < valueElements.length; i++) {
-			valueElements[i].textContent = 0;
+			valueElements[i].textContent = '0';
 			valueInputElements[i].value = 0;
 		}
 		mainInput.value = '';
@@ -74,7 +74,7 @@ function PosControl(id) {
 
 	function numToWord(number, wordForms) {
 		number = Math.abs(number) % 100;
-		var num = number % 10;
+		let num = number % 10;
 
 		if (number > 10 && number < 20) return wordForms[2];
 
@@ -86,5 +86,3 @@ function PosControl(id) {
 	}
 
 }
-
-new PosControl('guests-control');

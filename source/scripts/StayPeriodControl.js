@@ -1,4 +1,4 @@
-function StayPeriodControl(id) {
+export default function StayPeriodControl(id) {
 
 	class Day {
 		constructor(oldDate) {
@@ -126,7 +126,7 @@ function StayPeriodControl(id) {
 			daysOfTheMonth[i].addEventListener('click', mark)
 		}
 
-		inputArrival.addEventListener('change', (e) => {
+		inputArrival.addEventListener('change', () => {
 			resetArrivalDay();
 			for (let i = 0; i < dateBase.length; i++) {
 				if (dateBase[i].date === inputArrival.value) {
@@ -136,7 +136,7 @@ function StayPeriodControl(id) {
 			}
 		});
 
-		inputDeparture.addEventListener('change', (e) => {
+		inputDeparture.addEventListener('change', () => {
 			resetDepartureDay();
 			for (let i = 0; i < dateBase.length; i++) {
 				if (dateBase[i].date === inputDeparture.value) {
@@ -290,7 +290,7 @@ function StayPeriodControl(id) {
 	}
 
 	function resetArrivalDay() {
-		for (i = 0; i < dateBase.length; i++) {
+		for (let i = 0; i < dateBase.length; i++) {
 			dateBase[i].isArrivalDay = false;
 		}
 	}
@@ -322,7 +322,7 @@ function StayPeriodControl(id) {
 		let arrDateReverse = arrivalDay.date.split('.').reverse().join('');
 		let depDateReverse = departureDay.date.split('.').reverse().join('');
 
-		for (i = 0; i < daysOfTheMonth.length; i++) {
+		for (let i = 0; i < daysOfTheMonth.length; i++) {
 			let iDateReverse = dateBase[i + fdPos].date.split('.').reverse().join('');
 
 			if (iDateReverse > arrDateReverse && iDateReverse < depDateReverse) {
@@ -412,5 +412,3 @@ function StayPeriodControl(id) {
 	}
 
 }
-
-new StayPeriodControl('search-form-stay-period-control');
