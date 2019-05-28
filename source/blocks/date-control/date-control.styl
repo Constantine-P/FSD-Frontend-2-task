@@ -10,16 +10,16 @@
   &__content
     border 1px solid main-color-25
     border-radius 4rem
-    size(150rem, 44rem)
+    size(100%, 44rem)
     margin-top 5rem
     padding-left 15rem
-    padding-right 45rem
+    padding-right 35rem
 
     &:active, &:hover, &:focus
       outline none
 
     &_active
-      box-shadow 0 0 5px rgba(0, 0, 0, 0.3)
+      border 1px solid main-color-50
       transition 200ms
 
   &__arrow-down
@@ -33,3 +33,6 @@
 
     &:hover
       cursor pointer
+
+  &_arrival, &_departure
+    width calc(50% - 10rem)
