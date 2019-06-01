@@ -9,7 +9,7 @@
     text-transform uppercase
 
   &__content
-    border 1px solid main-color-25
+    border 1rem solid main-color-25
     border-radius 4rem
     size(320rem, 44rem)
     max-width 100%
@@ -26,6 +26,7 @@
     position absolute
     size(24rem)
     background-image url("../../resources/arrow_down-24px.svg")
+    background-size contain
     top 30rem
     right 10rem
 
@@ -35,7 +36,7 @@
 .pos-control .dropdown-menu
   position absolute
   background-color background-color
-  border 1px solid main-color-25
+  border 1rem solid main-color-25
   border-top none
   border-radius 0 0 4rem 4rem
   width 320rem
@@ -44,8 +45,9 @@
   padding-top 7rem
   text-transform uppercase
   font-weight bold
-  z-index 1
+  z-index 2
   user-select none
+  font-size 12rem
 
   .position
     display flex
@@ -72,7 +74,7 @@
         align-items center
         font-weight normal
         circle(30rem)
-        border 1px solid main-color-50
+        border 1rem solid main-color-50
 
         &:hover
           background-color stay-day-color

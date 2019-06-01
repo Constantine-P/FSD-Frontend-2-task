@@ -1,12 +1,12 @@
 .calendar
   position absolute
   size(322rem, 380rem)
-  border 1px solid rgba(31, 32, 65, 0.25)
-  box-shadow 0 10px 20px rgba(31, 32, 65, 0.05)
-  border-radius 4px
+  border 1rem solid rgba(31, 32, 65, 0.25)
+  box-shadow 0 10rem 20rem rgba(31, 32, 65, 0.05)
+  border-radius 4rem
   background-color background-color
   padding 20rem
-  z-index 2
+  z-index 3
   user-select none
 
   .month-year
@@ -17,18 +17,18 @@
     color main-color-100
     font-weight bold
 
-    &__arrow-back
+    &__arrow-back, &__arrow-forward
       display flex
       align-items center
       justify-content center
       size(24rem)
+      cursor pointer
+
+      img
+        max-size(18rem)
 
     &__arrow-forward
-      display flex
-      align-items center
-      justify-content center
       transform rotate(180deg)
-      size(24rem)
 
   .days-of-the-week
     display flex

@@ -5,11 +5,15 @@
   width 260rem
 
   &__input
-    border 1px solid main-color-25
+    border 1rem solid main-color-25
     border-radius 4rem
     size(260rem, 44rem)
     padding-left 15rem
     padding-right 45rem
+
+    &:focus
+      outline none
+      border 1rem solid main-color-50
 
   &__btn-submit
     position absolute
@@ -27,6 +31,7 @@
       right 12rem
       top 13rem
       background-image url("../../resources/arrow_back.svg")
+      background-size contain
       transform rotate(180deg)
 
     &:hover
