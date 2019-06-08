@@ -220,6 +220,7 @@ export default function StayPeriodControl(id) {
 		addMarkedClass(e);
 		fillPeriodOfStay();
 		swapArrDepDays();
+		if (focusedDay === 'arrival-day') inputDeparture.focus();
 	}
 
 	function detectFocusedDay() {
