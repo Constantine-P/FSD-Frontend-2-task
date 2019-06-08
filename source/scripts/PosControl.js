@@ -40,7 +40,7 @@ export default function PosControl(id) {
 			mainInput.classList.remove('pos-control__content_opened');
 			for (let i = 0; i < pluses.length; i++) {
 				if (valueInputElements[i].dataset.isshow === "true" && valueInputElements[i].value > 0) {
-					mainInput.value += ', ' + valueInputElements[i].value + ' ' + numToWord(+valueInputElements[i].value, JSON.parse(valueInputElements[i].dataset.wordforms));
+					mainInput.value += ((mainInput.value !== '') ? ', ' : '') + valueInputElements[i].value + ' ' + numToWord(+valueInputElements[i].value, JSON.parse(valueInputElements[i].dataset.wordforms));
 				}
 			}
 		});
@@ -56,12 +56,26 @@ export default function PosControl(id) {
 		});
 	})();
 
+	addEventListener('click', function (e) {
+		let i = e.target;
+		let bool = true;
+
+		while (i.parentNode) {
+			if (i === posControl) bool = false;
+			i = i.parentNode;
+		}
+
+		if (bool && !dropdownMenu.classList.contains('hidden')) {
+			buttonApply.dispatchEvent(new Event('click'));
+		}
+	});
+
 	function getTotalCount() {
 		const values = Array.from(valueInputElements).map(a => (a.dataset.isshow === "true") ? 0 : a.value);
 		const reducer = (accumulator, currentValue) => +accumulator + (+currentValue);
 		const count = values.reduce(reducer);
-
-		return count + ' ' + numToWord(count, ['гость', 'гостя', 'гостей'])
+		if (count === 0) return "";
+		return count + ' ' + numToWord(count, JSON.parse(dropdownMenu.dataset.wordforms))
 	}
 
 	function clear() {

@@ -3,7 +3,7 @@ mixin pos-control(control)
 		+e('h3').title=control.title
 		+e('input').content(type="text" placeholder=control.placeholder form = control.form name = control.name autocomplete = "off" required)
 		+e.arrow-down
-		+b.dropdown-menu.hidden
+		+b.dropdown-menu.hidden(data-wordforms=control.wordForms)
 			each position in control.positions
 				+b.position
 					+e.name=position.title
