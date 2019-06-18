@@ -1,0 +1,7 @@
+mixin filter-main
+	include ../filter-list/filter-list
+	include ../filter-search-results/filter-search-results
+
+	+b('main').filter-main
+		+filter-list
+		+filter-search-results

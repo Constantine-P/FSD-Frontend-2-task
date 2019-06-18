@@ -1,0 +1,91 @@
+.room-card
+  display grid
+  grid-template 151rem 1fr / 1fr
+  size(270rem, 257rem)
+  box-shadow 0 10rem 20rem rgba(31, 32, 65, 0.05)
+  border-radius 4rem
+  overflow hidden
+
+  .room-card-top
+    grid-row-start 1
+    grid-column-start 1
+
+  .room-card-bottom
+    display grid
+    grid-template 20rem 20rem / 1fr 1fr 2fr
+    grid-row-start 2
+    grid-column-start 1
+    justify-content flex-start
+    align-content space-evenly
+    justify-items flex-end
+    padding 0 20rem 0 20rem
+    position relative
+
+    &::after
+      display block
+      content ""
+      position absolute
+      right 20rem
+      top 50%
+      background-color main-color-10
+      width calc(100% - 40rem)
+      height 1rem
+
+    &__room-number
+      display flex
+      font-size 18rem
+      font-weight bold
+      letter-spacing -0.5rem
+      grid-row 1
+      grid-column 1
+      justify-self flex-start
+
+    &__isLux
+      display flex
+      grid-row 1
+      grid-column 2
+      color button-color
+      font-size 12rem
+      font-weight bold
+      text-transform uppercase
+      align-self flex-end
+      justify-self flex-start
+      margin-left 2rem
+
+    &__price
+      display flex
+      grid-row 1
+      grid-column 3 / span 2
+      text-align right
+      font-size 12rem
+      align-self flex-end
+
+      b
+        font-size 14rem
+        margin-right 3rem
+        align-self flex-end
+
+    &__comments
+      display block
+      grid-row 2
+      grid-column 3 / span 2
+      font-size 14rem
+      align-self flex-end
+
+    .room-stars
+      display flex
+      justify-content space-between
+      grid-row 2
+      grid-column 1 / span 2
+      width 118rem
+      justify-self flex-start
+
+      &__star
+        clip-path star
+        size(22rem)
+        background main-gradient
+
+      &__empty-star
+        clip-path emptyStar
+        size(22rem)
+        background main-gradient

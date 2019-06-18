@@ -1,0 +1,24 @@
+mixin filter-search-results
+	+b.filter-search-results
+		+e('h1').title Номера, которые мы для вас подобрали
+		+b.card-wrapper#card-wrapper
+			include ../room-card/room-card
+			each card in rc
+				+room-card(card)
+		include ../pagination/pagination
+		+pagination
+
+-var iPath= "../../resources/rooms_photos";
+-var rc = []
+-rc[0]  = {imgs:[`${iPath}/1.png`, `${iPath}/5.png`, `${iPath}/9.png`, `${iPath}/12.png`], isLux:true,  num:"№888", price: "9 990₽", stars: 5, comments:{num: 145, wordForm: "Отзывов"}, href:"/room-details.html"}
+-rc[1]  = {imgs:[`${iPath}/2.png`, `${iPath}/6.png`, `${iPath}/10.png`, `${iPath}/7.png`, `${iPath}/1.png`], isLux:false, num:"№840", price: "9 900₽", stars: 4, comments:{num: 65,  wordForm: "Отзывов"}, href:"/room-details.html"}
+-rc[2]  = {imgs:[`${iPath}/3.png`, `${iPath}/7.png`], isLux:true,  num:"№980", price: "8 500₽", stars: 3, comments:{num: 35,  wordForm: "Отзывов"}, href:"/room-details.html"}
+-rc[3]  = {imgs:[`${iPath}/4.png`, `${iPath}/7.png`, `${iPath}/11.png`], isLux:false, num:"№856", price: "7 300₽", stars: 5, comments:{num: 19, wordForm: "Отзывов"}, href:"/room-details.html"}
+-rc[4]  = {imgs:[`${iPath}/5.png`, `${iPath}/7.png`, `${iPath}/11.png`], isLux:false, num:"№740", price: "6 000₽", stars: 4, comments:{num: 44, wordForm: "Отзывов"}, href:"/room-details.html"}
+-rc[5]  = {imgs:[`${iPath}/6.png`, `${iPath}/7.png`, `${iPath}/11.png`], isLux:false, num:"№982", price: "5 800₽", stars: 3, comments:{num: 56, wordForm: "Отзывов"}, href:"/room-details.html"}
+-rc[6]  = {imgs:[`${iPath}/7.png`, `${iPath}/7.png`, `${iPath}/11.png`], isLux:false, num:"№678", price: "5 500₽", stars: 5, comments:{num: 45, wordForm: "Отзывов"}, href:"/room-details.html"}
+-rc[7]  = {imgs:[`${iPath}/8.png`, `${iPath}/7.png`, `${iPath}/11.png`], isLux:false, num:"№450", price: "5 300₽", stars: 4, comments:{num: 39, wordForm: "Отзывов"}, href:"/room-details.html"}
+-rc[8]  = {imgs:[`${iPath}/9.png`, `${iPath}/7.png`, `${iPath}/11.png`], isLux:false, num:"№350", price: "5 000₽", stars: 3, comments:{num: 77, wordForm: "Отзывов"}, href:"/room-details.html"}
+-rc[9]  = {imgs:[`${iPath}/10.png`, `${iPath}/7.png`, `${iPath}/11.png`],isLux:false, num:"№666", price: "5 000₽", stars: 5, comments:{num: 25, wordForm: "Отзывов"}, href:"/room-details.html"}
+-rc[10] = {imgs:[`${iPath}/11.png`, `${iPath}/7.png`, `${iPath}/11.png`],isLux:false, num:"№444", price: "5 000₽", stars: 3, comments:{num: 15, wordForm: "Отзывов"}, href:"/room-details.html"}
+-rc[11] = {imgs:[`${iPath}/12.png`, `${iPath}/7.png`, `${iPath}/11.png`],isLux:false, num:"№352", price: "5 000₽", stars: 3, comments:{num: 55, wordForm: "Отзывов"}, href:"/room-details.html"}

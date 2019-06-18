@@ -1,0 +1,20 @@
+mixin checkbox-list-control(control)
+	+b.checkbox-list-control
+		if (control.checked==="checked")
+			+e('input')(type="checkbox" id=control.id checked).arrow-toggle
+		else
+			+e('input')(type="checkbox" id=control.id).arrow-toggle
+		+e('label')(for=control.id).title=control.title
+		+b.checkbox-list-control-content
+			each position in control.positions
+				if (position.checked==="checked")
+					+e('input')(type="checkbox" value=position.value id="ch-"+position.name name=position.name checked)
+				else
+					+e('input')(type="checkbox" value=position.value id="ch-"+position.name name=position.name)
+				+b('label').checkbox-pos(for="ch-"+position.name)
+					if (position.title)
+						+b('div').wrapper
+							+e('h4').title=position.title
+							+e('p').description=position.description
+					else
+						+e('p').description=position.description

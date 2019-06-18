@@ -1,0 +1,20 @@
+mixin room-card(card)
+	+b.room-card&attributes(attributes)
+		+b.room-card-top
+			include ../image-slider/image-slider
+			+image-slider(card.imgs, card.href)
+		+b.room-card-bottom
+			+e.room-number=card.num
+			if (card.isLux)
+				+e.isLux Люкс
+			+e.price
+				b=card.price
+				| в сутки
+			+b.room-stars
+				-for (var i=0; i < card.stars; i++)
+				+e.star
+				-for (var i=0; i < 5 - card.stars; i++)
+				+e.empty-star
+			+e.comments
+				b=card.comments.num+" "
+				=card.comments.wordForm

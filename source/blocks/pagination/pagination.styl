@@ -1,0 +1,59 @@
+.pagination
+  margin-top 41rem
+
+  &__description
+    font-size 14rem
+    margin-top 10.5rem
+    width 100%
+    text-align center
+
+  .nums-wrapper
+    display flex
+
+    &__page-num
+      circle(40rem)
+      display flex
+      justify-content center
+      align-items center
+
+      &:link, &:visited
+        text-decoration none
+        color main-text-color
+
+      span
+        font-size 12rem
+
+      &_cur-page
+        background main-gradient
+
+        &:link, &:visited
+          font-weight bold
+          color background-color
+
+      &:hover
+        background-color stay-day-color
+
+    &__dots
+      circle(40rem)
+      display flex
+      justify-content center
+      align-items center
+
+    &__arrow-back, &__arrow-forward
+      circle(40rem)
+      display flex
+      justify-content center
+      align-items center
+      background secondary-gradient
+      cursor pointer
+
+      a
+        font-size 12rem
+        font-weight bold
+        color background-color
+
+    &__arrow-back
+      transform rotate(180deg)
+
+  .hidden
+    display none

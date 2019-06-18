@@ -1,0 +1,96 @@
+mixin filter-list
+	include ../pos-control/pos-control
+	include ../button-submit/button-submit
+	include ../filter-list-stay-period-control/filter-list-stay-period-control
+	include ../price-range-control/price-range-control
+	include ../checkbox-list-control/checkbox-list-control
+	include ../room-card/room-card
+	+b.filter-list
+		+filter-list-stay-period-control#filter-list-stay-period-control
+		+pos-control({
+			title: 'Гости',
+			form: 'room-search-form',
+			name: 'guests',
+			placeholder: 'Сколько гостей',
+			wordForms: '["гость", "гостя", "гостей"]',
+			positions: [
+				{title: 'Взрослые', name: 'adults'},
+				{title: 'Дети', name: 'children'},
+				{title: 'Младенцы', name: 'babies', isShow: "true", wordForms: '["младенец", "младенца", "младенцев"]'},
+				{title: 'Пёсики', name: 'dags', isShow: "true", wordForms: '["пёсик", "пёсика", "пёсиков"]'}
+			]
+		})#filter-guests-control
+		+price-range-control
+		+checkbox-list-control({
+			title: "Доступные опции",
+			id: "options",
+			checked: "checked",
+			positions: [
+				{
+					title: "",
+					description: "Можно курить",
+					value: "",
+					name: "can-smoke",
+					checked: ""
+				}, {
+					description: "Можно с питомцами",
+					value: "",
+					name: "can-pets",
+					checked: "checked"
+				}, {
+					description: "Можно пригласить гостей (до 10 человек)",
+					value: "",
+					name: "can-guests",
+					checked: "checked"
+				}
+			]
+		})
+		+checkbox-list-control({
+			title: "Доступность",
+			id: "accessibility",
+			checked: "checked",
+			positions: [
+				{
+					title: "Широкий коридор",
+					description: "Ширина коридоров в номере не менее 91 см.",
+					value: "",
+					name: "wide-corridor",
+					checked: ""
+				}, {
+					title: "Помощник для инвалидов",
+					description: "На 1 этаже вас встретит специалист и проводит до номера.",
+					value: "",
+					name: "helper-for-invalid",
+					checked: ""
+				}
+			]
+		})
+		+pos-control({
+			title: 'удобства номера',
+			form: 'filter-list-form',
+			name: 'facilities',
+			placeholder: 'Удобства',
+			positions: [
+				{title: 'Спальни', name: 'bedrooms', isShow: "true", wordForms: '["спальня", "спальни", "спален"]'},
+				{title: 'Кровати', name: 'beds', isShow: "true", wordForms: '["кровать", "кровати", "кроватей"]'},
+				{
+					title: 'Ванные комнаты',
+					name: 'bathrooms',
+					isShow: "true",
+					wordForms: '["ванная комната", "ванные комнаты", "ванных комнат"]'
+				}
+			]
+		})#filter-facilities-control
+		+checkbox-list-control({
+			title: "дополнительные удобства",
+			id: "extra amenities",
+			checked: "",
+			positions: [
+				{description: "Завтрак", name: "breakfast", checked: "checked"},
+				{description: "Письменный стол", name: "desk", checked: "checked"},
+				{description: "Стул для кормления", name: "feeding-chair"},
+				{description: "Кроватка", name: "crib"},
+				{description: "Телевизор", name: "tv"},
+				{description: "Шампунь", name: "shampoo"}
+			]
+		})

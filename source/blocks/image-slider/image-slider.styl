@@ -1,0 +1,92 @@
+.image-slider
+  display block
+  position relative
+
+  .image-wrapper
+    display block
+    position relative
+
+    &__item
+      size(270rem, 151rem)
+      transition anim-duration
+
+      &:nth-child(n + 2)
+        position absolute
+        opacity 0
+        left 0
+
+    &__circle
+      circle(7.5rem)
+      border 1rem solid background-color
+      position absolute
+      z-index 1
+
+      &:nth-of-type(1)
+        bottom 20rem
+        right 15rem
+
+      &:nth-of-type(2)
+        bottom 20rem
+        right 26rem
+
+      &:nth-of-type(3)
+        bottom 20rem
+        right 37rem
+
+      &:nth-of-type(4)
+        bottom 20rem
+        right 48rem
+
+      &:nth-of-type(5)
+        bottom 20rem
+        right 59rem
+
+      &:nth-of-type(6)
+        bottom 20rem
+        right 70rem
+
+      &:nth-of-type(7)
+        bottom 20rem
+        right 81rem
+
+    .visible
+      opacity 1
+
+      & + .image-wrapper__circle
+        background-color background-color
+
+    .invisible
+      opacity 0
+
+  &__arrow-back-inner, &__arrow-forward-inner
+    size(11rem, 6.5rem)
+    clip-path arrow-down
+    background-color background-color
+
+  &__arrow-back-inner
+    transform rotate(90deg)
+
+  &__arrow-forward-inner
+    transform rotate(-90deg)
+
+  &__arrow-back, &__arrow-forward
+    display flex
+    justify-content center
+    align-items center
+    position absolute
+    size(44rem)
+    top calc(50% - 44rem / 2)
+    cursor pointer
+    transition anim-duration
+    z-index 3
+
+    &:hover
+      background-color main-color-10
+
+  &__arrow-back
+    left 0
+
+  &__arrow-forward
+    right 0
+
+
