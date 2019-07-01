@@ -1,0 +1,37 @@
+.room-info
+  display block
+  width 280rem
+  font-size 14rem
+  line-height 24rem
+
+  &__title
+    font-size 19rem
+    font-weight bold
+    margin 0
+    margin-bottom -2rem
+    letter-spacing -0.5rem
+
+  .info-card
+    display grid
+    grid-template "logo title" "logo descr" / 48rem 1fr
+    padding 23rem 0 17rem 0
+    grid-column-gap 10rem
+
+    &:not(:last-child)
+      border-bottom 1rem solid main-color-10
+
+    &__title
+      font-size 14rem
+      font-weight bold
+      margin 0
+      grid-area title
+
+    &__logo
+      size(48rem)
+      display flex
+      justify-content center
+      align-items center
+      grid-area logo
+
+    .info-card-description
+      grid-area descr

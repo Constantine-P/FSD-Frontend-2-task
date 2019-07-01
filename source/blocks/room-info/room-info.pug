@@ -1,0 +1,11 @@
+mixin room-info(cards)
+	+b.room-info
+		+e('h2').title Сведения о номере
+		each card in cards
+			+b.info-card
+				+e.logo
+					img(src=card.logo).logo
+				+e('h3').title=card.title
+				+b.info-card-description
+					each desc in card.description
+						+e('p').item=desc

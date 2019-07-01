@@ -1,0 +1,21 @@
+mixin guest-reviews
+	+b.guest-reviews
+		+e.title Отзывы посетителей номера
+		+e.reviews-count 2 отзыва
+		+b.review
+			+e('img')(src="../../resources/guest-1.png").logo
+			+e.name Мурад Сарафанов
+			+e.date 5 дней назад
+			+e.likes
+				+e('img')(src="../../resources/favorite.svg").heart
+				| 12
+			+e.description Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.
+
+		+b.review
+			+e('img')(src="../../resources/guest-2.png").logo
+			+e.name Патрисия Стёклышкова
+			+e.date Неделю назад
+			+e.likes
+				+e('img')(src="../../resources/favorite_border.svg").heart
+				| 2
+			+e.description Обслуживание на высоте! Всё аккуратно, чисто. Завтраки в номер советую заказать, каждый день новое блюдо и десерт как комплимент

@@ -1,0 +1,40 @@
+mixin reserve-room-form
+	include ../pos-control/pos-control
+	include ../button-submit/button-submit
+	include ../search-form-stay-period-control/search-form-stay-period-control
+	include ../room-price-table/room-price-table
+
+	+b.reserve-room-form
+		+e('form')(name = "reserve-room-form" id = "reserve-room-form" method = "GET" action="https://echo.htmlacademy.ru" enctype="text/plain")
+
+		+e.room-number
+			b N
+			em o
+			= card.num
+			+e('input').room-number-input.hidden(form = "reserve-room-form" name = "room-number" value = 888)
+			if (card.isLux)
+				+e.isLux Люкс
+		+e.price
+			b=card.price + " "
+			| в сутки
+
+		+search-form-stay-period-control({arr: "19.08.2019", dep: "23.08.2019"}, "reserve-room-form")#stay-period-control
+		+pos-control({
+			title: 'Гости',
+			form: 'reserve-room-form',
+			name: 'guests',
+			placeholder: 'Сколько гостей',
+			wordForms: '["гость", "гостя", "гостей"]',
+			value: "3 гостя",
+			positions: [
+				{title: 'Взрослые', name: 'adults'},
+				{title: 'Дети', name: 'children'},
+				{title: 'Младенцы', name: 'babies', isShow: "true", wordForms: '["младенец", "младенца", "младенцев"]'},
+				{title: 'Пёсики', name: 'dags', isShow: "true", wordForms: '["пёсик", "пёсика", "пёсиков"]'}
+			]
+		})#guests-control
+		+room-price-table
+		+button-submit({value: 'Забронировать', form: 'reserve-room-form'})
+
+-var iPath= "../../resources/rooms_photos";
+-var card  = {imgs:[`${iPath}/1.png`, `${iPath}/5.png`, `${iPath}/9.png`, `${iPath}/12.png`], isLux:true,  num:"888", price: "9 990₽", stars: 5, comments:{num: 145, wordForm: "Отзывов"}, href:"/room-details.html"}

@@ -1,0 +1,20 @@
+mixin room-details-main-content
+	+b.room-details-main-content
+		include ../room-info/room-info
+		include ../room-impressions/room-impressions
+		include ../guest-reviews/guest-reviews
+		include ../room-rules/room-rules
+		include ../room-cancel/room-cancel
+		include ../reserve-room-form/reserve-room-form
+
+		+room-info(infoCards)
+		+room-impressions
+		+guest-reviews
+		+room-rules
+		+room-cancel
+		+reserve-room-form
+
+-var	infoCards = []
+-infoCards[0] = {logo:"../../resources/insert_emoticon.svg", title:"Комфорт", description:["Шумопоглощяющие стены"]}
+-infoCards[1] = {logo:"../../resources/location_city.svg", title:"Удобство", description:["Окно в каждой из спален"]}
+-infoCards[2] = {logo:"../../resources/whatshot.svg", title:"Уют", description:["Номер оснащен камином"]}

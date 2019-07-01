@@ -1,0 +1,33 @@
+.room-rules
+  display block
+  font-size 14rem
+  line-height 24rem
+  grid-row 3
+  margin-top 8rem
+
+  &__title
+    grid-column 1
+    grid-row 1
+    font-size 19rem
+    font-weight bold
+    letter-spacing -0.25rem
+    margin-left 20rem
+    margin-bottom 18rem
+
+  .room-rules-content
+    display block
+    padding 0
+
+    &__item
+      margin-top 10rem
+      list-style-type none
+      display flex
+      align-items start
+
+      &::before
+        display block
+        content ''
+        circle(10rem)
+        background-color main-color-25
+        margin-right 10.5rem
+        margin-top 6rem
