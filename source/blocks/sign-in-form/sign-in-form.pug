@@ -1,0 +1,20 @@
+mixin sign-in-form
+	+b.sign-in-form
+		include ../text-field/text-field
+		include ../button-submit/button-submit
+		include ../btn-link/btn-link
+
+		+e('form')(name = "login-form" id = "login-form" method = "GET" action="https://echo.htmlacademy.ru" enctype="text/plain")
+
+		+e('h2').title Войти
+
+		+b.content
+
+			+b.enter-data
+				+text-field({type: 'e-mail', name: 'email', form: "login-form", placeholder: 'Email'})._email
+				+text-field({type: 'password', name: 'password', form: "login-form", placeholder: 'Пароль'})._password
+
+			+button-submit({value: 'Войти', form: 'login-form'})
+
+			+b.login Уже есть аккаунт на Toxin
+				+btn-link({href: "registration.html", value: "Создать"})._login

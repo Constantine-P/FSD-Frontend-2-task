@@ -1,0 +1,4 @@
+mixin toggle-control(control)
+	+b.toggle-control&attributes(attributes)
+		+e('input').content(type = "checkbox" form = control.form name = control.name id = control.id)
+		+e('label')(for = control.id).label=control.label

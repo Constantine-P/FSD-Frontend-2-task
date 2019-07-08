@@ -1,0 +1,14 @@
+extends ../base.pug
+
+block title
+	| Toxin
+block main
+
+	include ../../blocks/page-header/page-header
+	include ../../blocks/page-footer/page-footer
+	include ../../blocks/sign-in-main/sign-in-main
+
+	+b.page-inner
+		+page-header
+		+sign-in-main
+		+page-footer

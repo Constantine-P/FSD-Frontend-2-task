@@ -1,0 +1,2 @@
+mixin text-field(control)
+	+b('input').text-field(type=control.type, placeholder=control.placeholder pattern=control.pattern form = control.form name = control.name autocomplete = "off" value=control.value required)&attributes(attributes)

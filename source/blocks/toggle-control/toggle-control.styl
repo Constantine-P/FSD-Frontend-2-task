@@ -1,0 +1,46 @@
+.toggle-control
+  display block
+
+  &__content
+    display none
+
+  &__content:checked + .toggle-control__label::after
+    display block
+    background button-color
+    transform translateX(20rem)
+
+  &__content:checked + .toggle-control__label::before
+    border-color button-color
+
+  &__label
+    display flex
+    font-size 14rem
+    transition anim-duration
+    margin-top 10rem
+    position relative
+    z-index 1
+
+    &:hover
+      color main-color-100
+
+    &::after
+      display block
+      content ""
+      position absolute
+      top 4rem
+      left 4rem
+      background main-color-25
+      circle(12rem)
+      box-sizing border-box
+      transition anim-duration
+
+    &::before
+      display block
+      content ""
+      size(40rem, 20rem)
+      min-size(20rem)
+      border 1rem solid main-color-25
+      border-radius 10rem
+      margin-right 10rem
+      box-sizing border-box
+      cursor pointer
