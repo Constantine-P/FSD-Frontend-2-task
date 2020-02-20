@@ -2,8 +2,11 @@ mixin page-header
 	include ../../blocks/logo/logo
 	include ../../blocks/nav/nav
 	include ../btn-link/btn-link
+	include ../menu-toggle/menu-toggle
+
 	+b('header').page-header&attributes(attributes)
 		+logo
+		+menu-toggle
 		+nav
 			+btn-link({href:"sign-in.html", value:"Войти"})._login._marginLeft
 			+btn-link({href:"registration.html", value:"Зарегистрироваться"})._register._marginLeft

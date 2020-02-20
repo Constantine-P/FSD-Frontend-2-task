@@ -2,6 +2,8 @@
   display flex
   align-items center
   justify-content center
+  flex-wrap wrap
+  transition anim-duration
 
   .menu
     display flex
@@ -11,7 +13,7 @@
     margin 0
     padding 0
 
-    &__item
+    .menu-item
       display flex
       justify-content space-between
       align-items center
@@ -25,8 +27,11 @@
       &:hover .dropdown-menu
         animation dropdown 500ms forwards
         z-index 1
+        display flex
 
-      a
+      .item-content
+        display flex
+        align-items center
         text-decoration none
         color main-color-50
 
@@ -49,6 +54,9 @@
           white-space nowrap
           padding 0 10rem 0 10rem
           transition 250ms
+          color main-color-50
+          text-decoration none
+          background-color background-color
 
           &:hover
             background-color main-color-05
@@ -84,3 +92,71 @@
   @keyframes dropdown
     from {opacity: 0; z-index: 1}
     to {opacity: 1; z-index: 1}
+
+@media only screen and (max-width 900px)
+  .nav
+    .btn-link
+      display none
+
+@media only screen and (max-width 700px)
+  .nav
+    position fixed
+    left -100%
+    top 0
+    height 100vh
+    z-index 4
+    flex-direction column
+    justify-content start
+    align-items start
+    background-color background-color
+
+    .menu
+      flex-direction column
+      justify-content start
+      align-items start
+      background-color background-color
+      width 100%
+
+      .menu-item
+        display flex
+        flex-direction column
+        align-items flex-start
+        width 100%
+        box-sizing border-box
+
+        &:hover
+          background-color main-color-05
+
+        &:hover .dropdown-menu .dropdown-menu__row
+          line-height 2.5
+
+        .item-content
+          padding-left 20rem
+          padding-right 20rem
+
+        .dropdown-menu
+          position static
+          border none
+          box-sizing border-box
+          box-shadow none
+          transition anim-duration
+          opacity 1
+          overflow hidden
+          width 100%
+          padding 0
+
+          &__row
+            line-height 0
+            transition anim-duration
+            width 100%
+            box-sizing border-box
+            padding-right 20rem
+            padding-left 20rem
+
+          &::after, &::before
+            display none
+
+    .btn-link
+      display flex
+      margin-top 20rem
+      margin-right 20rem

@@ -1,18 +1,23 @@
 .page-footer
   display block
+  border-top 1rem solid main-color-25
+  margin-top 75rem
 
   .page-footer-top
-    display flex
-    justify-content space-between
-    align-items top
-    height 372rem
+    display grid
+    grid-template 1fr \/ repeat(5, 1fr)
+    grid-template-areas "logo menu menu menu subscr"
+    row-gap 60rem
+    justify-items center
+    min-height 372rem
     padding-top 100rem
-    padding-left 140rem
-    padding-right 140rem
+    padding-bottom 40rem
+    max-width calc(1440rem - 280rem)
+    margin auto
 
     .footer-logo
       width 260rem
-      margin-right 40rem
+      grid-area logo
 
       &__content
         margin-top 16rem
@@ -21,6 +26,7 @@
     .footer-subscribe
       display block
       width 260rem
+      grid-area subscr
 
       &__title
         font-weight bold
@@ -50,7 +56,52 @@
     .socials
       display flex
       justify-content space-between
-      width 112rem
+      min-width 112rem
+      margin-left 20rem
 
       img
         max-size(20rem)
+
+.landing-main + .page-footer, .registration-main + .page-footer, .sign-in-main + .page-footer
+  margin-top 0
+
+
+@media only screen and (max-width 1200px)
+  .page-footer .page-footer-top
+    grid-template repeat(2, 1fr) \/ repeat(2, 1fr)
+    grid-template-areas "menu menu" "logo subscr"
+    padding-top 40rem
+    padding-bottom 30rem
+
+    .footer-menu
+      width 100%
+      justify-content space-evenly
+
+@media only screen and (max-width 700px)
+  .page-footer .page-footer-top
+    grid-template repeat(3, 1fr) \/ repeat(2, 1fr)
+    grid-template-areas "menu logo" "menu subscr" "menu subscr"
+    padding-left 20rem
+    padding-right 20rem
+    padding-bottom 10rem
+
+    .footer-menu
+      margin-left 0
+      .menu-block
+        margin-bottom 30rem
+
+  .page-footer .page-footer-bottom
+    justify-content space-around
+    padding-right 20rem
+    padding-left 20rem
+
+@media only screen and (max-width 550px)
+  .page-footer .page-footer-top
+    grid-template repeat(3, auto) \/ repeat(1, 1fr)
+    grid-template-areas "logo" "menu" "subscr"
+    justify-items left
+    row-gap 10rem
+    padding-bottom 30rem
+
+    .menu-block
+      width 100%

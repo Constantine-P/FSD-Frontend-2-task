@@ -1,0 +1,43 @@
+.menu-toggle
+  display none
+  position absolute
+  top 0
+  left 0
+  size(30rem)
+  z-index 5
+
+  &:checked ~ .nav
+    left 0
+
+.menu-toggle:checked + .menu-toggle-view
+  position fixed
+  top 0
+  left 0
+  size(100vw, 100vh)
+  z-index 3
+  background-color gray
+  opacity 0.5
+
+.menu-toggle:checked ~ .menu-toggle-view
+  &::before, &::after, .menu-toggle-view__line
+    display none
+
+.menu-toggle-view
+  display none
+  flex-direction column
+  justify-content space-evenly
+  align-items center
+  position absolute
+  top 20rem
+  left 10rem
+  size(30rem)
+  z-index 5
+
+  &::before, &::after, &__line
+    display block
+    content ""
+    size(80%, 10%)
+    background-color main-color-75
+
+  @media only screen and (max-width 700px)
+    display flex

@@ -5,4 +5,12 @@
   min-height 70rem
   background-color background-color
   width 100%
-  box-shadow: 0 10rem 20rem rgba(31, 32, 65, 0.05);
+  box-shadow 0 10rem 20rem rgba(31, 32, 65, 0.05)
+  flex-wrap wrap
+
+@media only screen and (max-width 700px)
+  .page-header
+    justify-content flex-end
+
+    .logo
+      margin-right 50rem

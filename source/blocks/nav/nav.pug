@@ -7,10 +7,11 @@ mixin nav
 			-{name:'Новости',    href:'news.html'},
 			-{name:'Соглашения', href:'#', dropDown:[{name:'Такое соглашение', href:'#'}, {name:'Сякое соглашение', href:'#'}]}]
 			each item in navItems
-				+e('li').item
-					+e('a')(href=item.href)=item.name
+				+b('li').menu-item
+					+b('a')(href=item.href).item-content=item.name
+						if (item.dropDown)
+							+e('img').item-arrow(src="../../resources/arrow_down-24px.svg")
 					if (item.dropDown)
-						+e('img').item-arrow(src="../../resources/arrow_down-24px.svg")
 						+b.dropdown-menu
 							each row in item.dropDown
 								+e('a')(href=row.href).row=row.name

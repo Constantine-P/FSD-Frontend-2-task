@@ -3,6 +3,9 @@
   flex-direction row
   justify-content space-between
   align-items baseline
+  flex-wrap wrap
+  grid-area menu
+  padding-left 39.5rem
 
   .menu-block
     display block
@@ -34,3 +37,7 @@
 
         &:visited
           color main-color-50
+
+@media only screen and (max-width 550px)
+  .footer-menu
+    padding-left 0

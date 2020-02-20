@@ -7,3 +7,19 @@
   margin-left auto
   margin-right auto
   margin-top 70rem
+
+@media only screen and (max-width 1300px)
+  .room-details-main-content
+    grid-template-columns 280rem 360rem
+
+@media only screen and (max-width 750px)
+  .room-details-main-content
+    grid-template-columns 1fr
+    row-gap 20rem
+    max-width 100%
+    padding-left 10rem
+    padding-right 10rem
+
+    & > div
+      grid-column auto
+      grid-row auto

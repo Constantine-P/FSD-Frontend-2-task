@@ -1,0 +1,3 @@
+mixin filter-toggle(control)
+	+b('input').filter-toggle(type = "checkbox" id = control.id)
+	+b('label')(for = control.id).filter-toggle-label Фильтр
