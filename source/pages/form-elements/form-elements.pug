@@ -1,0 +1,262 @@
+extends ../layouts/ui-kit-layout/ui-kit-layout
+include ../../blocks/kit-logo/kit-logo
+include ../../blocks/text-field/text-field
+include ../../blocks/dropdown-control/dropdown-control
+include ../../blocks/stay-selector/stay-selector
+include ../../blocks/checkbox-list-control/checkbox-list-control
+include ../../blocks/room-info-card/room-info-card
+include ../../blocks/radio/radio
+include ../../blocks/toggle-control/toggle-control
+include ../../blocks/rate-button/rate-button
+include ../../blocks/like-button/like-button
+include ../../blocks/range-slider/range-slider
+include ../../blocks/button/button
+include ../../blocks/pagination/pagination
+include ../../blocks/bullet-list/bullet-list
+include ../../blocks/review/review
+
+block title
+  | Form Elements
+block main
+  +b.form-elements
+    +e.cells
+      +e.cell-1
+        +e.email
+          +text-field({title: "Text field", placeholder: "Email"})
+
+        +e.text-field-hover
+          +text-field({title: "Text field", value: "This is pretty awesome"})
+
+        +e.dropdown-guests
+          +dropdown-control({
+            title: "dropdown",
+            name: "guests",
+            placeholder: "Сколько гостей",
+            wordForms: '["гость", "гостя", "гостей"]',
+            positions: [
+              {title: "Взрослые", name: "adults"},
+              {title: "Дети", name: "children"},
+              {title: "Младенцы", name: "babies", isShow: true, wordForms: '["младенец", "младенца", "младенцев"]'}
+            ]
+          })._card
+
+        +e.masked-text-field
+          +text-field({title: "Masked text field", placeholder: "ДД.ММ.ГГГГ"})
+
+        +e.stay-selector
+          +stay-selector({arrival: "date dropdown", departure: "date dropdown"})
+
+        +e.filter-date-dropdown
+          +text-field({
+            title: "Filter date dropdown",
+            placeholder: "ДД.ММ.ГГГГ",
+            value: "19 авг - 23 авг",
+            hasArrow: true
+          }).filter-date-dropdown
+
+        +e.subscription-text-field
+          +text-field({title: "Subscription text field", name: "Email", placeholder: "Email", hasSubmitBtn: true})
+
+      +e.cell-2
+        +e.dropdown-narrow-default
+          +dropdown-control({
+            title: "dropdown",
+            name: "facilities",
+            placeholder: "Удобства",
+            positions: [
+              {
+                title: "Спальни",
+                name: "bedrooms",
+                value: 2,
+                isShow: true,
+                wordForms: '["спальня", "спальни", "спален"]'
+              },
+              {title: "Кровати", name: "beds", value: 2, isShow: true, wordForms: '["кровать", "кровати", "кроватей"]'},
+              {
+                title: "Ванные комнаты",
+                name: "bathrooms",
+                wordForms: '["ванная комната", "ванные комнаты", "ванных комнат"]'
+              }
+            ],
+            areButtonsVisible: false,
+          })._card
+
+        +e.dropdown-narrow-expanded
+          +dropdown-control({
+            title: "dropdown",
+            form: "filter-list-form",
+            name: "facilities",
+            placeholder: "Удобства",
+            isMenuVisible: true,
+            positions: [
+              {
+                title: "Спальни",
+                name: "bedrooms",
+                value: 2,
+                isShow: true,
+                wordForms: '["спальня", "спальни", "спален"]'
+              },
+              {title: "Кровати", name: "beds", value: 2, isShow: true, wordForms: '["кровать", "кровати", "кроватей"]'},
+              {
+                title: "Ванные комнаты",
+                name: "bathrooms",
+                isShow: true,
+                wordForms: '["ванная комната", "ванные комнаты", "ванных комнат"]'
+              }
+            ],
+            areButtonsVisible: false,
+          })._card
+
+        +e.checkbox-list-1
+          +checkbox-list-control({title: "expandable checkbox list", checked: false})
+
+        +e.checkbox-list-2
+          +checkbox-list-control({
+            title: "expandable checkbox list",
+            checked: true,
+            positions: [
+              {description: "Завтрак", name: "breakfast", checked: ""},
+              {description: "Письменный стол", name: "desk", checked: "checked"},
+              {description: "Стул для кормления", name: "chair", checked: "checked"},
+              {description: "Кроватка", name: "crib", checked: "checked"},
+              {description: "Телевизор", name: "TV-1", checked: ""},
+              {description: "Шампунь", name: "shampoo-1", checked: ""},
+              {description: "Телевизор", name: "TV-2", checked: ""},
+              {description: "Шампунь", name: "shampoo-2", checked: ""},
+            ]
+          })
+        -
+          let infoCards = [];
+          infoCards[0] = {logo:"../room-details/images/insert_emoticon.svg", title:"Комфорт", description:["Шумопоглощяющие стены"]};
+          infoCards[1] = {logo:"../room-details/images/location_city.svg", title:"Удобство", description:["Окно в каждой из спален"]};
+
+        +e.room-info-cards
+          +e.room-info-card
+            +room-info-card(infoCards[0])
+          +e.room-info-card
+            +room-info-card(infoCards[1])
+
+      +e.cell-3
+        +e.checkbox-buttons
+          +checkbox-list-control({
+            title: "checkbox buttons",
+            isStatic: true,
+            positions: [
+              {description: "Можно курить", name: "smoke"},
+              {description: "Можно с питомцами", name: "pets", checked: true},
+              {description: "Можно пригласить гостей (до 10 человек)", name: "guests", checked: true},
+            ]
+          })._no-arrow
+
+        +e.radio-buttons
+          +e("h3").radio-buttons-title Radio buttons
+          +e.radio-buttons-content
+            +radio({text: "Мужчина", name: "radio-buttons", checked: true})
+            +radio({text: "Женщина", name: "radio-buttons", checked: false})
+
+        +e.toggle-buttons
+          +e("h3").toggle-buttons-title Toggle
+          +e.toggle-buttons-content
+            +e.toggle-buttons-content-item
+              +toggle-control({name: "one", label: "Получать спецпредложения", checked: true})
+            +e.toggle-buttons-content-item
+              +toggle-control({name: "two", label: "Получать спецпредложения"})
+
+        +e.like-buttons
+          +e("h3").like-buttons-title like button
+          +e.like-buttons-content
+            +like-button({value: 2})
+            +like-button({value: 11, checked: true})
+
+        +e.rate-buttons
+          +e("h3").rate-buttons-title rate button
+          +e.rate-buttons-content
+            +rate-button({rate: 4})
+            +rate-button({rate: 5})
+
+      +e.cell-4
+        +e.cell-4-wrapper
+          +e.dropdown-guests._bottom
+            +dropdown-control({
+              title: "dropdown",
+              name: "guests",
+              placeholder: "Сколько гостей",
+              wordForms: '["гость", "гостя", "гостей"]',
+              positions: [
+                {title: "Взрослые", name: "adults"},
+                {title: "Дети", name: "children"},
+                {title: "Младенцы", name: "babies", isShow: true, wordForms: '["младенец", "младенца", "младенцев"]'},
+              ],
+              isMenuVisible: true,
+            })
+          +e.dropdown-guests._bottom
+            +dropdown-control({
+              title: "dropdown",
+              name: "guests",
+              placeholder: "Сколько гостей",
+              wordForms: '["гость", "гостя", "гостей"]',
+              positions: [
+                {title: "Взрослые", name: "adults", value: 2},
+                {title: "Дети", name: "children", value: 1},
+                {title: "Младенцы", name: "babies", isShow: true, wordForms: '["младенец", "младенца", "младенцев"]'},
+              ],
+              isMenuVisible: true,
+            })
+          +e.rich-checkbox-buttons
+            +checkbox-list-control({
+                title: "Rich Checkbox Buttons",
+                checked: "checked",
+                positions: [
+                  {
+                    title: "Широкий коридор",
+                    description: "Ширина коридоров в номере не менее 91 см.",
+                    value: "",
+                    name: "wide-corridor",
+                    checked: false
+                  }, {
+                    title: "Помощник для инвалидов",
+                    description: "На 1 этаже вас встретит специалист и проводит до номера.",
+                    value: "",
+                    name: "helper-for-invalid",
+                    checked: false
+                  }
+                ],
+                isStatic: true,
+              })
+
+          +e.bullet-list
+            +bullet-list({title: "Bullet list", items: ["Нельзя с питомцами", "Без вечеринок и мероприятий", "Время прибытия — после 13:00, а выезд до 12:00"]})
+          +e.review
+            +review({
+              logoLink: "../../blocks/guest-reviews/images/guest-1.png",
+              name: "Мурад Сарафанов",
+              like: {checked: true, value: 11},
+              description: "Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.",
+              date: "5 дней назад"
+            })
+
+      +e.cell-7
+        +e.price-range-slider
+          +range-slider({title: "range slider", description: "", min: 0, max: 15700, step: 1, startValue: 5000, endValue: 10000 })
+
+        +e.buttons
+          +e("h3").buttons-title Buttons
+          +e.buttons-wrapper
+            +e.button-item
+              +button({ type: "link", value: "click me", href: "mock.html" })._solid
+            +e.button-item
+              +button({type: "link", value: "click me", href: "mock.html"})._solid._color_hover
+            +e.button-item
+              +button({type: "link", value: "click me", href: "mock.html"})
+            +e.button-item
+              +button({type: "link", value: "click me", href: "mock.html"})._color_hover
+            +e.button-item-small
+              +button({type: "link", value: "click me", href: "mock.html"})._size_s
+            +e.button-item-small
+              +button({type: "link", value: "click me", href: "mock.html"})._size_s._color_sec
+          +e.button-item-long
+            +button({type: "link", value: "перейти к оплате", href: "mock.html"})._solid._has-arrow
+
+        +e.pagination
+          +e("h3").pagination-title Pagination
+          +pagination

@@ -1,0 +1,23 @@
+extends ../layouts/ui-kit-layout/ui-kit-layout
+include ../../blocks/kit-logo/kit-logo
+include ../../blocks/color/color
+include ../../blocks/type/type
+
+block title
+  | Colors & Type
+block main
+  +b.colors-type
+    +e.content
+      +e.colors
+        each val in [100, 75, 50, 25, 5]
+          +color({title: `Dark Shade ${val}%`, content: "#1F2041", mode: `dark-shade-${val}`})
+        +color({title: "Purple", content: "#BC9CFF", mode: "purple"})
+        +color({title: "Green", content: "#6FCF97", mode: "green"})
+      +e.types
+        +type({title: "H1", text: "This one is the sub-section or widget title", mode: "large"})
+        +type({title: "H2", text: "Next one is the item title inside widgets", mode: "medium"})
+        +type({title: "H3", text: "This is a label or CTA text", mode: "small"})
+        +type({
+          title: "Body",
+          text: "This is the body text which is used for most of  the design, like paragraphs, lists, etc."
+        })

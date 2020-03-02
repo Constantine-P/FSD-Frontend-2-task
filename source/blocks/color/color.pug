@@ -1,0 +1,7 @@
+mixin color(params)
+  - const {title, content, mode} = params;
+  +b.color
+    +e.logo(class = `color__logo_${mode}`)
+    +e.description
+      +e.title= title
+      +e.content= content

@@ -1,0 +1,5 @@
+mixin type(params)
+  - const {title, text, mode = "default"} = params;
+  +b.type
+    +e.head(class = `type__head_${mode}`)= title
+    +e.text(class = `type__text_${mode}`)= text

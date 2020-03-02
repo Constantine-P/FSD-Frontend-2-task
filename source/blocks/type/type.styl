@@ -1,0 +1,58 @@
+@import '../../styles/*.styl'
+
+.type
+  display grid
+  grid-template-columns 50rem 340rem
+  grid-template-rows auto
+  grid-gap 30rem
+  margin-bottom 50rem
+
+  &__head
+    display inline-block
+    color $dark-shade-25
+    text-align right
+    flex-basis 60px
+    flex-shrink 0
+
+    &_large
+      font-size 24rem
+      line-height 29rem
+
+    &_medium
+      font-size 19rem
+      line-height 23rem
+
+    &_small
+      font-size 12rem
+      line-height 15rem
+
+    &_default
+      font-size 14rem
+      line-height 24rem
+
+  &__text
+    font-family Quicksand, OpenSans, sans-serif
+
+    &_large
+      font-size 24rem
+      line-height 30rem
+      color $dark-shade-100
+      font-weight bold
+
+    &_medium
+      font-size 19rem
+      line-height 24rem
+      color $dark-shade-100
+      font-weight bold
+
+    &_small
+      font-family Montserrat, OpenSans, sans-serif
+      text-transform uppercase
+      color $dark-shade-100
+      font-size 12rem
+      font-weight bold
+
+    &_default
+      font-family Montserrat, OpenSans, sans-serif
+      font-size 14rem
+      line-height 24rem

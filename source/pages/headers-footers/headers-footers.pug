@@ -1,0 +1,62 @@
+extends ../layouts/ui-kit-layout/ui-kit-layout
+include ../../blocks/kit-logo/kit-logo
+include ../../blocks/page-header/page-header
+include ../../blocks/page-footer/page-footer
+
+block title
+  | Headers & footers
+block main
+  +b.headers-footers
+    -
+      const menu = [
+      { name: "Home", href: "mock.html", mode: "bold" },
+      { name: "About Us", href: "mock.html" },
+      { name: "Services", href: "mock.html",
+      dropdown: [
+      { name: "First service", href: "mock.html" },
+      { name: "Second service", href: "mock.html" },
+      ]
+      },
+      { name: "Careers", href: "mock.html" },
+      { name: "News", href: "mock.html" },
+      { name: "Documentation", href: "mock.html"},
+      ]
+    +e.header
+      +page-header({
+        menu,
+        auth: {
+          isLoggedIn: false,
+          name: 'Cosmin Negoita',
+          login: {name: "login", href: "sign-in.html"},
+          register: {name: "register", href: "registration.html"},
+        }
+      })
+    +e.header
+      +page-header({
+        menu,
+        auth: {
+          isLoggedIn: true,
+          name: 'Cosmin Negoita',
+          login: {name: "login", href: "sign-in.html"},
+          register: {name: "register", href: "registration.html"},
+        }
+      })
+    +e.footer
+      +page-footer({
+        description: "Lorem ipsum dolor sit amet consectetur adipiscing elit aliquam eget nullam pellentesque aliquam curabitur cociis.",
+        subscription: {
+          title: "Subscribe to our newsletter",
+          description: "Receive our latest news and promotions in your inbox!",
+          placeholder: "Your email address",
+        },
+        copyright: "Copyright © 2018 Toxin UI Kit. All rights reserved.",
+      })
+    +e.footer
+      +page-footer({
+        description: "Lorem ipsum dolor sit amet consectetur adipiscing elit aliquam eget nullam pellentesque aliquam curabitur cociis.",
+        subscription: {
+          title: "Subscribe to our newsletter",
+          description: "Receive our latest news and promotions in your inbox!",
+        },
+        copyright: "Copyright © 2018 Toxin UI Kit. All rights reserved.",
+      })._small
