@@ -1,8 +1,8 @@
 module.exports = function () {
-    return {
-        devServer: {
-            //stats: 'errors-only',
-            port: 9003
-        }
+  return {
+    devServer: {
+      port: 9003,
+      overlay: true,
     }
+  }
 };
