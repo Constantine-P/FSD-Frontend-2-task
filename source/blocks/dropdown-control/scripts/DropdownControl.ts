@@ -27,18 +27,18 @@ class DropdownControl {
   private initElements() {
     const { dropdown } = this;
     this.elements = {
-      content: dropdown.querySelector('.dropdown-control__content'),
-      positions: Array.from(dropdown.querySelectorAll('.dropdown-control__position'))
+      content: dropdown.querySelector('.js-content'),
+      positions: Array.from(dropdown.querySelectorAll('.js-position'))
         .map((item: HTMLElement) => ({
-          name: item.querySelector('.dropdown-control__position-title'),
-          quantity: item.querySelector('.dropdown-control__position-value'),
-          minus: item.querySelector('.dropdown-control__minus'),
-          plus: item.querySelector('.dropdown-control__plus'),
+          name: item.querySelector('.js-position-title'),
+          quantity: item.querySelector('.js-position-value'),
+          minus: item.querySelector('.js-minus'),
+          plus: item.querySelector('.js-plus'),
         })),
-      menu: dropdown.querySelector('.dropdown-control__menu'),
-      btnClear: dropdown.querySelector('.dropdown-control__btn-clear'),
-      btnApply: dropdown.querySelector('.dropdown-control__btn-apply'),
-      arrow: dropdown.querySelector('.dropdown-control__arrow'),
+      menu: dropdown.querySelector('.js-menu'),
+      btnClear: dropdown.querySelector('.js-btn-clear'),
+      btnApply: dropdown.querySelector('.js-btn-apply'),
+      arrow: dropdown.querySelector('.js-arrow'),
     };
   }
 

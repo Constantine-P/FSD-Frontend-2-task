@@ -3,10 +3,10 @@ mixin dropdown-control(params)
   - wordForms = [], positions = [], isMenuVisible = false, areButtonsVisible = true } = params;
   - const menuMode =  (isMenuVisible) ? "" : "dropdown-control__menu_hidden";
 
-  +b.dropdown-control&attributes(attributes)
+  +b.dropdown-control.js-dropdown-control&attributes(attributes)
     +e("h3").title= title
     +e.wrapper
-      +e("input")(readonly).content(
+      +e("input")(readonly).content.js-content(
         type = "text"
         placeholder = placeholder
         name = name
@@ -14,15 +14,15 @@ mixin dropdown-control(params)
         data-wordforms = wordForms
         autocomplete = "off"
       )
-      +e.arrow
-      +e.menu(class = menuMode data-wordforms = wordForms)
+      +e.arrow.js-arrow
+      +e.menu.js-menu(class = menuMode data-wordforms = wordForms)
         each pos in positions
           - const { title = "", value = 0, name = "", isShow = false, wordForms = [] } = pos
-          +e.position
-            +e.position-title= title
+          +e.position.js-position
+            +e.position-title.js-position-title= title
             +e.position-content
-              +e.minus._inactive -
-              +e("input")(readonly).position-value(
+              +e.minus._inactive.js-minus -
+              +e("input")(readonly).position-value.js-position-value(
                 type = "text"
                 value = value
                 name = name
@@ -30,8 +30,8 @@ mixin dropdown-control(params)
                 data-title = title
                 data-wordforms = wordForms
               )
-              +e.plus +
+              +e.plus.js-plus +
         if (areButtonsVisible)
-          +e.buttons
-            +e.btn-clear Очистить
-            +e.btn-apply Применить
+          +e.buttons.js-buttons
+            +e.btn-clear.js-btn-clear Очистить
+            +e.btn-apply.js-btn-apply Применить
