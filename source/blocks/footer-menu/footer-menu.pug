@@ -1,17 +1,39 @@
-mixin footer-menu
-
-	-var navBlock = {title:'Навигация', list:[{name:'О нас', href:'#'}, {name:'Новости', href:'#'}, {name:'Служба поддержки', href:'#'}, {name:'Услуги', href:'#'}]};
-
-	-var aboutBlock = {title:'О нас', list:[{name:'О сервисе', href:'#'}, {name:'Наша команда', href:'#'}, {name:'Вакансии', href:'#'}, {name:'Инвесторы', href:'#'}]};
-
-	-var supportBlock = {title:'Служба поддержки', list:[{name:'Соглашения ', href:'#'}, {name:'Сообщества', href:'#'}, {name:'Связь с нами', href:'#'}]};
-
-	-var menuBlocks = [navBlock, aboutBlock, supportBlock];
+mixin footer-menu(params)
+	-
+		const en = [
+			{
+				title: "Navigation",
+				list: [
+					{name: "About Us", href: "mock.html"},
+					{name: "News", href: "mock.html"},
+					{name: "Support", href: "mock.html"},
+					{name: "Products", href: "mock.html"},
+				]
+			},
+			{
+				title: "About Us",
+				list: [
+					{name: "Who we are", href: "mock.html"},
+					{name: "Our team", href: "mock.html"},
+					{name: "Careers", href: "mock.html"},
+					{name: "Investors", href: "mock.html"}]
+			},
+			{
+				title: "Support",
+				list: [
+					{name: "Documentation ", href: "mock.html"},
+					{name: "Community", href: "mock.html"},
+					{name: "Get in Touch", href: "mock.html"}
+					]
+			}
+		];
+		if (params === undefined || params.length === 0) params = en;
 
 	+b.footer-menu
-		each block in menuBlocks
-			+b.menu-block
-				+e('h3').title=block.title
-				+b.block-content
-					each item in block.list
-						+e('a')(href=item.href).item=item.name
+		each block in params
+			- const { title, list } = block
+			+e.block
+				+e("h3").block-title= title
+				+e.block-content
+					each item in list
+						+e("a")(href = item.href).block-content-item= item.name

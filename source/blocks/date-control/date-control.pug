@@ -1,5 +1,0 @@
-mixin date-control(control)
-	+b.date-control&attributes(attributes)
-		+e('h3').title=control.title
-		+e('input').content#content(type="text" placeholder=control.placeholder pattern=control.pattern form = control.form name = control.name autocomplete = "off" required value=control.value)
-		+e.arrow-down

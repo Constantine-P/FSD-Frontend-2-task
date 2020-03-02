@@ -1,0 +1,65 @@
+@import '../../styles/*.styl'
+
+.price-table
+  display grid
+  row-gap 10rem
+  grid-template-columns 70rem 150rem 20rem 80rem
+  grid-auto-rows minmax(24rem, auto)
+  min-width 320rem
+  line-height 18rem
+
+  @media (max-width 400px)
+    grid-template-columns 70rem 110rem 20rem 80rem
+    min-width 200rem
+
+  &__name
+    grid-column 1 / 3
+
+    @media (max-width 400px)
+      grid-column 1 / 4
+      font-size 13rem
+
+  &__price
+    grid-column 4 / 5
+
+  &__price, &__total-price
+    text-align right
+
+  &__total, &__total-price
+    font-size 19rem
+    font-weight bold
+    align-self end
+    margin-top 25rem
+
+  &__total
+    grid-column 1 / 2
+    display flex
+    align-items flex-end
+
+  &__total-line
+    display block
+    height 1px
+    border-bottom 1px dotted $dark-shade-25
+    grid-column 2 / 4
+    grid-row 4
+    align-self end
+    margin-bottom 3rem
+
+  &__total-price
+    grid-column 4 / 5
+    transform scaleX(0.85)
+    transform-origin 100% 0
+
+  &__hint
+    display flex
+    justify-content center
+    align-items center
+    circle(20rem)
+    border 1rem solid $dark-shade-25
+    font-weight bold
+    color $dark-shade-25
+    grid-column 3 / 4
+    box-sizing border-box
+
+    @media (max-width 400px)
+      display none

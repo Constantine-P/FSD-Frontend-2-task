@@ -1,0 +1,45 @@
+include ../dropdown-control/dropdown-control
+include ../stay-selector/stay-selector
+include ../button/button
+include ../price-table/price-table
+
+mixin booking-card(params)
+	-
+		if (!params) params = {};
+		const {
+			roomNumber = 888,
+			isLux = true,
+			price = { price: 9990, sale: 2179, fee: 0, extraFee: 300, currency: "₽", period: 4 },
+			dates = { arrival: "", departure: "" }
+		} = params;
+		function format(x) {
+			return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+		}
+
+	+b("form")(name = "booking" method = "GET" action="https://echo.htmlacademy.ru" enctype="text/plain").booking-card
+		+e("span").room-number= `№ `
+			+e("span").number= roomNumber
+			+e("input").room-number-input.hidden(name = "room-number" value = 888)
+			if (isLux)
+				+e("span").lux= " Люкс"
+		+e("span").price= `${format(price.price)}${price.currency}`
+			+e("span").price-period= " в сутки"
+		+e.stay-selector
+			+stay-selector({arrivalDate: dates.arrival, departureDate: dates.departure})
+		+e.dropdown-control
+			+dropdown-control({
+				title: "Гости",
+				name: "guests",
+				placeholder: "Сколько гостей",
+				wordForms: '["гость", "гостя", "гостей"]',
+				value: "3 гостя",
+				positions: [
+					{title: "Взрослые", name: "adults", value: 3},
+					{title: "Дети", name: "children"},
+					{title: "Младенцы", name: "babies", isShow: true, wordForms: '["младенец", "младенца", "младенцев"]'},
+				]
+			})._card
+		+e.price-table
+			+price-table(price)
+		+e.button
+			+button({type: "submit", value: "Забронировать"})._has-arrow._solid

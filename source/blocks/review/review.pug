@@ -1,0 +1,11 @@
+include ../like-button/like-button
+
+mixin review(params)
+  - const { logoLink = "", name = "", like = {checked: false, value: 0}, description = "", date = "" } = params;
+  +b.review
+    +e('img')(src = logoLink).logo
+    +e.name= name
+    +e.date= date
+    +e.likes
+      +like-button(like)
+    +e.description= description

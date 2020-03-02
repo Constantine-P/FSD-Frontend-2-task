@@ -1,0 +1,40 @@
+@import '../../styles/*.styl'
+
+.radio
+  display block
+
+  &__input
+    display none
+
+  &__input:checked ~ .radio__circle:before
+    circle(12rem)
+
+  &__input:checked ~ .radio__label
+    color $dark-shade-75
+
+  .radio__label
+    display flex
+    font-size 14rem
+    position relative
+    z-index 1
+    color $dark-shade-50
+
+    &:hover
+      color $dark-shade-75
+
+    .radio__circle
+      box-sizing border-box
+      border 1rem solid $dark-shade-25
+      circle(20rem)
+      margin-right 10rem
+      position relative
+
+      &:before
+        display block
+        content ''
+        position absolute
+        top 50%
+        left 50%
+        transform translate(-50%, -50%)
+        box-sizing border-box
+        background $main-gradient

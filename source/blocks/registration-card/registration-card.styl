@@ -1,0 +1,68 @@
+@import '../../styles/*.styl'
+
+.registration-card
+  width 380rem
+  background-color $background-color
+  border 1rem solid rgba(0, 0, 0, 0.12)
+  border-radius 4rem
+  box-sizing border-box
+  box-shadow 0 0 25rem rgba(0, 0, 0, 0.2)
+  padding 40rem 29rem 30rem 29rem
+  margin-top 4rem
+  font-family Montserrat, OpenSans, sans-serif
+
+  @media (max-width 400px)
+    width 330rem
+    padding 40rem 20rem 30rem 20rem
+
+  &__title
+    font-size 24rem
+    font-weight bold
+    margin 0 0 10rem 0
+    letter-spacing -0.5rem
+    color $dark-shade-100
+
+  &__name
+    width 100%
+    margin-top 20rem
+
+  &__surname
+    width 100%
+    margin-top 10rem
+
+  &__sex-buttons
+    width 100%
+    margin-top 10rem
+    display flex
+    flex-direction row
+    justify-content flex-start
+    align-items center
+
+  &__sex-button:first-child
+    margin-right 20rem
+
+  &__date-of-birth
+    margin-top 23rem
+
+  &__email
+    margin-top 20rem
+
+  &__password
+    margin-top 10rem
+
+  &__offers
+    margin-top 3rem
+
+  &__pay
+    margin-top 16rem
+    height 44rem
+
+  &__login
+    margin-top 29rem
+    display flex
+    flex-direction row
+    justify-content space-between
+    align-items center
+
+  &__login-btn
+    size(99rem, 44rem)

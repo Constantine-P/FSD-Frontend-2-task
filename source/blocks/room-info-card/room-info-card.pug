@@ -1,0 +1,9 @@
+mixin room-info-card(params)
+  - const { logo, title, description } = params
+  +b.room-info-card
+    +e.logo
+      img(src = logo).logo
+    +e("h3").title= title
+    +e.description
+      each item in description
+        +e("p").item= item

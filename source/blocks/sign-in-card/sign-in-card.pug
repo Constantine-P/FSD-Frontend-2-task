@@ -1,0 +1,15 @@
+include ../text-field/text-field
+include ../button/button
+
+mixin sign-in-card
+  +b("form")(name = "sign-in" method = "GET" action="https://echo.htmlacademy.ru" enctype="text/plain").sign-in-card
+    +e("h2").title Войти
+    +e.email
+      +text-field({type: "e-mail", name: "email", placeholder: "Email"})
+    +e.password
+      +text-field({type: "password", name: "password", placeholder: "Пароль"})
+    +e.enter-btn
+      +button({type: "submit", value: "Войти"})._has-arrow._solid
+    +e.create Нет аккаунта на Toxin?
+      +e.create-btn
+        +button({type: "link", href: "registration.html", value: "Создать"})

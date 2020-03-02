@@ -1,22 +1,7 @@
-mixin room-impressions
-	+b.room-impressions
-		+e('h2').title Впечатления от номера
-		+b.diagram
-			+e.count 26
-				em голосов
-			+e.inner
-				+e.inner
+include ../donut-chart/donut-chart
 
-		+b.legend
-			+b.legend-item
-				+e.logo._excellent
-				+e.description Великолепно
-			+b.legend-item
-				+e.logo._good
-				+e.description Хорошо
-			+b.legend-item
-				+e.logo._satisfactory
-				+e.description Удовлетворительно
-			+b.legend-item
-				+e.logo._unsatisfactory
-				+e.description Разочарован
+mixin room-impressions
+  +b.room-impressions
+    +e("h2").title Впечатления от номера
+    +e.donut-chart
+      +donut-chart

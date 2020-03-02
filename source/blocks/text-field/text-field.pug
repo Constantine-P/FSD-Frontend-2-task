@@ -1,2 +1,19 @@
-mixin text-field(control)
-	+b('input').text-field(type=control.type, placeholder=control.placeholder pattern=control.pattern form = control.form name = control.name autocomplete = "off" value=control.value required)&attributes(attributes)
+mixin text-field(params)
+	- const { title = "", type = "text", placeholder, pattern, name = "", value = "",
+	- hasArrow = false, hasSubmitBtn = false, form = {name: "subscribe-form", action: "https://echo.htmlacademy.ru"} } = params
+
+	+b.text-field
+		if (title !== "")
+			+e("h3").title= title
+
+		if (hasArrow && !hasSubmitBtn)
+			+e.arrow
+
+		if (hasSubmitBtn)
+			+e("form").form(name = form.name method = "GET" action = form.action enctype = "text/plain")
+				+e("input").input(type = type placeholder = placeholder  pattern = pattern
+					name = name  autocomplete = "off" value = value  required)&attributes(attributes)
+				+e("button").btn-submit(type="submit")
+		else
+			+e("input").input(type = type placeholder = placeholder  pattern = pattern
+				name = name  autocomplete = "off" value = value  required)&attributes(attributes)

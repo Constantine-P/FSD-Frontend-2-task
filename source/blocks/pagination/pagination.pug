@@ -1,18 +1,17 @@
 mixin pagination
 	+b.pagination
-		+b.nums-wrapper
+		+e.nums-wrapper
 			+e.arrow-back.hidden
-				img(src="../../resources/arrow_forward.svg")
-			+e('a')(href="javascript:").page-num._cur-page
+			+e("a")(href="mock.html").page-num._cur-page
 				span 1
-			+e('a')(href="javascript:").page-num
+			+e("a")(href="mock.html").page-num
 				span 2
-			+e('a')(href="javascript:").page-num
+			+e("a")(href="mock.html").page-num
 				span 3
 			+e.dots
 				span ...
-			+e('a')(href="javascript:").page-num
+			+e("a")(href="mock.html").page-num
 				span 15
 			+e.arrow-forward
-				img(src="../../resources/arrow_forward.svg")
-		+e.description 1-12 из 100+ вариантов аренды
+
+		+e.description 1 - 12 из 100+ вариантов аренды

@@ -1,43 +1,50 @@
+@import '../../styles/*.styl'
+
 .footer-menu
   display flex
   flex-direction row
   justify-content space-between
   align-items baseline
   flex-wrap wrap
-  grid-area menu
   padding-left 39.5rem
 
-  .menu-block
+  @media (max-width 1200px)
+    justify-content space-evenly
+
+  @media (max-width 550px)
+    padding-left 0
+
+  &__block
     display block
     min-width 200rem
 
-    &__title
-      font-weight bold
-      font-size 12rem
-      text-transform uppercase
-      margin 0
-      margin-top 5rem
+    @media (max-width 700px)
+      &:nth-child(n + 2)
+        margin-top 30rem
 
-    .block-content
-      display flex
-      flex-direction column
-      justify-content top
-      font-size 14rem
+  &__block-title
+    font-weight bold
+    font-size 12rem
+    text-transform uppercase
+    margin 0
+    margin-top 3rem
 
-      &__item
-        margin-top 21rem
+  &__block-content
+    display flex
+    flex-direction column
+    justify-content top
+    font-size 14rem
 
-        &:link
-          color main-color-50
-          text-decoration none
+  &__block-content-item
+    margin-top 21rem
 
-        &:hover
-          color main-color-50
-          text-decoration underline
+    &:link
+      color $dark-shade-50
+      text-decoration none
 
-        &:visited
-          color main-color-50
+    &:hover
+      color $dark-shade-50
+      text-decoration underline
 
-@media only screen and (max-width 550px)
-  .footer-menu
-    padding-left 0
+    &:visited
+      color $dark-shade-50

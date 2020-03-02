@@ -1,96 +1,113 @@
 mixin filter-list
-	include ../pos-control/pos-control
-	include ../button-submit/button-submit
-	include ../filter-list-stay-period-control/filter-list-stay-period-control
-	include ../price-range-control/price-range-control
+	include ../text-field/text-field
+	include ../dropdown-control/dropdown-control
 	include ../checkbox-list-control/checkbox-list-control
+	include ../range-slider/range-slider
 	include ../room-card/room-card
+
 	+b.filter-list
-		+filter-list-stay-period-control#filter-list-stay-period-control
-		+pos-control({
-			title: 'Гости',
-			form: 'room-search-form',
-			name: 'guests',
-			placeholder: 'Сколько гостей',
-			wordForms: '["гость", "гостя", "гостей"]',
-			positions: [
-				{title: 'Взрослые', name: 'adults'},
-				{title: 'Дети', name: 'children'},
-				{title: 'Младенцы', name: 'babies', isShow: "true", wordForms: '["младенец", "младенца", "младенцев"]'},
-				{title: 'Пёсики', name: 'dags', isShow: "true", wordForms: '["пёсик", "пёсика", "пёсиков"]'}
-			]
-		})#filter-guests-control
-		+price-range-control
-		+checkbox-list-control({
-			title: "Доступные опции",
-			id: "options",
-			checked: "checked",
-			positions: [
-				{
-					title: "",
-					description: "Можно курить",
-					value: "",
-					name: "can-smoke",
-					checked: ""
-				}, {
-					description: "Можно с питомцами",
-					value: "",
-					name: "can-pets",
-					checked: "checked"
-				}, {
-					description: "Можно пригласить гостей (до 10 человек)",
-					value: "",
-					name: "can-guests",
-					checked: "checked"
-				}
-			]
-		})
-		+checkbox-list-control({
-			title: "Доступность",
-			id: "accessibility",
-			checked: "checked",
-			positions: [
-				{
-					title: "Широкий коридор",
-					description: "Ширина коридоров в номере не менее 91 см.",
-					value: "",
-					name: "wide-corridor",
-					checked: ""
-				}, {
-					title: "Помощник для инвалидов",
-					description: "На 1 этаже вас встретит специалист и проводит до номера.",
-					value: "",
-					name: "helper-for-invalid",
-					checked: ""
-				}
-			]
-		})
-		+pos-control({
-			title: 'удобства номера',
-			form: 'filter-list-form',
-			name: 'facilities',
-			placeholder: 'Удобства',
-			positions: [
-				{title: 'Спальни', name: 'bedrooms', isShow: "true", wordForms: '["спальня", "спальни", "спален"]'},
-				{title: 'Кровати', name: 'beds', isShow: "true", wordForms: '["кровать", "кровати", "кроватей"]'},
-				{
-					title: 'Ванные комнаты',
-					name: 'bathrooms',
-					isShow: "true",
-					wordForms: '["ванная комната", "ванные комнаты", "ванных комнат"]'
-				}
-			]
-		})#filter-facilities-control
-		+checkbox-list-control({
-			title: "дополнительные удобства",
-			id: "extra amenities",
-			checked: "",
-			positions: [
-				{description: "Завтрак", name: "breakfast", checked: "checked"},
-				{description: "Письменный стол", name: "desk", checked: "checked"},
-				{description: "Стул для кормления", name: "feeding-chair"},
-				{description: "Кроватка", name: "crib"},
-				{description: "Телевизор", name: "tv"},
-				{description: "Шампунь", name: "shampoo"}
-			]
-		})
+
+		+e.dates.stay-selector.stay-selector_single-input
+			+text-field({
+				title: "Даты пребывания в отеле",
+				placeholder: "ДД.ММ.ГГГГ",
+				value: "19 авг - 23 авг",
+				hasArrow: true
+			}).stay-dates
+
+		+e.guests
+			+dropdown-control({
+				title: "Гости",
+				name: "guests",
+				placeholder: "Сколько гостей",
+				wordForms: '["гость", "гостя", "гостей"]',
+				positions: [
+					{title: "Взрослые", name: "adults"},
+					{title: "Дети", name: "children"},
+					{title: "Младенцы", name: "babies", isShow: true, wordForms: '["младенец", "младенца", "младенцев"]'}
+				]
+			})
+
+		+e.price-range-slider
+			+range-slider({
+				title: "Диапазон цены",
+				description: "",
+				min: 0,
+				max: 15700,
+				step: 1,
+				startValue: 5000,
+				endValue: 10000
+			})
+			+e("p").price-range-description Стоимость за сутки пребывания в номере
+
+		+e.checkbox-buttons
+			+checkbox-list-control({
+				title: "checkbox buttons",
+				isStatic: true,
+				positions: [
+					{description: "Можно курить", name: "smoke"},
+					{description: "Можно с питомцами", name: "pets", checked: true},
+					{description: "Можно пригласить гостей (до 10 человек)", name: "guests", checked: true},
+				]
+			})._no-arrow
+
+		+e.accessibility
+			+checkbox-list-control({
+				title: "Доступность",
+				checked: "checked",
+				positions: [
+					{
+						title: "Широкий коридор",
+						description: "Ширина коридоров в номере не менее 91 см.",
+						value: "",
+						name: "wide-corridor",
+						checked: false
+					}, {
+						title: "Помощник для инвалидов",
+						description: "На 1 этаже вас встретит специалист и проводит до номера.",
+						value: "",
+						name: "helper-for-invalid",
+						checked: false
+					}
+				],
+				isStatic: true,
+			})
+
+		+e.facilities
+			+dropdown-control({
+				title: "Удобства номера",
+				name: "facilities",
+				placeholder: "Удобства",
+				positions: [
+					{
+						title: "Спальни",
+						name: "bedrooms",
+						count: 2,
+						isShow: true,
+						wordForms: '["спальня", "спальни", "спален"]'
+					},
+					{title: "Кровати", name: "beds", count: 2, isShow: true, wordForms: '["кровать", "кровати", "кроватей"]'},
+					{
+						title: "Ванные комнаты",
+						name: "bathrooms",
+						wordForms: '["ванная комната", "ванные комнаты", "ванных комнат"]'
+					}
+				],
+				areButtonsVisible: false,
+			})
+
+		+e.additional-facilities
+			+checkbox-list-control({
+				title: "Дополнительные удобства",
+				checked: false,
+				positions: [
+					{description: "Завтрак", name: "breakfast", checked: ""},
+					{description: "Письменный стол", name: "desk", checked: "checked"},
+					{description: "Стул для кормления", name: "chair", checked: "checked"},
+					{description: "Кроватка", name: "crib", checked: "checked"},
+					{description: "Телевизор", name: "TV-1", checked: ""},
+					{description: "Шампунь", name: "shampoo-1", checked: ""},
+					{description: "Телевизор", name: "TV-2", checked: ""},
+					{description: "Шампунь", name: "shampoo-2", checked: ""},
+				]
+			})

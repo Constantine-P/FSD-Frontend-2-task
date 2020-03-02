@@ -1,0 +1,25 @@
+include ../stay-selector/stay-selector
+include ../dropdown-control/dropdown-control
+include ../button/button
+
+mixin search-card
+	+b.search-card
+		+e("form")(name = "room-search" method = "GET" action="https://echo.htmlacademy.ru" enctype="text/plain")
+			+e("h1").title Найдём номера под ваши пожелания
+			+e.content
+				+e.stay-selector
+					+stay-selector
+				+e.dropdown
+					+dropdown-control({
+						title: "Гости",
+						name: "guests",
+						placeholder: "Сколько гостей",
+						wordForms: '["гость", "гостя", "гостей"]',
+						positions: [
+							{title: "Взрослые", name: "adults"},
+							{title: "Дети", name: "children"},
+							{title: "Младенцы", name: "babies", isShow: "true", wordForms: '["младенец", "младенца", "младенцев"]'}
+						]
+					})._card
+				+e.button
+					+button({type: "submit", value: "Подобрать номер",})._solid._has-arrow

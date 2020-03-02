@@ -1,10 +1,12 @@
+@import '../../styles/*.styl'
+
 .checkbox-list-control
   display block
   position relative
   font-size 12rem
   user-select none
-  margin-top 30rem
-  transition anim-duration
+  transition $anim-duration
+  font-family Montserrat, OpenSans, sans-serif
 
   &__arrow-toggle
     position absolute
@@ -12,32 +14,31 @@
     right 0
     display none
 
-    &:checked + .checkbox-list-control__title::after
-      animation anim-arrow-open anim-duration forwards
+    &:checked + .checkbox-list-control__title:after
+      animation anim-arrow-open $anim-duration forwards
 
   &__title
     display inline-block
-    margin 0
-    margin-bottom 8rem
+    margin 0 0 7rem 0
     text-transform uppercase
     font-size 12rem
     font-weight bold
 
-    &::after
+    &:after
       display block
-      content ""
+      content ''
       position absolute
       top 5rem
       right 15rem
-      background main-color-75
-      clip-path arrow-up
-      transition anim-duration
-      size(12rem, 7.4rem)
+      background $dark-shade-75
+      clip-path $arrow-down
+      transition $anim-duration
+      size(11.5rem, 7.5rem)
       box-sizing border-box
-      animation anim-arrow-close anim-duration forwards
+      animation anim-arrow-close $anim-duration forwards
       cursor pointer
 
-    &::before
+    &:before
       display: block
       content: ''
       position absolute
@@ -46,117 +47,123 @@
       size(20rem)
       cursor pointer
 
-  .checkbox-list-control-content
+  .checkbox-list-content
     display block
-    transition anim-duration
+    transition $anim-duration
     overflow hidden
     max-height 300rem
 
-    input
+    &__checkbox
       display none
 
-    input:checked + .checkbox-pos::after
-      animation anim-check-open anim-duration forwards
+    &__checkbox:checked + .checkbox-list-content__item-view:after
+      animation anim-check-open $anim-duration forwards
 
-    input:checked + .checkbox-pos::before
-      border-color button-color
+    &__checkbox:checked + .checkbox-list-content__item-view
+      border-color $button-color
 
-    .checkbox-pos
+    &__item
       display flex
       font-size 14rem
-      transition anim-duration
-      margin-top 10rem
+      transition $anim-duration
+      margin 10rem 0 0 0
+      padding 0
       position relative
       z-index 1
 
-      [class*="__title"]
+      [class*='-title']
         font-size 14rem
         font-weight bold
         margin 0
-        margin-bottom 5rem
+        margin-bottom 4rem
         display inline-block
 
-      [class*="__description"]
+      [class*='-description']
         font-size 14rem
-        padding-top 2rem
+        padding 2rem 0 0 0
+        margin 0
         display inline-block
 
-      [class*="__title"] + [class*="__description"]
+      [class*='-title'] + [class*='-description']
         font-size 12rem
 
       &:hover
-        color main-color-100
+        color $dark-shade-100
 
-      &::after
+    &__item-view
+      display block
+      content ''
+      size(20rem)
+      min-size(20rem)
+      border 1rem solid $dark-shade-25
+      border-radius 4rem
+      margin-right 10rem
+      box-sizing border-box
+      cursor pointer
+
+      &:after
         display block
-        content ""
+        content ''
         position absolute
         top 5rem
         left 5rem
-        background main-gradient
-        clip-path check1
-        transition transform anim-duration
+        background $main-gradient
+        clip-path $check1
+        transition transform $anim-duration
         size(10rem)
         box-sizing border-box
-        animation anim-check-close anim-duration forwards
+        animation anim-check-close $anim-duration forwards
 
-      &::before
-        display block
-        content ""
-        size(20rem)
-        min-size(20rem)
-        border 1rem solid main-color-25
-        border-radius 4rem
-        margin-right 10rem
-        box-sizing border-box
-        cursor pointer
+      &:hover:before
+        border-color $button-color
 
-      &:hover::before
-        border-color button-color
-
-  &__arrow-toggle:not(:checked) ~ .checkbox-list-control-content
+  &__arrow-toggle:not(:checked) ~ .checkbox-list-content
     max-height 0
 
-@keyframes anim-arrow-open
-  from {
-    clip-path: arrow-up;
-  }
-  50% {
-    clip-path: arrow-m;
-  }
-  to {
-    clip-path: arrow-down;
-  }
+  &_static
+    .checkbox-list-control__title:after
+      display none
 
 @keyframes anim-arrow-close
   from {
-    clip-path: arrow-down;
+    clip-path: $arrow-up;
   }
   50% {
-    clip-path: arrow-m;
+    clip-path: $arrow-m;
   }
   to {
-    clip-path: arrow-up;
+    clip-path: $arrow-down;
+  }
+
+@keyframes anim-arrow-open
+  from {
+    clip-path: $arrow-down;
+  }
+  50% {
+    clip-path: $arrow-m;
+  }
+  to {
+    clip-path: $arrow-up;
   }
 
 @keyframes anim-check-open
   from {
-    clip-path: check0;
+    clip-path: $check0;
   }
   50% {
-    clip-path: check1;
+    clip-path: $check1;
   }
   to {
-    clip-path: check;
+    clip-path: $check;
   }
 
 @keyframes anim-check-close
   from {
-    clip-path: check;
+    clip-path: $check;
   }
   50% {
-    clip-path: check1;
+    clip-path: $check1;
   }
   to {
-    clip-path: check0;
+    clip-path: $check0;
   }

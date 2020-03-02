@@ -1,0 +1,6 @@
+mixin button(params)
+	- const { type = "link", value = "", href = "mock.html" } = params;
+	if (type === "link")
+		+b("a")(href = href).button&attributes(attributes)= value
+	else
+		+b("button").button(type = "submit")&attributes(attributes)= value

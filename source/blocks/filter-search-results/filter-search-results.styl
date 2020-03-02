@@ -4,6 +4,8 @@
   align-items center
   padding-top 20rem
   max-width 834rem
+  box-sizing border-box
+  margin 0 auto
 
   &__title
     font-size 24rem
@@ -11,11 +13,16 @@
     margin 0
     margin-bottom 21rem
     letter-spacing -0.5rem
+    align-self start
 
-  .card-wrapper
+  &__card-wrapper
     display grid
     grid-template-columns repeat(auto-fill, 270rem);
     grid-column-gap 12rem
     grid-row-gap 21rem
     justify-content center
     width 100%
+    box-sizing border-box
+
+  &__pagination
+    margin-top 42rem

@@ -1,14 +1,82 @@
+@import '../../styles/*.styl'
+
 .text-field
-  border 1rem solid main-color-25
-  border-radius 4rem
-  size(100%, 44rem)
-  margin-top 10rem
-  padding-left 15rem
-  padding-right 35rem
+  position relative
+  max-width 400rem
+  width 100%
+  font-family Montserrat, OpenSans, sans-serif
+  font-size 14rem
 
-  &:active, &:hover, &:focus
-    outline none
+  &__title
+    margin 0 0 5rem 0
+    font-size 12rem
+    line-height 15rem
+    text-transform uppercase
 
-  &_active
-    border 1rem solid main-color-50
-    transition 200ms
+  &__input
+    box-sizing border-box
+    size(100%, 44rem)
+    border 1rem solid $dark-shade-25
+    border-radius 4rem
+    padding 0 35rem 1rem 14rem
+    font-size 14rem
+    line-height 24rem
+    font-family Montserrat, OpenSans, sans-serif
+    color $dark-shade-75
+
+    &:hover, &:focus
+      color $dark-shade-75
+      border 1rem solid $dark-shade-50
+
+      &:placeholder
+        color $dark-shade-25
+
+    &:active, &:hover, &:focus
+      outline none
+
+    &_active
+      border 1rem solid $dark-shade-50
+      transition 200ms
+
+    &::placeholder
+      color $dark-shade-25
+
+  &__arrow
+    box-sizing border-box
+    display flex
+    justify-content center
+    align-items center
+    position absolute
+    bottom 10rem
+    right 10rem
+    size(24rem)
+
+    &:before
+      display block
+      content ''
+      background-color $dark-shade-50
+      clip-path: $arrow-down;
+      size(11.5rem, 7.5rem)
+
+  &__btn-submit
+    box-sizing border-box
+    display flex
+    justify-content center
+    align-items center
+    position absolute
+    bottom 0
+    right 0
+    background-color transparent
+    border none
+    size(44rem)
+
+    &:after
+      display block
+      content ''
+      size(17rem, 18rem)
+      background-size contain
+      clip-path $arrow-forward
+      background-color $button-color
+
+    &:hover
+      cursor pointer

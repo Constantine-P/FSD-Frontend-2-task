@@ -1,0 +1,177 @@
+@import '../*.styl'
+@import '~air-datepicker/dist/css/datepicker.css';
+
+.datepicker
+  font-family Montserrat, OpenSans, sans-serif
+  font-size 12rem
+  padding 15rem
+  padding-right 18.5rem
+  padding-left 19rem
+  padding-bottom 11rem
+  width 320rem
+  box-sizing border-box
+  margin-top 0
+
+  &--pointer
+    display none
+
+  &--nav
+    border-bottom none
+    padding 0
+    font-size 24rem
+    font-family inherit
+
+    &-action
+      display flex
+      align-items center
+      justify-content center
+      size(24rem)
+      margin-top 4rem
+
+      &:before
+        display block
+        content ''
+        clip-path $arrow-back
+        background-color $button-color
+        size(17rem, 18rem)
+
+      &[data-action='next']:before
+        transform rotate(180deg)
+
+      &:hover
+        background-color transparent
+        opacity 0.5
+
+      svg
+        display none
+
+    &-title, &-title i
+      font-family Quicksand, OpenSans, sans-serif
+      font-weight bold
+      font-size 19rem
+      line-height 24rem
+      color $dark-shade-100
+
+      &:hover
+        background-color transparent
+        opacity 0.5
+
+  &--content
+    display block
+    padding 0
+
+    .datepicker--days
+      display block
+
+      .datepicker--days-names
+        display flex
+        margin-top 26rem
+        margin-bottom 0
+
+        .datepicker--day-name
+          display flex
+          size(40rem)
+          max-size(40rem)
+          min-size(40rem)
+          font-family Montserrat, OpenSans, sans-serif
+          font-weight bold
+          font-size 12rem
+          text-transform capitalize
+          color $button-color
+
+      .datepicker--cells
+        display flex
+
+        .datepicker--cell
+          display flex
+          circle(40rem)
+          max-size(40rem)
+          font-family Montserrat, OpenSans, sans-serif
+          font-size 12rem
+
+          &.-in-range-
+            background $stay-day-color
+            border-radius 0
+
+            & + .-range-to-:after
+              display block
+              position absolute
+              content ''
+              size(40rem)
+              background $stay-day-gradient
+
+          &.-range-from-
+            &:after
+              border-radius 50% 0 0 50%
+
+            &.-focus-
+              background $main-gradient
+
+          &.-range-to-
+            &:after
+              border-radius 0 50% 50% 0
+
+            &.-focus-
+              background $main-gradient
+              color $secondary-text-color
+
+          &.-selected-
+            position relative
+            background $main-gradient
+            font-weight bold
+            size(40rem)
+            color $secondary-text-color
+
+            &:after,
+              display block
+              z-index -1
+              position absolute
+              content ''
+              size(40rem)
+              background $stay-day-gradient
+
+          &.-focus-
+            background $stay-day-color
+
+          &.-current-
+            background $secondary-gradient
+            color $secondary-text-color
+            font-weight bold
+
+  &--buttons
+    display flex
+    justify-content space-between
+    margin-top 11rem
+    padding 0
+    border none
+
+    .datepicker--button
+      font-family Montserrat, OpenSans, sans-serif
+      font-size 12rem
+      font-weight bold
+      text-transform uppercase
+      color $dark-shade-50
+      flex none
+      height 32rem
+
+    .datepicker--button-apply
+      display inline-flex
+      font-family Montserrat, OpenSans, sans-serif
+      font-size 12rem
+      font-weight bold
+      text-transform uppercase
+      color $button-color
+      vertical-align center
+      justify-content center
+      align-items center
+      height 32rem
+      border-radius 4rem
+      cursor pointer
+
+      &:hover
+        opacity 0.5
+
+    .datepicker--button
+      &:hover
+        opacity 0.5
+        background-color transparent

@@ -1,80 +1,11 @@
 .room-impressions
-  display grid
-  grid-auto-flow row
-  grid-column-gap 30rem
-  align-content start
-  align-items start
-  justify-self start
-  max-width 311rem
-  width 311rem
-  margin-left 10rem
+  display flex
+  flex-direction column
+
+  @media (max-width 1000px)
+    align-items center
 
   &__title
-    grid-column 1 / span 2
-    margin 0 0 21rem 0
+    margin 0 0 17rem 0
     font-size 19rem
     letter-spacing -0.25rem
-
-  .diagram
-    circle(120rem)
-    background conic-gradient(transparent 1deg, #BC9CFF 1deg, #8BA4F9 89deg, transparent 89deg 91deg, #6FCF97 91deg, #66D2EA 179deg, transparent 179deg 181deg, #FFBA9C 181deg, #FFE39C 359deg, transparent 359deg 360deg)
-    display flex
-    justify-content center
-    align-items center
-    position relative
-
-    &__count
-      position absolute
-      z-index 2
-      display flex
-      flex-direction column
-      justify-content center
-      align-items center
-      font bold 24rem Quicksand
-      color button-color
-
-      em
-        font normal bold 12rem Montserrat
-        text-transform uppercase
-
-    & > .diagram__inner
-      circle(110rem)
-      background conic-gradient(background-color 0deg 1deg, #BC9CFF 1deg, #8BA4F9 89deg, background-color 89deg 360deg)
-      display flex
-      justify-content center
-      align-items center
-
-      & > .diagram__inner
-        circle(100rem)
-        background-color background-color
-
-  .legend
-    display flex
-    flex-direction column
-    align-self end
-
-    .legend-item
-      display flex
-      align-items center
-      margin-top 7rem
-
-      &__logo
-        circle(10rem)
-        margin-right 5rem
-
-        &_excellent
-          background excellent-gradient
-
-        &_good
-          background secondary-gradient
-
-        &_satisfactory
-          background main-gradient
-
-        &_unsatisfactory
-          background unsatisfactory-gradient
-
-
-@media only screen and (max-width 750px)
-  .room-impressions
-    justify-self center

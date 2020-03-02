@@ -1,0 +1,41 @@
+@import '../../styles/*.styl'
+@import "~jquery-ui-slider/jquery-ui.min.css"
+
+.range-slider
+  display block
+  position relative
+
+  &__title
+    margin 0
+    text-transform uppercase
+    margin-bottom 22rem
+    font-size 12rem
+
+  &__description
+    font-size 12rem
+    margin-top 9rem
+
+  &__hint
+    position absolute
+    font-size 12rem
+    top 0
+    right 0
+
+  &__slider
+    display block
+    height 6px
+
+    .ui-slider-range,
+    .ui-slider-handle
+      background $secondary-gradient
+      user-select none
+      outline none
+
+    .ui-slider-handle
+      size(13px)
+      border-radius 50%
+      border none
+      box-shadow 0 0 0 2px white
+
+      &:hover
+        cursor: pointer

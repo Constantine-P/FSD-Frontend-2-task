@@ -1,0 +1,37 @@
+mixin dropdown-control(params)
+  - const { title = "", placeholder = "", name = "", value = "",
+  - wordForms = [], positions = [], isMenuVisible = false, areButtonsVisible = true } = params;
+  - const menuMode =  (isMenuVisible) ? "" : "dropdown-control__menu_hidden";
+
+  +b.dropdown-control&attributes(attributes)
+    +e("h3").title= title
+    +e.wrapper
+      +e("input")(readonly).content(
+        type = "text"
+        placeholder = placeholder
+        name = name
+        value = value
+        data-wordforms = wordForms
+        autocomplete = "off"
+      )
+      +e.arrow
+      +e.menu(class = menuMode data-wordforms = wordForms)
+        each pos in positions
+          - const { title = "", value = 0, name = "", isShow = false, wordForms = [] } = pos
+          +e.position
+            +e.position-title= title
+            +e.position-content
+              +e.minus._inactive -
+              +e("input")(readonly).position-value(
+                type = "text"
+                value = value
+                name = name
+                data-is-show = isShow
+                data-title = title
+                data-wordforms = wordForms
+              )
+              +e.plus +
+        if (areButtonsVisible)
+          +e.buttons
+            +e.btn-clear Очистить
+            +e.btn-apply Применить

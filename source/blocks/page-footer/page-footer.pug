@@ -1,24 +1,39 @@
-mixin page-footer
-	-var subscribeBlock = {title:'Подписка', list:['Получайте специальные предложения и новости сервиса']};
-	include ../email/email
-	include ../footer-menu/footer-menu
+include ../text-field/text-field
+include ../footer-menu/footer-menu
 
-	+b('footer').page-footer
-		+b.page-footer-top
-			+b.footer-logo
+mixin page-footer(params)
+	-
+		if (params === undefined) params = {};
+		const {
+			description = "Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды».",
+			menu,
+			subscription = {
+				title: "Подписка",
+				description: "Получайте специальные предложения и новости сервиса",
+				placeholder: "Email"
+			},
+		copyright = "Copyright © 2018 Toxin отель. Все права зачищены.",
+		} = params;
+
+	+b("footer").page-footer&attributes(attributes)
+		+e.top
+			+e.logo
 				+logo
-				+e.content Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды».
-			+footer-menu
-			+b.footer-subscribe
-				+e('h3').title=subscribeBlock.title
-				+e.content=subscribeBlock.list
-				+email
-		+b.page-footer-bottom
-			p Copyright © 2018 Toxin отель. Все права зачищены.
-			+b.socials
-				+e('a')(href="")
-					img(src="../../resources/.svg")
-				+e('a')(href="")
-					img(src="../../resources/.svg")
-				+e('a')(href="")
-					img(src="../../resources/.svg")
+				+e.logo-description= description
+			+e.menu
+				+footer-menu(menu)
+			+e.subscription
+				+e("h3").subscription-title= subscription.title
+				+e.subscription-description= subscription.description
+				+e.subscription-text-field
+					+text-field({name: "Email", placeholder: subscription.placeholder, hasSubmitBtn: true})
+
+		+e.bottom
+			+e("p").copyright= copyright
+			+e.socials
+				+e("a")(href="mock.html").social-link
+					img(src="../../blocks/page-footer/images/.svg")
+				+e("a")(href="mock.html").social-link
+					img(src="../../blocks/page-footer/images/.svg")
+				+e("a")(href="mock.html").social-link
+					img(src="../../blocks/page-footer/images/.svg")

@@ -1,0 +1,36 @@
+@import '../../styles/*.styl'
+
+.room-info-card
+  display grid
+  grid-template 'logo title' 'logo descr' / 48rem 1fr
+  grid-column-gap 10rem
+  padding 20rem 0 20rem 0
+  font-family Montserrat, OpenSans, sans-serif
+
+  &__title
+    font-size 14rem
+    line-height 24rem
+    font-weight bold
+    margin 0
+    padding 0
+    grid-area title
+    text-transform capitalize
+    align-self center
+
+  &__logo
+    size(48rem)
+    display flex
+    justify-content center
+    align-items center
+    grid-area logo
+
+  &__description
+    line-height 24rem
+    grid-area descr
+    align-self center
+    margin 0
+    padding 0
+
+  &__item
+    margin 0
+    padding 0

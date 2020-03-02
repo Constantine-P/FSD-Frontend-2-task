@@ -1,16 +1,74 @@
+@import '../../styles/*.styl'
+
 .page-header
   display flex
-  justify-content space-around
+  justify-content space-between
   align-items center
   min-height 70rem
-  background-color background-color
+  background-color $background-color
   width 100%
   box-shadow 0 10rem 20rem rgba(31, 32, 65, 0.05)
   flex-wrap wrap
+  padding 0 9.722% 0 9.722%
+  box-sizing border-box
 
-@media only screen and (max-width 700px)
-  .page-header
+  @media (max-width 1000px)
     justify-content flex-end
 
-    .logo
-      margin-right 50rem
+  &__nav-wrapper
+    @media (max-width 1000px)
+      position fixed
+      left -100%
+      top 0
+      height 100vh
+      z-index 10
+      background-color $background-color
+      transition $anim-duration
+
+  &__menu-toggle:checked ~ .page-header__nav-wrapper
+    left 0
+
+  &__menu-toggle
+    display none
+    position absolute
+    top 0
+    left 0
+    size(30rem)
+    z-index 5
+
+  &__menu-toggle:checked + .page-header__menu-toggle-view
+    position fixed
+    top 0
+    left 0
+    size(100vw, 100vh)
+    z-index 9
+    background-color gray
+    opacity 0.5
+
+  &__menu-toggle:checked ~  .page-header__menu-toggle-view
+    &::before, &::after, .page-header__menu-toggle-view-line
+      display none
+
+  &__menu-toggle-view
+    display none
+    flex-direction column
+    justify-content space-evenly
+    align-items center
+    position absolute
+    top 20px
+    left 10px
+    size(30px, 40px)
+    z-index 5
+    box-sizing border-box
+
+    @media (max-width 1000px)
+      display flex
+
+    &::before, &::after
+      display block
+      content ''
+      size(80%, 3px)
+      background-color $dark-shade-75
+
+    &::before
+      box-shadow 0 7px 0 0 $dark-shade-75

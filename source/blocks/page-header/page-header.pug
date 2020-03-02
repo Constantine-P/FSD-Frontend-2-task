@@ -1,12 +1,14 @@
-mixin page-header
-	include ../../blocks/logo/logo
-	include ../../blocks/nav/nav
-	include ../btn-link/btn-link
-	include ../menu-toggle/menu-toggle
+include ../../blocks/logo/logo
+include ../../blocks/nav/nav
 
-	+b('header').page-header&attributes(attributes)
-		+logo
-		+menu-toggle
-		+nav
-			+btn-link({href:"sign-in.html", value:"Войти"})._login._marginLeft
-			+btn-link({href:"registration.html", value:"Зарегистрироваться"})._register._marginLeft
+mixin page-header(params)
+  - if (params === undefined) params = {};
+
+  +b("header").page-header&attributes(attributes)
+    +e.logo
+      +logo
+    +e.nav
+      +e("input").menu-toggle(type = "checkbox" id = "page-header-menu-toggle")
+      +e("label").menu-toggle-view(for = "page-header-menu-toggle")
+      +e.nav-wrapper
+        +nav(params)

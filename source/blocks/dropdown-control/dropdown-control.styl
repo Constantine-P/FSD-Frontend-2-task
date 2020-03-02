@@ -1,0 +1,185 @@
+@import '../../styles/*.styl'
+
+.dropdown-control
+  background-color $background-color
+  width 100%
+  max-width 400rem
+  box-sizing border-box
+  font-family Montserrat, OpenSans, sans-serif
+
+  &_card
+    .dropdown-control__menu
+      position absolute
+
+  &__title
+    margin 0 0 5rem 0
+    font-size 12rem
+    line-height 15rem
+    text-transform uppercase
+
+  &__wrapper
+    position relative
+
+  &__content
+    border 1rem solid $dark-shade-25
+    border-radius 4rem
+    size(100%, 44rem)
+    padding 0 45rem 0 15rem
+    color $main-text-color
+    box-sizing border-box
+    font-family inherit
+    font-size 14rem
+
+    &_active
+      border 1rem solid $dark-shade-50
+      border-radius 4rem 4rem 0 0
+
+      & + .dropdown-control__arrow:before
+        animation anim-arrow-open $anim-duration forwards
+
+    &:active, &:hover, &:focus
+      color $main-text-color
+      border 1rem solid $dark-shade-50
+      outline none
+
+    &:placeholder
+      color $main-text-color
+
+  &__arrow
+    display flex
+    justify-content center
+    align-items center
+    position absolute
+    size(24rem)
+    top 10rem
+    right 10rem
+
+    &:before
+      display block
+      content ''
+      background-color $dark-shade-50
+      clip-path: $arrow-down;
+      size(11.5rem, 7.5rem)
+      animation anim-arrow-close $anim-duration forwards
+
+    &:hover
+      cursor pointer
+
+  &__menu
+    background-color $background-color
+    border 1rem solid $dark-shade-50
+    border-top none
+    border-radius 0 0 4rem 4rem
+    width 100%
+    padding 0 5rem 5rem 14rem
+    text-transform uppercase
+    font-weight bold
+    z-index 3
+    user-select none
+    font-size 12rem
+    box-sizing border-box
+    max-height 300rem
+    overflow hidden
+    animation dropdown-open $anim-duration ease-in-out
+
+    &_hidden
+      max-height 0
+      padding 0
+      border-color transparent
+      animation dropdown-close $anim-duration ease-in-out
+
+  &__position
+    display flex
+    flex-direction row
+    justify-content space-between
+    align-items center
+    height 37rem
+    box-sizing border-box
+
+  &__position-content
+    display flex
+    flex-direction row
+    justify-content space-between
+    align-items center
+    box-sizing border-box
+    padding-top 4rem
+
+  &__position-value
+    border none
+    outline none
+    width 30rem
+    padding 0 0 3rem 0
+    user-select none
+    text-align center
+    box-sizing border-box
+    font-weight bold
+    font-family inherit
+
+  &__minus, &__plus
+    display flex
+    justify-content center
+    align-items center
+    font-weight normal
+    circle(30rem)
+    border 1rem solid $dark-shade-50
+
+    &:hover
+      background-color $dark-shade-5
+
+    &_inactive
+      border-color $dark-shade-25
+
+      &:hover
+        background none
+
+  &__buttons
+    display grid
+    grid-template-columns 1fr 1fr
+    margin 19rem 1rem 7rem 0
+
+  &__btn-clear, &__btn-apply
+    font-size 12rem
+    font-weight bold
+    color $dark-shade-50
+    text-transform uppercase
+
+    &:hover
+      color $button-color
+
+  &__btn-apply
+    justify-self end
+    grid-column 2 / 3
+
+@keyframes dropdown-open
+  from {
+    max-height: 0;
+    padding: 0
+    border-color: transparent
+  }
+  0.01% {
+    max-height: 0
+    padding: 0 5rem 0 14rem
+    border-color: transparent
+  }
+  to {
+    max-height: 300rem;
+    padding: 0 5rem 5rem 14rem
+    border-color: $dark-shade-50
+  }
+
+@keyframes dropdown-close
+  from {
+    max-height: 300rem;
+    padding: 0 5rem 5rem 14rem
+    border-color: $dark-shade-50
+  }
+  99.9% {
+    max-height: 0
+    padding: 0 5rem 0 14rem
+    border-color: $dark-shade-50
+  }
+  to {
+    max-height: 0;
+    padding: 0
+    border-color: transparent
+  }

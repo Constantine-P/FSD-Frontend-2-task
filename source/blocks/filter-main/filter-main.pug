@@ -1,9 +1,0 @@
-mixin filter-main
-	include ../filter-list/filter-list
-	include ../filter-search-results/filter-search-results
-	include ../filter-toggle/filter-toggle
-
-	+b('main').filter-main
-		+filter-toggle({id: "filter"})
-		+filter-list
-		+filter-search-results

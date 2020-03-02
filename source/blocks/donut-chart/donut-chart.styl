@@ -1,0 +1,21 @@
+.donut-chart
+  display flex
+  justify-content space-between
+  align-items flex-end
+  width 363rem
+  max-width 100%
+  box-sizing border-box
+
+  @media (max-width 400px)
+    width auto
+    flex-direction column
+    align-items center
+
+  &__donut
+    margin-right 20rem
+
+    @media (max-width 1000px)
+      margin 0
+
+    @media (max-width 400px)
+      margin 0 0 20rem 0

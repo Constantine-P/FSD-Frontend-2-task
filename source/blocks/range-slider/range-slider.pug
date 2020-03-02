@@ -1,0 +1,14 @@
+mixin range-slider(params)
+	- const { min = 0, max = 100, step = 1, startValue = 0, endValue = 100, title = "", description = "" } = params
+	+b.range-slider.js-range-slider
+		+e('h3').title= title
+		+e.hint 0₽ - 10000₽
+		+e.slider(
+			data-min= min,
+			data-max= max,
+			data-step= step,
+			data-start-value= startValue,
+			data-end-value= endValue
+		)
+		- if (description.length)
+			+e.description= description

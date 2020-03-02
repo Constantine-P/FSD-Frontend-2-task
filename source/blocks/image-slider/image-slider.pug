@@ -1,11 +1,7 @@
-mixin image-slider(images, href)
+mixin image-slider(params)
+	- const { images, href } = params;
 	+b.image-slider
-		+b('a')(href=href).image-wrapper
-			-for (var i = images.length - 1; i >= 0; i--) {
-				+e('img')(src = images[i]).item
-				+e('div').circle
-			-}
-		+e.arrow-back
-			+e.arrow-back-inner
-		+e.arrow-forward
-			+e.arrow-forward-inner
+		+e.container
+			- for (let i = images.length - 1; i >= 0; i -= 1)
+			+e("a")(href = href).image.hidden
+				+e("img")(src = images[i])

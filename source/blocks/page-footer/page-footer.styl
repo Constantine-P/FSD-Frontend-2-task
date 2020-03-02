@@ -1,107 +1,137 @@
+@import '../../styles/*.styl'
+
 .page-footer
   display block
-  border-top 1rem solid main-color-25
-  margin-top 75rem
+  background-color $background-color
+  font-family Montserrat, OpenSans, sans-serif
+  flex 0 0 auto
 
-  .page-footer-top
+  &__top
     display grid
-    grid-template 1fr \/ repeat(5, 1fr)
-    grid-template-areas "logo menu menu menu subscr"
+    grid-template auto \/ repeat(5, 1fr)
+    grid-template-areas 'logo menu menu menu subscr'
     row-gap 60rem
     justify-items center
-    min-height 372rem
-    padding-top 100rem
-    padding-bottom 40rem
+    padding-top 101rem
+    padding-bottom 101rem
     max-width calc(1440rem - 280rem)
     margin auto
 
-    .footer-logo
-      width 260rem
-      grid-area logo
+    @media (max-width 1200px)
+      grid-template repeat(2, 1fr) \/ repeat(2, 1fr)
+      grid-template-areas 'menu menu' 'logo subscr'
+      padding-top 40rem
+      padding-bottom 30rem
 
-      &__content
-        margin-top 16rem
-        line-height 1.8
+    @media (max-width 700px)
+      grid-template repeat(3, 1fr) \/ repeat(2, 1fr)
+      grid-template-areas 'menu logo' 'menu subscr' 'menu subscr'
+      padding-left 20rem
+      padding-right 20rem
+      padding-bottom 10rem
 
-    .footer-subscribe
-      display block
-      width 260rem
-      grid-area subscr
+    @media (max-width 550px)
+      grid-template repeat(3, auto) / 1fr
+      grid-template-areas 'logo' 'menu' 'subscr'
+      justify-items left
+      row-gap 10rem
+      padding-bottom 30rem
 
-      &__title
-        font-weight bold
-        font-size 12rem
-        text-transform uppercase
-        margin 0
-        margin-top 5rem
+      .menu-block
+        width 100%
 
-      &__content
-        display flex
-        flex-direction column
-        justify-content top
-        font-size 14rem
-        margin-top 17rem
-        line-height 1.8
+  &__logo
+    width 260rem
+    grid-area logo
 
-  .page-footer-bottom
+  &__logo-description
+    margin-top 16rem
+    line-height 24rem
+
+  &__subscription
+    display block
+    width 260rem
+    grid-area subscr
+
+  &__menu
+    grid-area menu
+
+    @media (max-width 550px)
+      display none
+
+  &__subscription-title
+    font-weight bold
+    font-size 12rem
+    text-transform uppercase
+    margin 3rem 0 0 0
+    letter-spacing -0.3rem
+
+  &__subscription-description
+    display flex
+    flex-direction column
+    justify-content top
+    font-size 14rem
+    margin-top 17rem
+    line-height 1.8
+
+  &__subscription-text-field
+    margin-top 22rem
+
+  &__bottom
     height 70rem
     display flex
     justify-content space-between
     flex-direction row
     align-items center
-    border-top 1rem solid main-color-25
+    border-top 1rem solid $dark-shade-25
     padding-left 140rem
     padding-right 140rem
 
-    .socials
-      display flex
-      justify-content space-between
-      min-width 112rem
-      margin-left 20rem
+    @media (max-width: 1000px)
+      justify-content space-around
+      padding-right 20rem
+      padding-left 20rem
 
-      img
-        max-size(20rem)
+  &__socials
+    display flex
+    justify-content space-between
+    min-width 112rem
+    margin-left 20rem
+    margin-top 5rem
 
-.landing-main + .page-footer, .registration-main + .page-footer, .sign-in-main + .page-footer
-  margin-top 0
+  &__copyright
+    letter-spacing -0.1rem
 
-
-@media only screen and (max-width 1200px)
-  .page-footer .page-footer-top
-    grid-template repeat(2, 1fr) \/ repeat(2, 1fr)
-    grid-template-areas "menu menu" "logo subscr"
-    padding-top 40rem
+.page-footer_small
+  .page-footer__top
+    display flex
+    flex-direction column
+    align-items center
     padding-bottom 30rem
 
-    .footer-menu
-      width 100%
-      justify-content space-evenly
+  .page-footer__bottom
+    display flex
+    flex-direction column
+    align-items center
+    padding 0
+    border none
 
-@media only screen and (max-width 700px)
-  .page-footer .page-footer-top
-    grid-template repeat(3, 1fr) \/ repeat(2, 1fr)
-    grid-template-areas "menu logo" "menu subscr" "menu subscr"
-    padding-left 20rem
-    padding-right 20rem
-    padding-bottom 10rem
+  .page-footer__socials
+    margin 0
 
-    .footer-menu
-      margin-left 0
-      .menu-block
-        margin-bottom 30rem
+  .page-footer__logo
+    display flex
+    flex-direction column
+    align-items center
+    text-align center
+    width 560rem
 
-  .page-footer .page-footer-bottom
-    justify-content space-around
-    padding-right 20rem
-    padding-left 20rem
+  .page-footer__subscription
+  .page-footer__menu
+  .page-footer__copyright
+    display none
 
-@media only screen and (max-width 550px)
-  .page-footer .page-footer-top
-    grid-template repeat(3, auto) \/ repeat(1, 1fr)
-    grid-template-areas "logo" "menu" "subscr"
-    justify-items left
-    row-gap 10rem
-    padding-bottom 30rem
 
-    .menu-block
-      width 100%
+
+
+

@@ -1,0 +1,41 @@
+@import '../../styles/*.styl'
+
+.review
+  display grid
+  grid-auto-flow row
+  grid-template 24rem 24rem auto / 47rem auto auto
+  grid-column-gap 10.5rem
+  font-size 14rem
+  line-height 24rem
+  grid-column span 2
+  font-family Montserrat, OpenSans, sans-serif
+
+  &__logo
+    circle(48rem)
+    grid-row span 2
+    box-shadow 0 10px 20px rgba(31, 32, 65, 0.1)
+
+  &__description
+    grid-column 2 / span 2
+    grid-row 3
+    margin-top 10rem
+    margin-left 1rem
+
+  &__name
+    grid-column 2
+    grid-row 1
+    font-weight bold
+    vertical-align center
+    white-space nowrap
+
+  &__date
+    grid-column 2
+    grid-row 2
+
+  &__likes
+    grid-column 1
+    grid-row 3
+    margin 12rem 0 0 3rem
+
+  &__heart
+    size(10rem, 8rem)

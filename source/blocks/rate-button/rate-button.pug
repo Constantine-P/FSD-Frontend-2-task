@@ -1,0 +1,8 @@
+mixin rate-button(params)
+  - const { rate = 5, name = `rate-name-${Math.random() * Math.pow(10, 16)}`} = params;
+  +b.rate-button
+    - for (let i = 1; i <= 5 ; i += 1)
+      - const ID = `rate-id-${Math.random() * Math.pow(10, 16)}`;
+      - checked = (i === 6 - rate);
+      +e("input")(type = "radio" value = 6 - i id = ID name = name checked = checked).input
+      +e("label")(for = ID).star

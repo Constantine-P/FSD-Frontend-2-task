@@ -1,0 +1,67 @@
+@import '../../styles/*.styl'
+
+.button
+  display flex
+  justify-content center
+  align-items center
+  background $main-gradient
+  transition 300ms
+  position relative
+  //max-width 500rem
+  //max-height 44rem
+  //min-width 50rem
+  //min-height 10rem
+  width 100%
+  height 100%
+  border-radius 22rem
+  font-size 12rem
+  font-weight bold
+  font-family Montserrat, OpenSans, sans-serif
+  text-transform uppercase
+  text-decoration none
+  border solid 2px transparent
+  box-shadow 2px 1000px 1px #fff inset
+  color $button-color
+  box-sizing border-box
+  margin 0
+  padding 0 17rem 0 17rem
+
+  &:hover
+    opacity 0.5
+
+  &_has-arrow:after
+    display block
+    position absolute
+    content ''
+    size(18rem)
+    right 12rem
+    top calc(50% - 9rem)
+    clip-path $arrow-forward
+    background-color $secondary-text-color
+
+  &_solid
+    box-shadow none
+    color $secondary-text-color
+    border none
+    padding 0 19rem 0 19rem
+
+  &_size_s
+    height auto
+    border none
+    width auto
+    box-shadow none
+    background none
+    padding 0
+
+    &:hover
+      color $dark-shade-50
+      opacity 1
+
+    &:after
+      display none
+
+  &_color_sec
+    color $dark-shade-50
+
+  &_color_hover
+    opacity 0.5

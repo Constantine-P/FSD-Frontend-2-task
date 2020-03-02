@@ -1,0 +1,7 @@
+mixin like-button(params)
+  - const { checked = false, value = 0} = params;
+  +b("label").like-button
+    +e("input")(type = "checkbox" value = 6 - i name = name checked = checked).input
+    +e.heart
+    +e.value= value
+    +e.next-value= value + 1

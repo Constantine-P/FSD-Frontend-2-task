@@ -1,0 +1,73 @@
+@import '../../styles/*.styl'
+
+.booking-card
+  size(380rem, 511rem)
+  display flex
+  flex-wrap wrap
+  justify-content space-between
+  align-items flex-start
+  align-content flex-start
+  grid-row span 2
+  background-color background-color
+  border 1rem solid rgba(0, 0, 0, 0.12)
+  border-radius 4rem
+  box-shadow 0 0 25rem rgba(0, 0, 0, 0.2)
+  padding 39rem 30rem 30rem 29rem
+  box-sizing border-box
+  font-family Montserrat, OpenSans, sans-serif
+
+  @media (max-width 400px)
+    size(330rem, 511rem)
+    padding 39rem 25rem 30rem 25rem
+
+  &__room-number
+    font-size 14rem
+    font-weight bold
+    //letter-spacing -1rem
+    font-family Quicksand, OpenSans, sans-serif
+    white-space nowrap
+
+  &__number
+      font-size 24rem
+
+  &__lux
+    font-size 12rem
+    text-transform uppercase
+    margin-left 1rem
+    font-weight bold
+    color $button-color
+    font-family Montserrat, OpenSans, sans-serif
+
+  &__price
+    display inline
+    text-align right
+    font-size 14rem
+    line-height 20rem
+    align-self flex-end
+    font-family Montserrat, OpenSans, sans-serif
+    font-weight bold
+    color $dark-shade-50
+
+  &__price-period
+    font-weight normal
+    font-size 12rem
+
+  &__stay-selector
+    margin-top 20rem
+
+  &__dropdown-control
+    margin-top 20rem
+    width 100%
+
+  &__price-table
+    margin-top 20rem
+
+  &__button
+    margin-top 22rem
+    size(100%, 44rem)
+
+@media only screen and (max-width 1300px)
+  .booking-card
+    grid-row 4
+    grid-column span 2
+    margin-top 20rem
