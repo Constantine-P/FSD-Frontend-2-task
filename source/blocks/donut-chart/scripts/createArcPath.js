@@ -22,41 +22,42 @@ function createArcPath(params) {
     startAngle, endAngle,
   );
 
-  let svg = `<path stroke = "${stroke}" stroke-width = "${strokeWidth}" d = "${d}" fill = "none"
+  let svg = `<path stroke = "${stroke}" stroke-width = "${(startAngle !== endAngle) ? strokeWidth : 0}" d = "${d}" fill = "none"
       data-name = "${name}" data-hover-text = "${hoverText}" data-class = "${svgClass}">`;
 
-  svg += createAnimation({
-    attributeName: 'd',
-    from: d,
-    to: d1,
-    duration: animDuration,
-    begin: 'mouseover',
-  });
+  if (startAngle !== endAngle) {
+    svg += createAnimation({
+      attributeName: 'd',
+      from: d,
+      to: d1,
+      duration: animDuration,
+      begin: 'mouseover',
+    });
 
-  svg += createAnimation({
-    attributeName: 'd',
-    from: d1,
-    to: d,
-    duration: animDuration,
-    begin: 'mouseout',
-  });
+    svg += createAnimation({
+      attributeName: 'd',
+      from: d1,
+      to: d,
+      duration: animDuration,
+      begin: 'mouseout',
+    });
 
-  svg += createAnimation({
-    attributeName: 'stroke-width',
-    from: strokeWidth,
-    to: animStrokeWidth,
-    duration: animDuration,
-    begin: 'mouseover',
-  });
+    svg += createAnimation({
+      attributeName: 'stroke-width',
+      from: strokeWidth,
+      to: animStrokeWidth,
+      duration: animDuration,
+      begin: 'mouseover',
+    });
 
-  svg += createAnimation({
-    attributeName: 'stroke-width',
-    from: animStrokeWidth,
-    to: strokeWidth,
-    duration: animDuration,
-    begin: 'mouseout',
-  });
-
+    svg += createAnimation({
+      attributeName: 'stroke-width',
+      from: animStrokeWidth,
+      to: strokeWidth,
+      duration: animDuration,
+      begin: 'mouseout',
+    });
+  }
   svg += '</path>';
 
   return svg;
