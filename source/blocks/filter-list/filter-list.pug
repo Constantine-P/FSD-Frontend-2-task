@@ -7,13 +7,13 @@ mixin filter-list
 
 	+b.filter-list
 
-		+e.dates.stay-selector.stay-selector_single-input
+		+e.dates.stay-selector.js-stay-selector.stay-selector_single-input
 			+text-field({
 				title: "Даты пребывания в отеле",
 				placeholder: "ДД.ММ.ГГГГ",
 				value: "19 авг - 23 авг",
 				hasArrow: true
-			}).stay-dates
+			}).stay-dates.js-stay-dates
 
 		+e.guests
 			+dropdown-control({

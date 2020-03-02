@@ -10,10 +10,10 @@ class StaySelector {
   }
 
   init() {
-    this.departureInput = this.staySelector.get(0).querySelector('.departure-day');
+    this.departureInput = this.staySelector.get(0).querySelector('.js-departure-day');
     if (this.departureInput) {
-      this.arrivalInput = this.staySelector.get(0).querySelector('.arrival-day');
-      this.datepicker = this.staySelector.find('.arrival-day').datepicker({
+      this.arrivalInput = this.staySelector.get(0).querySelector('.js-arrival-day');
+      this.datepicker = this.staySelector.find('.js-arrival-day').datepicker({
         navTitles: { days: 'MM yyyy' },
         startDate: new Date(2019, 7, 8),
         clearButton: true,
@@ -21,8 +21,8 @@ class StaySelector {
         onSelect: this.onDateSelect.bind(this),
       }).data('datepicker');
     } else {
-      this.arrivalInput = this.staySelector.get(0).querySelector('.stay-dates');
-      this.datepicker = this.staySelector.find('.stay-dates').datepicker({
+      this.arrivalInput = this.staySelector.get(0).querySelector('.js-stay-dates');
+      this.datepicker = this.staySelector.find('.js-stay-dates').datepicker({
         navTitles: { days: 'MM yyyy' },
         startDate: new Date(2019, 7, 8),
         dateFormat: 'd M',
