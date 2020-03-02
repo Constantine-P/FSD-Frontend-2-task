@@ -3,7 +3,7 @@ mixin dropdown-control(params)
   - wordForms = [], positions = [], isMenuVisible = false, areButtonsVisible = true } = params;
   - const menuMode =  (isMenuVisible) ? "" : "dropdown-control__menu_hidden";
 
-  +b.dropdown-control.js-dropdown-control&attributes(attributes)
+  +b.dropdown-control.js-dropdown-control.dropdown-control&attributes(attributes)
     +e("h3").title= title
     +e.wrapper
       +e("input")(readonly).content.js-content(
