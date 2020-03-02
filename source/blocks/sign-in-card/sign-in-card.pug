@@ -5,7 +5,7 @@ mixin sign-in-card
   +b("form")(name = "sign-in" method = "GET" action="https://echo.htmlacademy.ru" enctype="text/plain").sign-in-card
     +e("h2").title Войти
     +e.email
-      +text-field({type: "e-mail", name: "email", placeholder: "Email"})
+      +text-field({type: "email", name: "email", placeholder: "Email"})
     +e.password
       +text-field({type: "password", name: "password", placeholder: "Пароль"})
     +e.enter-btn

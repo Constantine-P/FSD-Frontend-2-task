@@ -26,7 +26,7 @@ mixin page-footer(params)
 				+e("h3").subscription-title= subscription.title
 				+e.subscription-description= subscription.description
 				+e.subscription-text-field
-					+text-field({name: "Email", placeholder: subscription.placeholder, hasSubmitBtn: true})
+					+text-field({name: "Email", type: "email", placeholder: subscription.placeholder, hasSubmitBtn: true})
 
 		+e.bottom
 			+e("p").copyright= copyright
