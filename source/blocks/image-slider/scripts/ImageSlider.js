@@ -10,8 +10,8 @@ class ImageSlider {
   }
 
   addElements() {
-    const container = this.slider.querySelector('.image-slider__container');
-    this.images = container.querySelectorAll('.image-slider__image');
+    const container = this.slider.querySelector('.js-container');
+    this.images = container.querySelectorAll('.js-image');
     this.arrowBack = document.createElement('div');
     this.arrowForward = document.createElement('div');
     this.dots = document.createElement('div');

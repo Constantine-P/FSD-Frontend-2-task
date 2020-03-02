@@ -1,5 +1,5 @@
 import ImageSlider from './scripts/ImageSlider';
 
-document.querySelectorAll('.image-slider').forEach((item) => {
+document.querySelectorAll('.js-image-slider').forEach((item) => {
   new ImageSlider(item);
 });
