@@ -1,16 +1,11 @@
-extends ../base.pug
+extends ../layouts/base-layout/base-layout
+include ../../blocks/search-card/search-card
 
 block title
 	| Toxin
 block main
-
-	include ../../blocks/page-header/page-header
-	include ../../blocks/landing-main/landing-main
-	include ../../blocks/search-form/search-form
-	include ../../blocks/page-footer/page-footer
-
-	+b.page-inner
-		+page-header
-		+landing-main
-			+search-form
-		+page-footer
+	+b("main").landing
+		+e.content
+			+e.search-card
+				+search-card
+			+e("p").description Лучшие номера для вашей работы, отдыха и просто вдохновения

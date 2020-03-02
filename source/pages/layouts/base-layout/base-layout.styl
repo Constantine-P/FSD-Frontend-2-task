@@ -1,0 +1,28 @@
+@import '../../../styles/*.styl'
+
+html
+  font-size 1px
+  height 100%
+
+  @media (max-width 400px)
+    font-size 0.9px
+
+body
+  background-color $background-color
+  color $main-text-color
+  margin 0
+  padding 0
+  font 14rem Montserrat, OpenSans, sans-serif
+  height 100%
+
+  .page-wrapper
+    display flex
+    flex-direction column
+    margin auto
+    min-height 100%
+
+    &__logo
+      padding 30rem 0 0 30rem
+
+  .hidden
+    display none

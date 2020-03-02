@@ -1,14 +1,47 @@
-extends ../base.pug
+extends ../layouts/base-layout/base-layout
+include ../../blocks/room-gallery/room-gallery
+include ../../blocks/room-info/room-info
+include ../../blocks/guest-reviews/guest-reviews
+include ../../blocks/bullet-list/bullet-list
+include ../../blocks/room-cancel/room-cancel
+include ../../blocks/booking-card/booking-card
+include ../../blocks/room-impressions/room-impressions
 
 block title
-	| Toxin
+	| Room details
 block main
+	+b("main").room-details
+		+e.gallery
+			+room-gallery
+		+e.wrapper
+			+e.description
+				+e.info
+					-
+						const cards = [
+						{logo:"images/insert_emoticon.svg", title: "Комфорт", description: ["Шумопоглощяющие стены"]},
+						{logo:"images/location_city.svg", title: "Удобство", description: ["Окно в каждой из спален"]},
+						{logo:"images/whatshot.svg", title: "Уют", description: ["Номер оснащён камином"]}
+						];
+					+room-info(cards)
 
-	include ../../blocks/page-header/page-header
-	include ../../blocks/page-footer/page-footer
-	include ../../blocks/room-details-main/room-details-main
+				+e.room-impressions
+					+room-impressions
 
-	+b.page-inner
-		+page-header
-		+room-details-main
-		+page-footer
+				+e.reviews
+					+guest-reviews
+
+				+e.bullet-list
+					+bullet-list({
+						title: "Правила",
+						items: [
+							"Нельзя с питомцами",
+							"Без вечеринок и мероприятий",
+							"Время прибытия — после 13:00, а выезд до 12:00"
+						]
+					})._title-size_l
+
+				+e.room-cancel
+					+room-cancel
+
+			+e.booking-card
+				+booking-card

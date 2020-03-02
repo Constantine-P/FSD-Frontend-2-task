@@ -1,0 +1,75 @@
+include ../../../../node_modules/bemto.pug/bemto
+include ../../../blocks/page-header/page-header
+include ../../../blocks/page-footer/page-footer
+-
+  const headerMenu = [
+    { name: "О нас", href: "mock.html" },
+    { name: "Услуги", href: "mock.html",
+      dropdown: [
+        { name: "Раз", href: "mock.html" },
+        { name: "Два", href: "mock.html" },
+      ]
+    },
+    { name: "Вакансии", href: "mock.html" },
+    { name: "Новости", href: "mock.html" },
+    { name: "Соглашения", href: "mock.html",
+    dropdown: [
+        { name: "Раз", href: "mock.html" },
+        { name: "Два", href: "mock.html" },
+      ]
+    },
+  ];
+  const auth = {
+    isLoggedIn: false,
+    name: 'Cosmin Negoita',
+    login: { name: "войти", href: "sign-in.html" },
+    register: { name: "зарегистрироваться", href: "registration.html" },
+  }
+  const footerMenu = [
+  {
+  title: "Навигация",
+  list: [
+  {name: "О нас", href: "mock.html"},
+  {name: "Новости", href: "mock.html"},
+  {name: "Служба поддержки", href: "mock.html"},
+  {name: "Услуги", href: "mock.html"},
+  ]
+  },
+  {
+  title: "О нас",
+  list: [
+  {name: "О сервисе", href: "mock.html"},
+  {name: "Наша команда", href: "mock.html"},
+  {name: "Вакансии", href: "mock.html"},
+  {name: "Инвесторы", href: "mock.html"}]
+  },
+  {
+  title: "Служба поддержки",
+  list: [
+  {name: "Соглашения ", href: "mock.html"},
+  {name: "Сообщества", href: "mock.html"},
+  {name: "Связь с нами", href: "mock.html"}
+  ]
+  }
+  ];
+
+doctype html
+html
+  head
+    meta(charset = 'utf-8')
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+    title
+      block title
+  body
+    +b.page-wrapper
+      +page-header({menu: headerMenu, auth})
+      block main
+      +page-footer({
+        menu: footerMenu,
+        subscription: {
+          title: "Подписка",
+          placeholder: "Email",
+          description: "Получайте специальные предложения и новости сервиса",
+        },
+        copyright: "Copyright © 2018 Toxin отель. Все права зачищены.",
+      })

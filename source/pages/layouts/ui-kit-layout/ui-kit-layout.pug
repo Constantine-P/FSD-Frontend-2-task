@@ -1,0 +1,14 @@
+include ../../../../node_modules/bemto.pug/bemto
+
+doctype html
+html
+  head
+    meta(charset = 'utf-8')
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+    title
+      block title
+  body
+    +b.page-wrapper
+      +e.logo
+        +kit-logo
+      block main

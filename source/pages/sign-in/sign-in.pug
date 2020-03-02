@@ -1,14 +1,9 @@
-extends ../base.pug
+extends ../layouts/base-layout/base-layout
+include ../../blocks/sign-in-card/sign-in-card
 
 block title
-	| Toxin
+  | Sign in
 block main
-
-	include ../../blocks/page-header/page-header
-	include ../../blocks/page-footer/page-footer
-	include ../../blocks/sign-in-main/sign-in-main
-
-	+b.page-inner
-		+page-header
-		+sign-in-main
-		+page-footer
+  +b("main").sign-in
+    +e.card
+      +sign-in-card

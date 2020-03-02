@@ -1,30 +1,19 @@
-@import "../../../node_modules/normalize-styl/index.styl"
-@import "../../styles/*"
-@import "../../blocks/*"
-@import "../../resources/Montserrat/stylesheet.css"
-@import "../../resources/Quicksand/stylesheet.css"
+.sign-in
+  flex 1 0 auto
+  display flex
+  justify-content center
+  align-items center
+  background-image url('../registration/images/register-bg.png')
+  background-position-y -70px
+  background-size cover
+  background-repeat no-repeat
 
-html
-  font-size 1px
+  @media (max-width 1000px)
+    background-position-y 0
 
-  @media only screen and (max-width 400px)
-    font-size 0.8px
+  &__card
+    padding 30rem
 
-body
-  background-color main-color
-  color main-text-color
-  margin 0
-  padding 0
-  font 14rem Montserrat
-
-.page-inner
-  max-width 1440px
-  width 100%
-  margin auto
-
-div, input
-  box-sizing border-box
-
-p
-  margin 0
-  padding 0
+    @media (max-width 400px)
+      width 330rem
+      padding 30rem 0 25rem 0
