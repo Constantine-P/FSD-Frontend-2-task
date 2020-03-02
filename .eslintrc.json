@@ -1,0 +1,30 @@
+{
+  "env": {
+    "browser": true,
+    "jest": true,
+    "es6": true,
+    "es2017": true
+  },
+  "extends": [
+    "airbnb-typescript/base",
+    "eslint-config-airbnb/base",
+    "plugin:eslint-comments/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "tsconfig.json",
+    "tsconfigRootDir": "."
+  },
+  "plugins": ["@typescript-eslint"],
+  "rules": {
+    "no-underscore-dangle": "off",
+    "no-param-reassign": "off",
+    "eslint-comments/no-unlimited-disable": "off",
+    "eslint-comments/disable-enable-pair": "off",
+    "no-new": "off",
+    "no-undef": "off",
+    "no-console": "off",
+    "import/extensions": "off",
+    "@typescript-eslint/ban-ts-ignore": "off"
+  }
+}

@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const merge = require('webpack-merge');
@@ -6,7 +8,7 @@ const devServer = require('./webpack/devserver');
 const stylus = require('./webpack/stylus');
 const images = require('./webpack/images');
 const fonts = require('./webpack/fonts');
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const fs = require('fs');
 const webpack = require('webpack');
@@ -20,11 +22,6 @@ const PAGES_DIR = path.resolve(__dirname, 'source/pages');
 const PAGES = fs.readdirSync(PAGES_DIR);
 const common = merge([
   {
-    resolve: {
-      alias: {
-        blocks: path.resolve(__dirname, 'source/blocks'),
-      },
-    },
     entry: {
       main: './source/index.js',
     },
@@ -53,7 +50,7 @@ const common = merge([
           template: `${PAGES_DIR}/${page}/${page}.pug`,
         })),
       new FaviconsWebpackPlugin({
-        logo: path.join(__dirname, 'source/resources/favicons/favicon.svg'),
+        logo: path.join(PATHS.source, 'resources/favicons/favicon.svg'),
         mode: 'webapp',
         devMode: 'webapp',
         favicons: {
