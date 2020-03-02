@@ -40,7 +40,7 @@ const common = merge([
     },
     plugins: [
       new MiniCssExtractPlugin({
-        filename: '[contenthash].css',
+        filename: 'styles.css',
         chunkFilename: '[id].css',
       }),
       ...PAGES
