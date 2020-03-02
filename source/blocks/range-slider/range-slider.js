@@ -1,7 +1,7 @@
 import 'jquery-ui-slider/jquery-ui';
 
 ($(document).ready(() => {
-  $('.range-slider__slider').each(function f() {
+  $('.js-slider').each(function f() {
     const min = Number($(this).attr('data-min'));
     const max = Number($(this).attr('data-max'));
     const startValue = Number($(this).attr('data-start-value'));
@@ -13,7 +13,7 @@ import 'jquery-ui-slider/jquery-ui';
     }
 
     function setHintText(elem, values) {
-      const rangeSlider = $(elem).closest('.range-slider');
+      const rangeSlider = $(elem).closest('.js-range-slider');
       const hint = rangeSlider.find('.js-range-slider__hint');
       const hintText = `${getPriceFormat(values[0])}₽ - ${getPriceFormat(values[1])}₽`;
       hint.html(hintText);
