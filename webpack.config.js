@@ -25,11 +25,6 @@ const common = merge([
     entry: {
       main: './source/index.js',
     },
-    output: {
-      path: PATHS.dist,
-      filename: 'js/[name].js',
-      publicPath: ''
-    },
     module: {
       rules: [
         {
@@ -83,6 +78,13 @@ module.exports = function (env) {
     return merge([
       common,
       stylus(),
+      {
+        output: {
+          path: PATHS.dist,
+          filename: 'js/[name].js',
+          publicPath: '',
+        },
+      }
     ]);
   }
   if (env === 'development') {
@@ -90,6 +92,12 @@ module.exports = function (env) {
       common,
       devServer(),
       stylus(),
+      {
+        output: {
+          path: PATHS.dist,
+          filename: 'js/[name].js',
+        },
+      },
     ]);
   }
 };
