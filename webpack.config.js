@@ -28,6 +28,7 @@ const common = merge([
     output: {
       path: PATHS.dist,
       filename: 'js/[name].js',
+      publicPath: ''
     },
     module: {
       rules: [
@@ -50,7 +51,7 @@ const common = merge([
           template: `${PAGES_DIR}/${page}/${page}.pug`,
         })),
       new FaviconsWebpackPlugin({
-        logo: path.join(PATHS.source, 'resources/favicons/favicon.svg'),
+        logo: path.join(PATHS.source, './resources/favicons/favicon.svg'),
         mode: 'webapp',
         devMode: 'webapp',
         favicons: {
