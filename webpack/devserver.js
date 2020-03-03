@@ -3,6 +3,6 @@ module.exports = function () {
     devServer: {
       port: 9004,
       overlay: true,
-    }
-  }
+    },
+  };
 };

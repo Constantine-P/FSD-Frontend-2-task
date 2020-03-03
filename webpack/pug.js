@@ -5,8 +5,8 @@ module.exports = function () {
         {
           test: /\.pug$/,
           loader: ['html-loader', 'pug-html-loader'],
-        }
-      ]
-    }
-  }
+        },
+      ],
+    },
+  };
 };
