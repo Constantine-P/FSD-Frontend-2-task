@@ -237,7 +237,16 @@ block main
 
       +e.cell-7
         +e.price-range-slider
-          +range-slider({title: "range slider", description: "", min: 0, max: 15700, step: 1, startValue: 5000, endValue: 10000 })
+          +range-slider({
+            title: "range slider",
+            description: "",
+            min: 0,
+            max: 15700,
+            step: 1,
+            startValue: 5000,
+            endValue: 10000,
+            currency: "₽",
+          })
 
         +e.buttons
           +e("h3").buttons-title Buttons

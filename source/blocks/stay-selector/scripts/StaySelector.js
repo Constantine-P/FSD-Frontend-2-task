@@ -10,10 +10,10 @@ class StaySelector {
   }
 
   init() {
-    this.departureInput = this.staySelector.get(0).querySelector('.js-departure-day');
+    this.departureInput = this.staySelector.querySelector('.js-departure-day');
     if (this.departureInput) {
-      this.arrivalInput = this.staySelector.get(0).querySelector('.js-arrival-day');
-      this.datepicker = this.staySelector.find('.js-arrival-day').datepicker({
+      this.arrivalInput = this.staySelector.querySelector('.js-arrival-day');
+      this.datepicker = $(this.arrivalInput).datepicker({
         navTitles: { days: 'MM yyyy' },
         startDate: new Date(2019, 7, 8),
         clearButton: true,
@@ -21,8 +21,8 @@ class StaySelector {
         onSelect: this.onDateSelect.bind(this),
       }).data('datepicker');
     } else {
-      this.arrivalInput = this.staySelector.get(0).querySelector('.js-stay-dates');
-      this.datepicker = this.staySelector.find('.js-stay-dates').datepicker({
+      this.arrivalInput = this.staySelector.querySelector('.js-stay-dates');
+      this.datepicker = $(this.staySelector.querySelector('.js-stay-dates')).datepicker({
         navTitles: { days: 'MM yyyy' },
         startDate: new Date(2019, 7, 8),
         dateFormat: 'd M',
@@ -45,14 +45,14 @@ class StaySelector {
     }
   }
 
-  departureInputFocusHandler(e) {
-    e.preventDefault();
-    this.datepicker.show();
-  }
-
   addHandlers() {
+    const departureInputFocusHandler = (e) => {
+      e.preventDefault();
+      this.datepicker.show();
+    };
+
     if (this.departureInput) {
-      this.departureInput.addEventListener('click', this.departureInputFocusHandler.bind(this));
+      this.departureInput.addEventListener('click', departureInputFocusHandler);
     }
   }
 

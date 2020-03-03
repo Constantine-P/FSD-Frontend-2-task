@@ -1,7 +1,3 @@
 import StaySelector from './scripts/StaySelector';
 
-($(document).ready(() => {
-  $('.js-stay-selector').each(function f() {
-    new StaySelector($(this));
-  });
-}));
+document.querySelectorAll('.js-stay-selector').forEach((item) => new StaySelector(item));
