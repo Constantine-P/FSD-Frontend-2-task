@@ -7,7 +7,7 @@ module.exports = function () {
         {
           test: /\.(woff(2)?|ttf|eot|svg)$/,
           include: [
-            path.join(__dirname, '..', 'source', 'fonts'),
+            path.join(__dirname, '..', 'source/resources', 'fonts'),
           ],
           use: {
             loader: 'file-loader',
