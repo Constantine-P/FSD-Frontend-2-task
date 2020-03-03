@@ -9,7 +9,7 @@ const stylus = require('./webpack/stylus');
 const images = require('./webpack/images');
 const fonts = require('./webpack/fonts');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const AppManifestWebpackPlugin = require('app-manifest-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const fs = require('fs');
 const webpack = require('webpack');
 
@@ -24,6 +24,10 @@ const common = merge([
   {
     entry: {
       main: './source/index.js',
+    },
+    output: {
+      path: PATHS.dist,
+      filename: 'js/[name].js',
     },
     module: {
       rules: [
@@ -49,39 +53,13 @@ const common = merge([
         $: 'jquery',
         jQuery: 'jquery',
       }),
-      new AppManifestWebpackPlugin({
-        logo: path.join(PATHS.source, './resources/favicons/favicon.svg'),
-        prefix: '.',
-        output: '/',
-        emitStats: false,
-        statsFilename: 'iconstats.json',
-        statsEncodeHtml: false,
-        persistentCache: true,
-        inject: true,
-        config: {
-          appName: 'Webpack App',
-          appDescription: null,
-          developerName: null,
-          developerURL: null,
-          background: '#fff',
-          theme_color: '#fff',
-          display: 'standalone',
-          orientation: 'portrait',
-          start_url: '/?homescreen=1',
-          version: '1.0',
-          logging: false,
-          icons: {
-            android: true,
-            appleIcon: true,
-            appleStartup: true,
-            coast: { offset: 25 },
-            favicons: true,
-            firefox: true,
-            windows: true,
-            yandex: true,
-          },
-        }
-      })
+      new CopyWebpackPlugin([
+        {
+          from: path.join(PATHS.source, 'resources/favicons/**/*.*'),
+          to: path.join(PATHS.dist, 'assets/favicons/'),
+          flatten: true,
+        },
+      ]),
     ],
   },
   pug(),
@@ -94,13 +72,6 @@ module.exports = function (env) {
     return merge([
       common,
       stylus(),
-      {
-        output: {
-          path: PATHS.dist,
-          filename: 'js/[name].js',
-          publicPath: '',
-        },
-      }
     ]);
   }
   if (env === 'development') {
@@ -108,12 +79,6 @@ module.exports = function (env) {
       common,
       devServer(),
       stylus(),
-      {
-        output: {
-          path: PATHS.dist,
-          filename: 'js/[name].js',
-        },
-      },
     ]);
   }
 };

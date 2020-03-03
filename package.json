@@ -14,6 +14,7 @@
     "@typescript-eslint/parser": "^2.20.0",
     "app-manifest-webpack-plugin": "^1.2.0",
     "bemto.pug": "^2.1.0",
+    "copy-webpack-plugin": "^5.1.1",
     "css-loader": "^2.1.0",
     "eslint": "^6.8.0",
     "eslint-config-airbnb-typescript": "^7.0.0",
