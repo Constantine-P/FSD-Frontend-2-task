@@ -1119,7 +1119,7 @@
 .like-button__heart {
   width: 10rem;
   height: 8rem;
-  background-image: url(assets/images/favorite_border.svg);
+  background-image: url(assets/images/favorite-border.svg);
 }
 .like-button__input:checked ~ .like-button__value {
   display: none;
@@ -2934,7 +2934,7 @@ body .hidden {
   width: 100%;
   height: 1px;
   flex: 1 0 auto;
-  background-image: url("assets/images/landing-page-bg 3.png");
+  background-image: url(assets/images/landing-page-bg.png);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: bottom;
@@ -3145,39 +3145,40 @@ body .hidden {
 @font-face {
   font-family: 'Montserrat';
   src: url(assets/fonts/montserrat-regular.eot);
-  src: url(assets/fonts/montserrat-regular.woff) format('woff'), url(assets/fonts/montserrat-regular.woff2) format('woff2'), url(assets/fonts/montserrat-regular.ttf) format('truetype'), url(assets/images/montserrat-regular.svg) format('svg');
+  src: url(assets/fonts/montserrat-regular.woff) format('woff'), url(assets/fonts/montserrat-regular.woff2) format('woff2'), url(assets/fonts/montserrat-regular.ttf) format('truetype'), url(assets/fonts/montserrat-regular.svg) format('svg');
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: 'Montserrat';
   src: url(assets/fonts/montserrat-bold.eot);
-  src: url(assets/fonts/montserrat-bold.woff) format('woff'), url(assets/fonts/montserrat-bold.woff2) format('woff2'), url(assets/fonts/montserrat-bold.ttf) format('truetype'), url(assets/images/montserrat-bold.svg) format('svg');
-  font-weight: bold;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'Quicksand';
-  src: url(assets/fonts/quicksand-bold.woff) format('woff'), url(assets/fonts/quicksand-bold.ttf) format('truetype'), url(assets/images/quicksand-bold.svg) format('svg');
+  src: url(assets/fonts/montserrat-bold.woff) format('woff'), url(assets/fonts/montserrat-bold.woff2) format('woff2'), url(assets/fonts/montserrat-bold.ttf) format('truetype'), url(assets/fonts/montserrat-bold.svg) format('svg');
   font-weight: bold;
   font-style: normal;
 }
 @font-face {
   font-family: 'Quicksand';
   src: url(assets/fonts/quicksand-regular.eot);
-  src: url(assets/fonts/quicksand-regular.woff) format('woff'), url(assets/fonts/quicksand-regular.ttf) format('truetype'), url(assets/images/quicksand-regular.svg) format('svg');
+  src: url(assets/fonts/quicksand-bold.ttf) format('truetype'), url(assets/fonts/quicksand-bold.svg) format('svg'), url(assets/fonts/quicksand-bold.woff) format('woff');
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Quicksand';
+  src: url(assets/fonts/quicksand-regular.eot);
+  src: url(assets/fonts/quicksand-regular.woff) format('woff'), url(assets/fonts/quicksand-regular.ttf) format('truetype'), url(assets/fonts/quicksand-regular.svg) format('svg');
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: 'OpenSans';
-  src: url(assets/images/open-sans-regular.svg) format('svg'), url(assets/fonts/open-sans-regular.ttf) format('truetype'), url(assets/fonts/open-sans-regular.woff) format('woff'), url(assets/fonts/open-sans-regular.woff2) format('woff2'), url(assets/fonts/open-sans-regular.eot) format('embedded-opentype');
+  src: url(assets/fonts/open-sans-regular.svg) format('svg'), url(assets/fonts/open-sans-regular.ttf) format('truetype'), url(assets/fonts/open-sans-regular.woff) format('woff'), url(assets/fonts/open-sans-regular.woff2) format('woff2'), url(assets/fonts/open-sans-regular.eot) format('embedded-opentype');
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: 'OpenSans';
-  src: url(assets/images/open-sans-bold.svg) format('svg'), url(assets/fonts/open-sans-bold.ttf) format('truetype'), url(assets/fonts/open-sans-bold.eot) format('embedded-opentype'), url(assets/fonts/open-sans-bold.woff) format('woff'), url(assets/fonts/open-sans-bold.woff2) format('woff2');
+  src: url(assets/fonts/open-sans-bold.svg) format('svg'), url(assets/fonts/open-sans-bold.ttf) format('truetype'), url(assets/fonts/open-sans-bold.eot) format('embedded-opentype'), url(assets/fonts/open-sans-bold.woff) format('woff'), url(assets/fonts/open-sans-bold.woff2) format('woff2');
   font-weight: bold;
   font-style: normal;
 }
