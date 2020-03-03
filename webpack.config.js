@@ -9,7 +9,7 @@ const stylus = require('./webpack/stylus');
 const images = require('./webpack/images');
 const fonts = require('./webpack/fonts');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
+const AppManifestWebpackPlugin = require('app-manifest-webpack-plugin');
 const fs = require('fs');
 const webpack = require('webpack');
 
@@ -45,27 +45,43 @@ const common = merge([
           filename: `${page}.html`,
           template: `${PAGES_DIR}/${page}/${page}.pug`,
         })),
-      new FaviconsWebpackPlugin({
-        logo: path.join(PATHS.source, './resources/favicons/favicon.svg'),
-        mode: 'webapp',
-        devMode: 'webapp',
-        favicons: {
-          appName: '',
-          appDescription: '',
-          developerName: 'Constantin P.',
-          developerURL: null,
-          background: '#ddd',
-          theme_color: '#333',
-          icons: {
-            coast: false,
-            yandex: false,
-          },
-        },
-      }),
       new webpack.ProvidePlugin({
         $: 'jquery',
         jQuery: 'jquery',
       }),
+      new AppManifestWebpackPlugin({
+        logo: path.join(PATHS.source, './resources/favicons/favicon.svg'),
+        prefix: 'assets/',
+        output: 'assets/',
+        emitStats: false,
+        statsFilename: 'iconstats.json',
+        statsEncodeHtml: false,
+        persistentCache: true,
+        inject: true,
+        config: {
+          appName: 'Webpack App',
+          appDescription: null,
+          developerName: null,
+          developerURL: null,
+          background: '#fff',
+          theme_color: '#fff',
+          display: 'standalone',
+          orientation: 'portrait',
+          start_url: '/?homescreen=1',
+          version: '1.0',
+          logging: false,
+          icons: {
+            android: true,
+            appleIcon: true,
+            appleStartup: true,
+            coast: { offset: 25 },
+            favicons: true,
+            firefox: true,
+            windows: true,
+            yandex: true,
+          },
+        }
+      })
     ],
   },
   pug(),
