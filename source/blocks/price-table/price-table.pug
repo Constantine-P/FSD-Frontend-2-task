@@ -5,7 +5,7 @@ mixin price-table(params)
 		const wordForm = (price.toString().slice(0, -1) === "1") ? "сутки" : "суток";
 		const priceCalc = `${format(price)}${currency} x ${period} ${wordForm}`;
 		function format(x) {
-		return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+			return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
 		}
 
 	+b.price-table

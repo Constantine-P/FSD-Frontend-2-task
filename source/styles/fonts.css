@@ -24,10 +24,11 @@
 
 @font-face {
   font-family: 'Quicksand';
+  src: url('../resources/fonts/quicksand/quicksand-regular.eot');
   src:
-    url('../resources/fonts/quicksand/quicksand-bold.woff') format('woff'),
     url('../resources/fonts/quicksand/quicksand-bold.ttf') format('truetype'),
-    url('../resources/fonts/quicksand/quicksand-bold.svg') format('svg');
+    url('../resources/fonts/quicksand/quicksand-bold.svg') format('svg'),
+    url('../resources/fonts/quicksand/quicksand-bold.woff') format('woff');
   font-weight: bold;
   font-style: normal;
 }

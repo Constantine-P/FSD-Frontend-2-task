@@ -11,9 +11,13 @@ mixin range-slider(params)
 			currency = ""
 		} = params
 
+		function format(x) {
+			return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+		}
+
 	+b.range-slider.js-range-slider
 		+e('h3').title= title
-		+e.hint.js-hint= `${startValue}${currency} - ${endValue}${currency}`
+		+e.hint.js-hint= `${format(startValue)}${currency} - ${format(endValue)}${currency}`
 		+e.slider.js-slider-container(
 			data-min= min,
 			data-max= max,
