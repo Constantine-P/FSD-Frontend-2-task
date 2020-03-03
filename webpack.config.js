@@ -51,8 +51,8 @@ const common = merge([
       }),
       new AppManifestWebpackPlugin({
         logo: path.join(PATHS.source, './resources/favicons/favicon.svg'),
-        prefix: 'assets/',
-        output: 'assets/',
+        prefix: '.',
+        output: '/',
         emitStats: false,
         statsFilename: 'iconstats.json',
         statsEncodeHtml: false,

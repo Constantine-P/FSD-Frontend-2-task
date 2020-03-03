@@ -7,7 +7,7 @@ module.exports = function () {
         {
           test: /\.(png|jpg|jpeg|svg|gif)$/,
           exclude: [
-            path.resolve(__dirname, '../source/fonts'),
+            path.resolve(__dirname, '../source/resources/fonts'),
           ],
           use: {
             loader: 'file-loader',
