@@ -2934,7 +2934,7 @@ body .hidden {
   width: 100%;
   height: 1px;
   flex: 1 0 auto;
-  background-image: url(assets/images/landing-page-bg.png);
+  background-image: url(assets/images/landing-page-bg.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: bottom;
@@ -3007,7 +3007,7 @@ body .hidden {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url(assets/images/register-bg.png);
+  background-image: url(assets/images/register-bg.jpg);
   background-position-y: -70px;
   background-size: cover;
   background-repeat: no-repeat;
@@ -3121,7 +3121,7 @@ body .hidden {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url(assets/images/register-bg.png);
+  background-image: url(assets/images/register-bg.jpg);
   background-position-y: -70px;
   background-size: cover;
   background-repeat: no-repeat;
