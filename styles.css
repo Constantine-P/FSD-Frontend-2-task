@@ -2901,7 +2901,10 @@
 
 html {
   font-size: 1px;
+  font-family: Montserrat, OpenSans, sans-serif;
   height: 100%;
+  background-color: #fff;
+  color: rgba(31,32,65,0.75);
 }
 @media (max-width: 400px) {
   html {
@@ -2909,11 +2912,9 @@ html {
   }
 }
 body {
-  background-color: #fff;
-  color: rgba(31,32,65,0.75);
   margin: 0;
   padding: 0;
-  font: 14rem Montserrat, OpenSans, sans-serif;
+  font-size: 14rem;
   height: 100%;
 }
 body .page-wrapper {
@@ -2974,7 +2975,10 @@ body .hidden {
 
 html {
   font-size: 1px;
+  font-family: Montserrat, OpenSans, sans-serif;
   height: 100%;
+  background-color: #fff;
+  color: rgba(31,32,65,0.75);
 }
 @media (max-width: 400px) {
   html {
@@ -2982,11 +2986,9 @@ html {
   }
 }
 body {
-  background-color: #fff;
-  color: rgba(31,32,65,0.75);
   margin: 0;
   padding: 0;
-  font: 14rem Montserrat, OpenSans, sans-serif;
+  font-size: 14rem;
   height: 100%;
 }
 body .page-wrapper {
