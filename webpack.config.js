@@ -1,7 +1,7 @@
 /* eslint-disable */
 
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const fs = require('fs');
 const merge = require('webpack-merge');
 const pug = require('./webpack/pug');
 const devServer = require('./webpack/devserver');
@@ -10,7 +10,8 @@ const images = require('./webpack/images');
 const fonts = require('./webpack/fonts');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const fs = require('fs');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const webpack = require('webpack');
 
 const PATHS = {
@@ -39,6 +40,7 @@ const common = merge([
       ],
     },
     plugins: [
+      new CleanWebpackPlugin(),
       new MiniCssExtractPlugin({
         filename: 'styles.css',
         chunkFilename: '[id].css',
