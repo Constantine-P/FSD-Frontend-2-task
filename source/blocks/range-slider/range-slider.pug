@@ -16,7 +16,7 @@ mixin range-slider(params)
 		}
 
 	+b.range-slider.js-range-slider
-		+e('h3').title= title
+		+e("h3").title= title
 		+e.hint.js-hint= `${format(startValue)}${currency} - ${format(endValue)}${currency}`
 		+e.slider.js-slider-container(
 			data-min= min,

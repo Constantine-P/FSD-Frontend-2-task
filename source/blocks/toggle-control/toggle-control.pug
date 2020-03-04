@@ -1,5 +1,5 @@
 mixin toggle-control(toggle)
 	- const { name = "", label = "", checked = false} = toggle
-	+b('label').toggle-control&attributes(attributes)
+	+b("label").toggle-control&attributes(attributes)
 		+e("input").input(type = "checkbox" name = name checked = checked)
 		+e.label= label

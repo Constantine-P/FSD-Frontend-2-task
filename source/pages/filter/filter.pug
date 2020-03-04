@@ -7,8 +7,8 @@ block title
 block main
   +b("main").filter
     +e.options
-      +e('input').toggle(type = "checkbox" id = "filter-toggle")
-      +e('label')(for = "filter-toggle").toggle-label Фильтр
+      +e("input").toggle(type = "checkbox" id = "filter-toggle")
+      +e("label")(for = "filter-toggle").toggle-label Фильтр
       +e.list
         +filter-list
     +e.results
