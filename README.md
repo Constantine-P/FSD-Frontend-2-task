@@ -17,6 +17,17 @@ npm start
 npm run build
 ```
 
+## Third-party plugins
+
+[air-datepicker](https://github.com/t1m0n/air-datepicker)
+
+[jquery](https://api.jquery.com/)
+
+[jquery-ui-slider](https://api.jqueryui.com/1.12/slider)
+
+[jquery.maskedinput](https://github.com/digitalBush/jquery.maskedinput)
+
+
 ## UI-Kit pages
 
 [Colors & Type](https://constantine-p.github.io/FSD-Frontend-2-task/colors-type.html)
