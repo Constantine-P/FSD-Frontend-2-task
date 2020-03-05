@@ -7,6 +7,11 @@ FSD задание номер 2 - вёрстка
 git clone https://github.com/Constantine-P/FSD-Frontend-2-task.git
 ```
 
+## Installation
+``` 
+npm i
+```
+
 ## Run development server
 ``` 
 npm start
