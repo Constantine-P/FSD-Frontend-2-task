@@ -2316,6 +2316,7 @@
 }
 
 .text-field {
+  display: block;
   position: relative;
   max-width: 400rem;
   width: 100%;
