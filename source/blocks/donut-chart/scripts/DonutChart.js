@@ -17,7 +17,7 @@ class DonutChart {
 
   addHandlers() {
     const [textNumber, textWord] = this.container.querySelectorAll('text');
-    const partMouseOverHandler = (e) => {
+    const handlePartMouseOver = (e) => {
       [textNumber.innerHTML, textWord.innerHTML] = e.target.dataset.hoverText.split(' ');
       textNumber.classList.remove(textNumber.classList[0]);
       textWord.classList.remove(textWord.classList[0]);
@@ -25,10 +25,10 @@ class DonutChart {
       textWord.classList.add(`${e.target.dataset.class}-word`);
     };
     this.donut.querySelectorAll('path').forEach((item) => {
-      item.addEventListener('mouseover', partMouseOverHandler);
+      item.addEventListener('mouseover', handlePartMouseOver);
     });
 
-    const dotMouseOverHandler = (e) => {
+    const handleDotMouseOver = (e) => {
       this.donut.querySelectorAll('path').forEach((arc) => {
         if (arc.dataset.name === e.target.dataset.name) {
           arc.dispatchEvent(new Event('mouseover'));
@@ -36,7 +36,7 @@ class DonutChart {
       });
     };
 
-    const dotMouseOutHandler = (e) => {
+    const handleDotMouseOut = (e) => {
       this.donut.querySelectorAll('path').forEach((arc) => {
         if (arc.dataset.name === e.target.dataset.name) {
           arc.dispatchEvent(new Event('mouseout'));
@@ -45,13 +45,13 @@ class DonutChart {
     };
 
     this.legend.querySelectorAll('circle').forEach((item) => {
-      item.addEventListener('mouseover', dotMouseOverHandler);
-      item.addEventListener('mouseout', dotMouseOutHandler);
+      item.addEventListener('mouseover', handleDotMouseOver);
+      item.addEventListener('mouseout', handleDotMouseOut);
     });
 
     this.legend.querySelectorAll('text').forEach((item) => {
-      item.addEventListener('mouseover', dotMouseOverHandler);
-      item.addEventListener('mouseout', dotMouseOutHandler);
+      item.addEventListener('mouseover', handleDotMouseOver);
+      item.addEventListener('mouseout', handleDotMouseOut);
     });
   }
 

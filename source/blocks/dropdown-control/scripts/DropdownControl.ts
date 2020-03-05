@@ -75,25 +75,25 @@ class DropdownControl {
     } = this.elements;
 
     positions.forEach((item: Position, i) => {
-      const minusClickHandler = (): void => {
+      const handleMinusClick = (): void => {
         this.model[i].quantity -= (this.model[i].quantity >= 1) ? 1 : 0;
         this.updateElements();
       };
-      const plusClickHandler = (): void => {
+      const handlePlusClick = (): void => {
         this.model[i].quantity += 1;
         this.updateElements();
       };
-      item.minus.addEventListener('click', minusClickHandler);
-      item.plus.addEventListener('click', plusClickHandler);
+      item.minus.addEventListener('click', handleMinusClick);
+      item.plus.addEventListener('click', handlePlusClick);
     });
 
-    const contentFocusHandler = (): void => {
+    const handleContentFocus = (): void => {
       menu.classList.remove('dropdown-control__menu_hidden');
       content.classList.add('dropdown-control__content_active');
     };
-    content.addEventListener('focus', contentFocusHandler);
+    content.addEventListener('focus', handleContentFocus);
 
-    const windowClickHandler = (e): void => {
+    const handleWindowClick = (e): void => {
       const shouldApply = !(
         content.contains(e.target)
         || menu.contains(e.target)
@@ -125,7 +125,7 @@ class DropdownControl {
       }
     };
 
-    window.addEventListener('click', windowClickHandler);
+    window.addEventListener('click', handleWindowClick);
   }
 
   private parseContent(): string {

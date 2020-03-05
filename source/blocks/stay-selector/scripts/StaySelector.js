@@ -46,13 +46,13 @@ class StaySelector {
   }
 
   addHandlers() {
-    const departureInputFocusHandler = (e) => {
+    const handleDepartureInputFocus = (e) => {
       e.preventDefault();
       this.datepicker.show();
     };
 
     if (this.departureInput) {
-      this.departureInput.addEventListener('click', departureInputFocusHandler);
+      this.departureInput.addEventListener('click', handleDepartureInputFocus);
     }
   }
 
@@ -61,8 +61,8 @@ class StaySelector {
     btnApply.textContent = 'Применить';
     btnApply.classList.add('datepicker--button-apply');
     this.buttons.append(btnApply);
-    const clickHandler = () => this.datepicker.hide();
-    btnApply.addEventListener('click', clickHandler);
+    const handleClick = () => this.datepicker.hide();
+    btnApply.addEventListener('click', handleClick);
   }
 
   selectDates() {

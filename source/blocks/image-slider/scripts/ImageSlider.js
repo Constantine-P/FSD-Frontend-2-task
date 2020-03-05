@@ -32,7 +32,7 @@ class ImageSlider {
   }
 
   addHandlers() {
-    const clickHandler = (e) => {
+    const handleClick = (e) => {
       if (e.target === this.arrowBack) {
         this.index = (this.index < 1) ? this.images.length - 1 : this.index - 1;
         this.moveImage();
@@ -44,7 +44,7 @@ class ImageSlider {
         this.moveImage();
       }
     };
-    this.slider.addEventListener('click', clickHandler);
+    this.slider.addEventListener('click', handleClick);
   }
 
   moveImage() {
