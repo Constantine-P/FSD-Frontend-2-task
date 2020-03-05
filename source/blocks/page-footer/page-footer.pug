@@ -12,7 +12,14 @@ mixin page-footer(params)
 				description: "Получайте специальные предложения и новости сервиса",
 				placeholder: "Email"
 			},
-		copyright = "Copyright © 2018 Toxin отель. Все права зачищены.",
+			socials = [
+				{
+					logoSrc: "",
+					logoAlt: "social-net",
+					href: "mock.html",
+				},
+			],
+			copyright = "Copyright © 2018 Toxin отель. Все права зачищены.",
 		} = params;
 
 	+b("footer").page-footer&attributes(attributes)
@@ -31,9 +38,7 @@ mixin page-footer(params)
 		+e.bottom
 			+e("p").copyright= copyright
 			+e.socials
-				+e("a")(href="mock.html" target="_blank", rel="noopener noreferrer").social-link
-					img(src="../../blocks/page-footer/images/twitter.svg" alt="twitter")
-				+e("a")(href="mock.html" target="_blank", rel="noopener noreferrer").social-link
-					img(src="../../blocks/page-footer/images/facebook.svg" alt="facebook")
-				+e("a")(href="mock.html" target="_blank", rel="noopener noreferrer").social-link
-					img(src="../../blocks/page-footer/images/instagram.svg" alt="instagram")
+				each net in socials
+					- const { logoSrc, logoAlt, href } = net
+					+e("a")(href = href target="_blank", rel = "noopener noreferrer").social-link
+						img(src = logoSrc alt = logoAlt)
