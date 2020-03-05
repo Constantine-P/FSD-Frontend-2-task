@@ -1,7 +1,7 @@
 include ../text-field/text-field
 include ../toggle-control/toggle-control
 include ../button/button
-include ../../blocks/radio/radio
+include ../radio-control/radio-control
 
 mixin registration-card
   +b("form").registration-card(name = "registration-card" method = "GET" action = "https://echo.htmlacademy.ru" enctype = "text/plain")
@@ -13,9 +13,9 @@ mixin registration-card
         +text-field({name: "surname", form: "registration-card", placeholder: "Фамилия"})
       +e.sex-buttons
         +e.sex-button
-          +radio({text: "Мужчина", name: "radio-buttons", checked: true})
+          +radio-control({text: "Мужчина", name: "sex", value: "man", checked: true})
         +e.sex-button
-          +radio({text: "Женщина", name: "radio-buttons", checked: false})
+          +radio-control({text: "Женщина", name: "sex", value: "woman", checked: false})
       +e.date-of-birth
         +text-field({
           title: "Дата рождения", name: "date-of-birth", placeholder: "ДД.ММ.ГГГГ",

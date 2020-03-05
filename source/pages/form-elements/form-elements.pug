@@ -5,7 +5,7 @@ include ../../blocks/dropdown-control/dropdown-control
 include ../../blocks/stay-selector/stay-selector
 include ../../blocks/checkbox-list-control/checkbox-list-control
 include ../../blocks/room-info-card/room-info-card
-include ../../blocks/radio/radio
+include ../../blocks/radio-control/radio-control
 include ../../blocks/toggle-control/toggle-control
 include ../../blocks/rate-button/rate-button
 include ../../blocks/like-button/like-button
@@ -151,8 +151,8 @@ block main
         +e.radio-buttons
           +e("h3").radio-buttons-title Radio buttons
           +e.radio-buttons-content
-            +radio({text: "Мужчина", name: "radio-buttons", checked: true})
-            +radio({text: "Женщина", name: "radio-buttons", checked: false})
+            +radio-control({text: "Мужчина", name: "radio-buttons", checked: true})
+            +radio-control({text: "Женщина", name: "radio-buttons", checked: false})
 
         +e.toggle-buttons
           +e("h3").toggle-buttons-title Toggle

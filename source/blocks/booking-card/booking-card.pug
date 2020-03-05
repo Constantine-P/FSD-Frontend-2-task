@@ -19,7 +19,7 @@ mixin booking-card(params)
 	+b("form")(name = "booking" method = "GET" action="https://echo.htmlacademy.ru" enctype="text/plain").booking-card
 		+e("span").room-number= `№ `
 			+e("span").number= roomNumber
-			+e("input").room-number-input.hidden(name = "room-number" value = 888)
+			+e("input").room-number-input.hidden(name = "room-number" value = roomNumber)
 			if (isLux)
 				+e("span").lux= " Люкс"
 		+e("span").price= `${format(price.price)}${price.currency}`

@@ -1,0 +1,7 @@
+mixin radio-control(params)
+  - const { text = "", name = "", value = "", checked = false } = params;
+  +b.radio-control
+    +e("label").label
+      +e("input")(type = "radio" value = value name = name checked = checked).input
+      +e("div").circle
+      +e("span").label= text

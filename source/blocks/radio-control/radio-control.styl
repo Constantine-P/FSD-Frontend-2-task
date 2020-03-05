@@ -1,18 +1,18 @@
 @import '../../styles/*.styl'
 
-.radio
+.radio-control
   display block
 
   &__input
     display none
 
-  &__input:checked ~ .radio__circle:before
+  &__input:checked ~ .radio-control__circle:before
     circle(12rem)
 
-  &__input:checked ~ .radio__label
+  &__input:checked ~ .radio-control__label
     color $dark-shade-75
 
-  .radio__label
+  .radio-control__label
     display flex
     font-size 14rem
     position relative
@@ -22,7 +22,7 @@
     &:hover
       color $dark-shade-75
 
-    .radio__circle
+    .radio-control__circle
       box-sizing border-box
       border 1rem solid $dark-shade-25
       circle(20rem)

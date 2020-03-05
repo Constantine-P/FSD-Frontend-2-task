@@ -4,5 +4,5 @@ mixin stay-selector(params)
   - if (params === undefined) params = {};
   - const {arrival = "Прибытие", departure = "Выезд", arrivalDate = "", departureDate = ""} = params;
   +b.stay-selector.js-stay-selector&attributes(attributes)
-    +text-field({title: arrival, value: arrivalDate, placeholder: "ДД.ММ.ГГГГ", hasArrow: true}).arrival-day.js-arrival-day(data-range="true" data-offset="5")
-    +text-field({title: departure, value: departureDate, placeholder: "ДД.ММ.ГГГГ", hasArrow: true}).departure-day.js-departure-day
+    +text-field({title: arrival, name: "arrival-day", value: arrivalDate, placeholder: "ДД.ММ.ГГГГ", hasArrow: true}).arrival-day.js-arrival-day(data-range="true" data-offset="5")
+    +text-field({title: departure, name: "departure-day", value: departureDate, placeholder: "ДД.ММ.ГГГГ", hasArrow: true}).departure-day.js-departure-day
