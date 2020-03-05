@@ -1773,33 +1773,33 @@
   }
 }
 
-.radio {
+.radio-control {
   display: block;
 }
-.radio__input {
+.radio-control__input {
   display: none;
 }
-.radio__input:checked ~ .radio__circle:before {
+.radio-control__input:checked ~ .radio-control__circle:before {
   width: 12rem;
   min-width: 12rem;
   height: 12rem;
   min-height: 12rem;
   border-radius: 6rem;
 }
-.radio__input:checked ~ .radio__label {
+.radio-control__input:checked ~ .radio-control__label {
   color: rgba(31,32,65,0.75);
 }
-.radio .radio__label {
+.radio-control .radio-control__label {
   display: flex;
   font-size: 14rem;
   position: relative;
   z-index: 1;
   color: rgba(31,32,65,0.5);
 }
-.radio .radio__label:hover {
+.radio-control .radio-control__label:hover {
   color: rgba(31,32,65,0.75);
 }
-.radio .radio__label .radio__circle {
+.radio-control .radio-control__label .radio-control__circle {
   box-sizing: border-box;
   border: 1rem solid rgba(31,32,65,0.25);
   width: 20rem;
@@ -1810,7 +1810,7 @@
   margin-right: 10rem;
   position: relative;
 }
-.radio .radio__label .radio__circle:before {
+.radio-control .radio-control__label .radio-control__circle:before {
   display: block;
   content: '';
   position: absolute;
