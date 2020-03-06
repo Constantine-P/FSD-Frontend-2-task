@@ -1,34 +1,30 @@
 import 'air-datepicker/dist/js/datepicker.min.js';
+import defaultOptions from './defaultOptions';
 
 class StaySelector {
-  constructor(staySelector) {
+  constructor(staySelector, options = {}) {
+    options = { ...defaultOptions, ...options };
     this.staySelector = staySelector;
-    this.init();
+    this.options = options;
+    this.init(options);
     this.addHandlers();
     this.appendButtonApply();
     this.selectDates();
   }
 
-  init() {
+  init(options) {
+    this.arrivalInput = this.staySelector.querySelector('.js-arrival-day');
     this.departureInput = this.staySelector.querySelector('.js-departure-day');
-    if (this.departureInput) {
-      this.arrivalInput = this.staySelector.querySelector('.js-arrival-day');
+    if (this.arrivalInput && this.departureInput) {
       this.datepicker = $(this.arrivalInput).datepicker({
-        navTitles: { days: 'MM yyyy' },
-        startDate: new Date(2019, 7, 8),
-        clearButton: true,
-        range: true,
+        ...options,
         onSelect: this.onDateSelect.bind(this),
       }).data('datepicker');
     } else {
       this.arrivalInput = this.staySelector.querySelector('.js-stay-dates');
       this.datepicker = $(this.staySelector.querySelector('.js-stay-dates')).datepicker({
-        navTitles: { days: 'MM yyyy' },
-        startDate: new Date(2019, 7, 8),
+        ...options,
         dateFormat: 'd M',
-        clearButton: true,
-        range: true,
-        multipleDatesSeparator: ' - ',
       }).data('datepicker');
     }
 
@@ -36,7 +32,8 @@ class StaySelector {
   }
 
   onDateSelect() {
-    let [arrivalDate, departureDate] = this.arrivalInput.value.split(',');
+    let [arrivalDate, departureDate] = this.arrivalInput.value
+      .split(this.options.multipleDatesSeparator);
     if (arrivalDate === undefined) arrivalDate = '';
     if (departureDate === undefined) departureDate = '';
     this.arrivalInput.value = arrivalDate;
@@ -57,17 +54,19 @@ class StaySelector {
   }
 
   appendButtonApply() {
-    const btnApply = document.createElement('span');
-    btnApply.textContent = 'Применить';
-    btnApply.classList.add('datepicker--button-apply');
-    this.buttons.append(btnApply);
+    const buttonApply = document.createElement('span');
+    buttonApply.textContent = 'Применить';
+    buttonApply.classList.add('datepicker--button-apply');
+    this.buttons.append(buttonApply);
     const handleClick = () => this.datepicker.hide();
-    btnApply.addEventListener('click', handleClick);
+    buttonApply.addEventListener('click', handleClick);
   }
 
   selectDates() {
-    this.datepicker.selectDate([new Date(2019, 7, 19)]);
-    this.datepicker.selectDate([new Date(2019, 7, 23)]);
+    const arrivalDate = JSON.parse(this.staySelector.dataset.arrivalDate || '""');
+    const departureDate = JSON.parse(this.staySelector.dataset.departureDate || '""');
+    if (arrivalDate) this.datepicker.selectDate(new Date(arrivalDate));
+    if (departureDate) this.datepicker.selectDate(new Date(departureDate));
   }
 }
 

@@ -4,16 +4,16 @@ mixin filter-list
 	include ../checkbox-list-control/checkbox-list-control
 	include ../range-slider/range-slider
 	include ../room-card/room-card
+	include ../stay-selector/stay-selector
 
 	+b.filter-list
 
-		+e.dates.stay-selector.js-stay-selector.stay-selector_single-input
-			+text-field({
-				title: "Даты пребывания в отеле",
-				placeholder: "ДД.ММ.ГГГГ",
-				value: "19 авг - 23 авг",
-				hasArrow: true
-			}).stay-dates.js-stay-dates
+		+e.dates
+			+stay-selector({
+				inputsNumber: 1,
+				arrivalDate: [2019, 8, 19],
+				departureDate: [2019, 8, 23]
+			})
 
 		+e.guests
 			+dropdown-control({

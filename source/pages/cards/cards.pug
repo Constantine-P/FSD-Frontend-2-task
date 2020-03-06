@@ -5,6 +5,7 @@ include ../../blocks/registration-card/registration-card
 include ../../blocks/sign-in-card/sign-in-card
 include ../../blocks/booking-card/booking-card
 include ../../blocks/room-card/room-card
+include ../../blocks/stay-selector/stay-selector
 
 block title
   | Cards
@@ -20,14 +21,16 @@ block main
           roomNumber: 888,
           isLux: true,
           price: { price: 9990, sale: 2179, fee: 0, extraFee: 300, currency: "₽", period: 4 },
-          dates: { arrival: "19.08.2019", departure: "23.08.2019" },
+          dates: { arrival: [2019, 8, 19], departure: [2019, 8, 23] },
         })
       +e.sign-in-card
         +sign-in-card
       +e.stay-selector
-        +b.stay-selector.js-stay-selector
-          +b.arrival-day.js-arrival-day
-          +b.departure-day.js-departure-day
+        +stay-selector({
+          inputsNumber: 0,
+          arrivalDate: [2019, 8, 19],
+          departureDate: [2019, 8, 23]
+        })
       +e.room-cards
         - const path= "../../blocks/room-card/images";
         +e.room-card

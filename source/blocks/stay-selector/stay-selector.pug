@@ -1,8 +1,49 @@
 include ../text-field/text-field
 
 mixin stay-selector(params)
-  - if (params === undefined) params = {};
-  - const {arrival = "Прибытие", departure = "Выезд", arrivalDate = "", departureDate = ""} = params;
-  +b.stay-selector.js-stay-selector&attributes(attributes)
-    +text-field({title: arrival, name: "arrival-day", value: arrivalDate, placeholder: "ДД.ММ.ГГГГ", hasArrow: true}).arrival-day.js-arrival-day(data-range="true" data-offset="5")
-    +text-field({title: departure, name: "departure-day", value: departureDate, placeholder: "ДД.ММ.ГГГГ", hasArrow: true}).departure-day.js-departure-day
+  -
+    if (params === undefined) params = {};
+    const {
+      inputsNumber = 2,
+      arrivalTitle = "Прибытие",
+      departureTitle = "Выезд",
+      arrivalDate = "",
+      departureDate = "",
+      singleTitle = "Даты пребывания в отеле",
+    } = params;
+
+  - if (inputsNumber === 2)
+    +b.stay-selector.js-stay-selector(
+      data-arrival-date = JSON.stringify(arrivalDate)
+      data-departure-date = JSON.stringify(departureDate)
+    )
+      +text-field({
+        title: arrivalTitle,
+        name: "arrival-day",
+        placeholder: "ДД.ММ.ГГГГ",
+        hasArrow: true,
+      }).arrival-day.js-arrival-day
+      +text-field({
+        title: departureTitle,
+        name: "departure-day",
+        placeholder: "ДД.ММ.ГГГГ",
+        hasArrow: true}).departure-day.js-departure-day
+
+  - if (inputsNumber === 1)
+    +b.stay-selector_single-input.js-stay-selector(
+      data-arrival-date = JSON.stringify(arrivalDate)
+      data-departure-date = JSON.stringify(departureDate)
+    )
+      +text-field({
+        title: singleTitle,
+        name: "stay-dates",
+        hasArrow: true,
+      }).stay-dates.js-stay-dates
+
+  - if (inputsNumber === 0)
+    +b.stay-selector_single-input.js-stay-selector(
+      data-arrival-date = JSON.stringify(arrivalDate)
+      data-departure-date = JSON.stringify(departureDate)
+    )
+      +b.arrival-day.js-arrival-day
+      +b.departure-day.js-departure-day
