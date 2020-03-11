@@ -8,22 +8,49 @@ block title
 block main
   +b.headers-footers
     -
-      const menu = [
-      { name: "Home", href: "mock.html", mode: "bold" },
-      { name: "About Us", href: "mock.html" },
-      { name: "Services", href: "mock.html",
-      dropdown: [
-      { name: "First service", href: "mock.html" },
-      { name: "Second service", href: "mock.html" },
+      const headerMenu = [
+        { name: "Home", href: "mock.html", mode: "bold" },
+        { name: "About Us", href: "mock.html" },
+        { name: "Services", href: "mock.html",
+          dropdown: [
+            { name: "First service", href: "mock.html" },
+            { name: "Second service", href: "mock.html" },
+          ]
+        },
+        { name: "Careers", href: "mock.html" },
+        { name: "News", href: "mock.html" },
+        { name: "Documentation", href: "mock.html"},
       ]
-      },
-      { name: "Careers", href: "mock.html" },
-      { name: "News", href: "mock.html" },
-      { name: "Documentation", href: "mock.html"},
-      ]
+      const footer = {
+        description: "Lorem ipsum dolor sit amet consectetur adipiscing elit aliquam eget nullam pellentesque aliquam curabitur cociis.",
+        subscription: {
+          title: "Subscribe to our newsletter",
+          description: "Receive our latest news and promotions in your inbox!",
+          placeholder: "Your email address",
+        },
+        socials: [
+          {
+            logoSrc: "../../blocks/page-footer/images/twitter.svg",
+            logoAlt: "twitter",
+            href: "mock.html",
+          },
+          {
+            logoSrc: "../../blocks/page-footer/images/facebook.svg",
+            logoAlt: "facebook",
+            href: "mock.html",
+          },
+          {
+            logoSrc: "../../blocks/page-footer/images/instagram.svg",
+            logoAlt: "instagram",
+            href: "mock.html",
+          },
+        ],
+        copyright: "Copyright © 2018 Toxin UI Kit. All rights reserved.",
+      }
+
     +e.header
       +page-header({
-        menu,
+        menu: headerMenu,
         auth: {
           isLoggedIn: false,
           name: "Cosmin Negoita",
@@ -33,7 +60,7 @@ block main
       })
     +e.header
       +page-header({
-        menu,
+        menu: headerMenu,
         auth: {
           isLoggedIn: true,
           name: "Cosmin Negoita",
@@ -42,21 +69,6 @@ block main
         }
       })
     +e.footer
-      +page-footer({
-        description: "Lorem ipsum dolor sit amet consectetur adipiscing elit aliquam eget nullam pellentesque aliquam curabitur cociis.",
-        subscription: {
-          title: "Subscribe to our newsletter",
-          description: "Receive our latest news and promotions in your inbox!",
-          placeholder: "Your email address",
-        },
-        copyright: "Copyright © 2018 Toxin UI Kit. All rights reserved.",
-      })
+      +page-footer(footer)
     +e.footer
-      +page-footer({
-        description: "Lorem ipsum dolor sit amet consectetur adipiscing elit aliquam eget nullam pellentesque aliquam curabitur cociis.",
-        subscription: {
-          title: "Subscribe to our newsletter",
-          description: "Receive our latest news and promotions in your inbox!",
-        },
-        copyright: "Copyright © 2018 Toxin UI Kit. All rights reserved.",
-      })._small
+      +page-footer(footer)._small
