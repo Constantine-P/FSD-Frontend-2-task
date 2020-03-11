@@ -13,13 +13,6 @@ donutCharts.forEach((donutChart) => {
       animStrokeWidth: 11,
       animDuration: 200,
     },
-    legend: {
-      width: 162,
-      height: 104,
-      dotSize: 5,
-      rowGap: 24,
-      textGap: 10,
-    },
     parts: [
       {
         value: 180,
@@ -80,12 +73,6 @@ donutCharts.forEach((donutChart) => {
         fontSize: '15px',
         fontWeight: 'bold',
         fontFamily: 'Montserrat, OpenSans, sans-serif',
-      },
-      legend: {
-        fontSize: '14px',
-        fontWeight: 'normal',
-        fontFamily: 'Montserrat, OpenSans, sans-serif',
-        color: 'black',
       },
     },
   });

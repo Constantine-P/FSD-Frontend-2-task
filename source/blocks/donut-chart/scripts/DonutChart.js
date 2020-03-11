@@ -1,4 +1,3 @@
-import createCircle from './createCircle';
 import createArcPath from './createArcPath';
 import createGradient from './createGradient';
 import createStyle from './createStyle';
@@ -30,26 +29,23 @@ class DonutChart {
 
     const handleDotMouseOver = (e) => {
       this.donut.querySelectorAll('path').forEach((arc) => {
-        if (arc.dataset.name === e.target.dataset.name) {
-          arc.dispatchEvent(new Event('mouseover'));
-        }
+        const isTarget = (arc.dataset.name === e.currentTarget.dataset.name)
+          && e.target.classList.contains('donut-chart__legend-row')
+          && !e.target.contains(e.relatedTarget);
+        if (isTarget) arc.dispatchEvent(new Event('mouseover'));
       });
     };
 
     const handleDotMouseOut = (e) => {
       this.donut.querySelectorAll('path').forEach((arc) => {
-        if (arc.dataset.name === e.target.dataset.name) {
-          arc.dispatchEvent(new Event('mouseout'));
-        }
+        const isTarget = (arc.dataset.name === e.currentTarget.dataset.name)
+          && e.target.classList.contains('donut-chart__legend-row')
+          && !e.target.contains(e.relatedTarget);
+        if (isTarget) arc.dispatchEvent(new Event('mouseout'));
       });
     };
 
-    this.legend.querySelectorAll('circle').forEach((item) => {
-      item.addEventListener('mouseover', handleDotMouseOver);
-      item.addEventListener('mouseout', handleDotMouseOut);
-    });
-
-    this.legend.querySelectorAll('text').forEach((item) => {
+    this.legend.querySelectorAll('.donut-chart__legend-row').forEach((item) => {
       item.addEventListener('mouseover', handleDotMouseOver);
       item.addEventListener('mouseout', handleDotMouseOut);
     });
@@ -133,47 +129,22 @@ class DonutChart {
   }
 
   drawLegend() {
-    const {
-      width, height, rowGap, textGap, dotSize,
-    } = this.params.legend;
-    const {
-      fontSize, fontFamily, fontWeight, color,
-    } = this.params.styles.legend;
-    const { parts } = this.params;
+    this.params.parts.forEach((item) => {
+      const row = document.createElement('li');
+      row.classList.add('donut-chart__legend-row');
+      row.dataset.name = item.title;
 
-    let svg = `<svg class="donut-legend" width = "${width}" height = "${height}">`;
+      const text = document.createElement('span');
+      text.classList.add('donut-chart__legend-text');
+      text.textContent = item.title;
 
-    svg += createStyle({
-      name: 'legend',
-      fontSize,
-      fontFamily,
-      fontWeight,
-      gradientName: color,
+      const circle = document.createElement('div');
+      circle.classList.add('donut-chart__legend-circle');
+      circle.classList.add(`donut-chart__legend-circle_${item.gradient.name}`);
+
+      row.append(circle, text);
+      this.legend.append(row);
     });
-
-    parts.forEach((item, i) => {
-      svg += createCircle({
-        x: dotSize,
-        y: dotSize + rowGap * (i + 0.5),
-        radius: dotSize,
-        gradient: item.gradient.name,
-        name: item.title,
-      });
-
-      svg += createText({
-        x: dotSize + textGap,
-        y: dotSize + rowGap * (i + 0.5),
-        text: item.title,
-        baseline: 'middle',
-        textAnchor: 'start',
-        svgClass: 'legend',
-        name: item.title,
-      });
-    });
-
-    svg += '</svg>';
-
-    this.legend.innerHTML = svg;
   }
 }
 
