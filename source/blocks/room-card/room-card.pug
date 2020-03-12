@@ -2,45 +2,45 @@ include ../image-slider/image-slider
 include ../rate-button/rate-button
 
 mixin room-card(params)
-	-
-		if (params === undefined) params = {};
-		const iPath= "images";
-		const {
-			roomNumber = 888,
-			isLux = true,
-			price = { value: 9990, currency: "₽" },
-			rate = 5,
-			reviewNumber = 145,
-			images = [`${iPath}/1.jpg`, `${iPath}/5.jpg`, `${iPath}/9.jpg`, `${iPath}/12.jpg`],
-			href = "mock.html"
-		} = params;
-		function format(x) {
-			return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
-		}
-		function numToWord(number, wordForms) {
-			number = Math.abs(number) % 100;
-			let num = number % 10;
-			if (number > 10 && number < 20) return wordForms[2];
-			if (num > 1 && num < 5) return wordForms[1];
-			if (num === 1) return wordForms[0];
-			return wordForms[2];
-		}
+  -
+    if (params === undefined) params = {};
+    const iPath= "images";
+    const {
+      roomNumber = 888,
+      isLux = true,
+      price = { value: 9990, currency: "₽" },
+      rate = 5,
+      reviewNumber = 145,
+      images = [`${iPath}/1.jpg`, `${iPath}/5.jpg`, `${iPath}/9.jpg`, `${iPath}/12.jpg`],
+      href = "mock.html"
+    } = params;
+    function format(x) {
+      return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+    }
+    function numToWord(number, wordForms) {
+      number = Math.abs(number) % 100;
+      let num = number % 10;
+      if (number > 10 && number < 20) return wordForms[2];
+      if (num > 1 && num < 5) return wordForms[1];
+      if (num === 1) return wordForms[0];
+      return wordForms[2];
+    }
 
-	+b.room-card&attributes(attributes)
-		+e.slider
-			+image-slider({images, href})
-		+e.description
-			+e.description-top
-				+e("span").room-number= `№ `
-					+e("span").number= roomNumber
-					if (isLux)
-						+e("span").lux Люкс
-				+e("span").price= `${format(price.value)}${price.currency}`
-					+e("span").price-period= " в сутки"
+  +b.room-card&attributes(attributes)
+    +e.slider
+      +image-slider({images, href})
+    +e.description
+      +e.description-top
+        +e("span").room-number= `№ `
+          +e("span").number= roomNumber
+          if (isLux)
+            +e("span").lux Люкс
+        +e("span").price= `${format(price.value)}${price.currency}`
+          +e("span").price-period= " в сутки"
 
-			+e.description-bottom
-				+e.rate
-					+rate-button({rate})
-				+e.reviews
-					+e("span").review-number= reviewNumber
-						+e("span")= ` ${numToWord(reviewNumber, ["отзыв", "отзыва", "отзывов"])}`
+      +e.description-bottom
+        +e.rate
+          +rate-button({rate})
+        +e.reviews
+          +e("span").review-number= reviewNumber
+            +e("span")= ` ${numToWord(reviewNumber, ["отзыв", "отзыва", "отзывов"])}`

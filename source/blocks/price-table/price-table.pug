@@ -1,25 +1,25 @@
 mixin price-table(params)
-	-
-		if (params === undefined) params = {};
-		const { price = 9990, sale = 2179, fee = 0, extraFee = 300, currency = "₽", period = 4 } = params;
-		const wordForm = (price.toString().slice(0, -1) === "1") ? "сутки" : "суток";
-		const priceCalc = `${format(price)}${currency} x ${period} ${wordForm}`;
-		function format(x) {
-			return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
-		}
+  -
+    if (params === undefined) params = {};
+    const { price = 9990, sale = 2179, fee = 0, extraFee = 300, currency = "₽", period = 4 } = params;
+    const wordForm = (price.toString().slice(0, -1) === "1") ? "сутки" : "суток";
+    const priceCalc = `${format(price)}${currency} x ${period} ${wordForm}`;
+    function format(x) {
+      return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+    }
 
-	+b.price-table
-		+e.name= priceCalc
-		+e.price= `${format(price * period)}${currency}`
+  +b.price-table
+    +e.name= priceCalc
+    +e.price= `${format(price * period)}${currency}`
 
-		+e.name= `Сбор за услуги: скидка ${format(sale)}${currency}`
-		+e(title="Какая-то подсказка").hint i
-		+e.price= `${format(fee)}${currency}`
+    +e.name= `Сбор за услуги: скидка ${format(sale)}${currency}`
+    +e(title="Какая-то подсказка").hint i
+    +e.price= `${format(fee)}${currency}`
 
-		+e.name Сбор за дополнительные услуги
-		+e(title="Какая-то подсказка").hint i
-		+e.price= `${format(extraFee)}${currency}`
+    +e.name Сбор за дополнительные услуги
+    +e(title="Какая-то подсказка").hint i
+    +e.price= `${format(extraFee)}${currency}`
 
-		+e.total Итого
-		+e.total-price= `${format(price * period + fee + extraFee - sale)}${currency}`
-		+e.total-line
+    +e.total Итого
+    +e.total-price= `${format(price * period + fee + extraFee - sale)}${currency}`
+    +e.total-line

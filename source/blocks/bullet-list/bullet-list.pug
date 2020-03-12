@@ -1,7 +1,7 @@
 mixin bullet-list(params)
-	- const { title = "", items = [] } = params
-	+b.bullet-list&attributes(attributes)
-		+e("h3").title= title
-		+e("ul").content
-			each item in items
-				+e("li").item= item
+  - const { title = "", items = [] } = params
+  +b.bullet-list&attributes(attributes)
+    +e("h3").title= title
+    +e("ul").content
+      each item in items
+        +e("li").item= item

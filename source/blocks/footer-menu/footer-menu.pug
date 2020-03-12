@@ -1,39 +1,39 @@
 mixin footer-menu(params)
-	-
-		const en = [
-			{
-				title: "Navigation",
-				list: [
-					{name: "About Us", href: "mock.html"},
-					{name: "News", href: "mock.html"},
-					{name: "Support", href: "mock.html"},
-					{name: "Products", href: "mock.html"},
-				]
-			},
-			{
-				title: "About Us",
-				list: [
-					{name: "Who we are", href: "mock.html"},
-					{name: "Our team", href: "mock.html"},
-					{name: "Careers", href: "mock.html"},
-					{name: "Investors", href: "mock.html"}]
-			},
-			{
-				title: "Support",
-				list: [
-					{name: "Documentation ", href: "mock.html"},
-					{name: "Community", href: "mock.html"},
-					{name: "Get in Touch", href: "mock.html"}
-					]
-			}
-		];
-		if (params === undefined || params.length === 0) params = en;
+  -
+    const en = [
+      {
+        title: "Navigation",
+        list: [
+          {name: "About Us", href: "mock.html"},
+          {name: "News", href: "mock.html"},
+          {name: "Support", href: "mock.html"},
+          {name: "Products", href: "mock.html"},
+        ]
+      },
+      {
+        title: "About Us",
+        list: [
+          {name: "Who we are", href: "mock.html"},
+          {name: "Our team", href: "mock.html"},
+          {name: "Careers", href: "mock.html"},
+          {name: "Investors", href: "mock.html"}]
+      },
+      {
+        title: "Support",
+        list: [
+          {name: "Documentation ", href: "mock.html"},
+          {name: "Community", href: "mock.html"},
+          {name: "Get in Touch", href: "mock.html"}
+          ]
+      }
+    ];
+    if (params === undefined || params.length === 0) params = en;
 
-	+b.footer-menu
-		each block in params
-			- const { title, list } = block
-			+e.block
-				+e("h3").block-title= title
-				+e.block-content
-					each item in list
-						+e("a")(href = item.href).block-content-item= item.name
+  +b.footer-menu
+    each block in params
+      - const { title, list } = block
+      +e.block
+        +e("h3").block-title= title
+        +e.block-content
+          each item in list
+            +e("a")(href = item.href).block-content-item= item.name

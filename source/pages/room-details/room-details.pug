@@ -8,40 +8,40 @@ include ../../blocks/booking-card/booking-card
 include ../../blocks/room-impressions/room-impressions
 
 block title
-	| Room details
+  | Room details
 block main
-	+b("main").room-details
-		+e.gallery
-			+room-gallery
-		+e.wrapper
-			+e.description
-				+e.info
-					-
-						const cards = [
-						{logo:"images/insert-emoticon.svg", title: "Комфорт", description: ["Шумопоглощяющие стены"]},
-						{logo:"images/location-city.svg", title: "Удобство", description: ["Окно в каждой из спален"]},
-						{logo:"images/whatshot.svg", title: "Уют", description: ["Номер оснащён камином"]}
-						];
-					+room-info(cards)
+  +b("main").room-details
+    +e.gallery
+      +room-gallery
+    +e.wrapper
+      +e.description
+        +e.info
+          -
+            const cards = [
+            {logo:"images/insert-emoticon.svg", title: "Комфорт", description: ["Шумопоглощяющие стены"]},
+            {logo:"images/location-city.svg", title: "Удобство", description: ["Окно в каждой из спален"]},
+            {logo:"images/whatshot.svg", title: "Уют", description: ["Номер оснащён камином"]}
+            ];
+          +room-info(cards)
 
-				+e.room-impressions
-					+room-impressions
+        +e.room-impressions
+          +room-impressions
 
-				+e.reviews
-					+guest-reviews
+        +e.reviews
+          +guest-reviews
 
-				+e.bullet-list
-					+bullet-list({
-						title: "Правила",
-						items: [
-							"Нельзя с питомцами",
-							"Без вечеринок и мероприятий",
-							"Время прибытия — после 13:00, а выезд до 12:00"
-						]
-					})._title-size_l
+        +e.bullet-list
+          +bullet-list({
+            title: "Правила",
+            items: [
+              "Нельзя с питомцами",
+              "Без вечеринок и мероприятий",
+              "Время прибытия — после 13:00, а выезд до 12:00"
+            ]
+          })._title-size_l
 
-				+e.room-cancel
-					+room-cancel
+        +e.room-cancel
+          +room-cancel
 
-			+e.booking-card
-				+booking-card({dates: { arrival: [2019, 8, 19], departure: [2019, 8, 23] }})
+      +e.booking-card
+        +booking-card({dates: { arrival: [2019, 8, 19], departure: [2019, 8, 23] }})

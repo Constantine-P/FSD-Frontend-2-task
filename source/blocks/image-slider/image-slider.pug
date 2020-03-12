@@ -1,7 +1,7 @@
 mixin image-slider(params)
-	- const { images, href } = params;
-	+b.image-slider.js-image-slider
-		+e.container.js-container
-			- for (let i = images.length - 1; i >= 0; i -= 1)
-			+e("a")(href = href).image.js-image.hidden
-				+e("img")(src = images[i] alt="room-photo")
+  - const { images, href } = params;
+  +b.image-slider.js-image-slider
+    +e.container.js-container
+      - for (let i = images.length - 1; i >= 0; i -= 1)
+      +e("a")(href = href).image.js-image.hidden
+        +e("img")(src = images[i] alt="room-photo")

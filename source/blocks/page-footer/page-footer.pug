@@ -2,43 +2,43 @@ include ../text-field/text-field
 include ../footer-menu/footer-menu
 
 mixin page-footer(params)
-	-
-		if (params === undefined) params = {};
-		const {
-			description = "Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды».",
-			menu,
-			subscription = {
-				title: "Подписка",
-				description: "Получайте специальные предложения и новости сервиса",
-				placeholder: "Email"
-			},
-			socials = [
-				{
-					logoSrc: "",
-					logoAlt: "social-net",
-					href: "mock.html",
-				},
-			],
-			copyright = "Copyright © 2018 Toxin отель. Все права зачищены.",
-		} = params;
+  -
+    if (params === undefined) params = {};
+    const {
+      description = "Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды».",
+      menu,
+      subscription = {
+        title: "Подписка",
+        description: "Получайте специальные предложения и новости сервиса",
+        placeholder: "Email"
+      },
+      socials = [
+        {
+          logoSrc: "",
+          logoAlt: "social-net",
+          href: "mock.html",
+        },
+      ],
+      copyright = "Copyright © 2018 Toxin отель. Все права зачищены.",
+    } = params;
 
-	+b("footer").page-footer&attributes(attributes)
-		+e.top
-			+e.logo
-				+logo
-				+e.logo-description= description
-			+e.menu
-				+footer-menu(menu)
-			+e.subscription
-				+e("h3").subscription-title= subscription.title
-				+e.subscription-description= subscription.description
-				+e.subscription-text-field
-					+text-field({name: "Email", type: "email", placeholder: subscription.placeholder, hasSubmitBtn: true})
+  +b("footer").page-footer&attributes(attributes)
+    +e.top
+      +e.logo
+        +logo
+        +e.logo-description= description
+      +e.menu
+        +footer-menu(menu)
+      +e.subscription
+        +e("h3").subscription-title= subscription.title
+        +e.subscription-description= subscription.description
+        +e.subscription-text-field
+          +text-field({name: "Email", type: "email", placeholder: subscription.placeholder, hasSubmitBtn: true})
 
-		+e.bottom
-			+e("p").copyright= copyright
-			+e.socials
-				each net in socials
-					- const { logoSrc, logoAlt, href } = net
-					+e("a")(href = href target="_blank", rel = "noopener noreferrer").social-link
-						img(src = logoSrc alt = logoAlt)
+    +e.bottom
+      +e("p").copyright= copyright
+      +e.socials
+        each net in socials
+          - const { logoSrc, logoAlt, href } = net
+          +e("a")(href = href target="_blank", rel = "noopener noreferrer").social-link
+            img(src = logoSrc alt = logoAlt)

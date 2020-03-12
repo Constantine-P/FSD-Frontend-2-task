@@ -1,20 +1,20 @@
 mixin checkbox-list-control(params)
-	- const randomID = `id-${Math.random() * 1000}`;
-	- const { title = "", id = randomID, checked = false, positions = [], isStatic = false } = params
-	- const mode = (isStatic) ? "checkbox-list-control_static" : "";
-	+b.checkbox-list-control(class = mode)&attributes(attributes)
-		if (isStatic === false)
-			+e("input")(type="checkbox" id = id checked = checked).arrow-toggle
-		+e("label")(for = id).title= title
-		+b.checkbox-list-content
-			each pos in positions
-				- const { title = "", name = "", checked = false, description = "" } = pos;
-				+e("label").item
-					+e("input")(type = "checkbox" name = name checked = checked).checkbox
-					+e.item-view
-					if (title)
-						+e("div").item-wrapper
-							+e("p").item-title= title
-							+e("p").item-description= description
-					else
-						+e("p").item-description= description
+  - const randomID = `id-${Math.random() * 1000}`;
+  - const { title = "", id = randomID, checked = false, positions = [], isStatic = false } = params
+  - const mode = (isStatic) ? "checkbox-list-control_static" : "";
+  +b.checkbox-list-control(class = mode)&attributes(attributes)
+    if (isStatic === false)
+      +e("input")(type="checkbox" id = id checked = checked).arrow-toggle
+    +e("label")(for = id).title= title
+    +b.checkbox-list-content
+      each pos in positions
+        - const { title = "", name = "", checked = false, description = "" } = pos;
+        +e("label").item
+          +e("input")(type = "checkbox" name = name checked = checked).checkbox
+          +e.item-view
+          if (title)
+            +e("div").item-wrapper
+              +e("p").item-title= title
+              +e("p").item-description= description
+          else
+            +e("p").item-description= description
