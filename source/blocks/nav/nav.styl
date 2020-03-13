@@ -29,6 +29,10 @@
       background-color $background-color
       width 100%
 
+  &__item-content-wrapper
+    width 100%
+    cursor pointer
+
   &__menu-item
     display flex
     justify-content space-between
@@ -40,11 +44,6 @@
     position relative
     line-height 3
     cursor pointer
-
-    &:hover .nav__dropdown-menu
-      animation dropdown 500ms forwards
-      z-index 1
-      display flex
 
     @media (max-width 1200px)
       margin-right 15rem
@@ -59,22 +58,30 @@
       &:hover
         background-color $dark-shade-5
 
-      &:hover .nav__dropdown-menu .nav__dropdown-menu-row
-        line-height 2.5
-
     &_bold
       font-weight bold
       color $dark-shade-75
 
+  &__menu-item-toggle
+    display none
+
+    &:checked ~ .nav__dropdown-menu
+      max-height 1000rem
+      transition-timing-function ease-in
+
+    &:checked ~ .nav__item-arrow
+      animation anim-arrow-open $anim-duration forwards
+
   &__item-content
-    display flex
-    align-items center
     text-decoration none
     color $dark-shade-50
+    user-select none
+
+    &:hover
+      color $dark-shade-100
 
     @media (max-width 1000px)
       padding-left 20rem
-      padding-right 20rem
 
   &__dropdown-menu
     display flex
@@ -83,21 +90,17 @@
     top 40rem
     min-width 110rem
     background-color $background-color
-    z-index -1
-    opacity 0
-    border 1rem solid rgba(0, 0, 0, 0.12)
     box-sizing border-box
     box-shadow 0 0 25rem rgba(0, 0, 0, 0.1)
     border-radius 4rem
+    padding 0
+    max-height 0
+    overflow hidden
+    transition $anim-duration
 
     @media (max-width 1000px)
       position static
-      border none
-      box-sizing border-box
       box-shadow none
-      transition anim-duration
-      opacity 1
-      overflow hidden
       width 100%
       padding 0
 
@@ -109,57 +112,32 @@
     color $dark-shade-50
     text-decoration none
     background-color $background-color
+    list-style-type none
 
     &:hover
       background-color $dark-shade-5
 
-    &::after
-      display block
-      content ''
-      position absolute
-      top -10rem
-      left 10rem
-      border-bottom 10rem solid $background-color
-      border-right 10rem solid transparent
-      border-left 10rem solid transparent
-
-    &::before
-      display block
-      content ''
-      position absolute
-      top -11rem
-      left 9rem
-      border-bottom 11rem solid rgba(0, 0, 0, 0.12)
-      border-right 11rem solid transparent
-      border-left 11rem solid transparent
-
     @media (max-width 1000px)
-      line-height 0
-      transition $anim-duration
-      width 100%
-      box-sizing border-box
       padding-right 20rem
-      padding-left 20rem
+      padding-left 30rem
 
-      &::after, &::before
-        display none
+  &__dropdown-menu-row-content
+    display inline-block
+    width 100%
+    text-decoration none
+    color inherit
+
+    &:visited
+      color inherit
 
   &__item-arrow
-    display flex
-    justify-content center
-    align-items center
-    color $dark-shade-50
-    opacity 0.5
-    max-size(17rem, 15rem)
-    size(17rem, 15rem)
-
-    &:after
-      display block
-      content ''
-      size(12rem, 7.5rem)
-      margin-top 3rem
-      clip-path $arrow-down
-      background-color $dark-shade-75
+    display inline-block
+    size(12rem, 7.5rem)
+    margin-top 3rem
+    clip-path $arrow-down
+    background-color $dark-shade-75
+    animation anim-arrow-close $anim-duration forwards
+    margin-left 5rem
 
   &__item:last-child
     margin-right 0
@@ -187,12 +165,25 @@
     border-left 1rem solid $dark-shade-10
     line-height 30rem
 
-  @keyframes dropdown
+
+  @keyframes anim-arrow-close
     from {
-      opacity: 0;
-      z-index: 1
+      clip-path: $arrow-up;
+    }
+    50% {
+      clip-path: $arrow-m;
     }
     to {
-      opacity: 1;
-      z-index: 1
+      clip-path: $arrow-down;
+    }
+
+  @keyframes anim-arrow-open
+    from {
+      clip-path: $arrow-down;
+    }
+    50% {
+      clip-path: $arrow-m;
+    }
+    to {
+      clip-path: $arrow-up;
     }

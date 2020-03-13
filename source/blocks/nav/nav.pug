@@ -20,12 +20,15 @@ mixin nav(params)
         - const itemMode = (mode === "bold") ? "nav__menu-item_bold" : ""
         +e("li").menu-item(class = itemMode)
           if (dropdown)
-            +e("span").item-content= name
-              +e("div").item-arrow
-            +e.dropdown-menu
-              each row in dropdown
-                - const { name, href } = row;
-                +e("a")(href = href).dropdown-menu-row= name
+            +e("label").item-content-wrapper
+              +e("input")(type = "checkbox").menu-item-toggle
+              +e("span").item-content= name
+              +e("span").item-arrow
+              +e("ul").dropdown-menu
+                each row in dropdown
+                  - const { name, href } = row;
+                  +e("li").dropdown-menu-row
+                    +e("a")(href = href).dropdown-menu-row-content= name
           else
             +e("a")(href = href).item-content= name
     if (auth.isLoggedIn)
