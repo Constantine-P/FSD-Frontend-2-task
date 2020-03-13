@@ -1617,6 +1617,7 @@
     z-index: 10;
     background-color: #fff;
     transition: 300ms;
+    overflow: auto;
   }
 }
 .page-header__menu-toggle:checked ~ .page-header__nav-wrapper {
