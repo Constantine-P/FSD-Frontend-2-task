@@ -29,6 +29,7 @@ class StaySelector {
     }
 
     this.buttons = this.datepicker.$datepicker.get(0).querySelector('.datepicker--buttons');
+    this.days = this.datepicker.$datepicker.get(0).querySelector('.datepicker--days');
   }
 
   onDateSelect() {
@@ -51,6 +52,16 @@ class StaySelector {
     if (this.departureInput) {
       this.departureInput.addEventListener('click', handleDepartureInputFocus);
     }
+
+    const handleDatepickerClick = (e) => {
+      if (e.target.classList.contains('datepicker--nav-title')) {
+        this.days.classList.add('datepicker--days_hidden');
+      } else if (e.target.classList.contains('datepicker--cell-month')) {
+        this.days.classList.remove('datepicker--days_hidden');
+      }
+    };
+
+    this.datepicker.$datepicker.get(0).addEventListener('click', handleDatepickerClick);
   }
 
   appendButtonApply() {

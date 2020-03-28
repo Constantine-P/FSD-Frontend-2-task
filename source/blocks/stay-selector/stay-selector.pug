@@ -21,13 +21,16 @@ mixin stay-selector(params)
         title: arrivalTitle,
         name: "arrival-day",
         placeholder: "ДД.ММ.ГГГГ",
+        readonly: true,
         hasArrow: true,
       }).arrival-day.js-arrival-day
       +text-field({
         title: departureTitle,
         name: "departure-day",
         placeholder: "ДД.ММ.ГГГГ",
-        hasArrow: true}).departure-day.js-departure-day
+        readonly: true,
+        hasArrow: true,
+      }).departure-day.js-departure-day
 
   - if (inputsNumber === 1)
     +b.stay-selector_with-single-input.js-stay-selector(
@@ -37,6 +40,7 @@ mixin stay-selector(params)
       +text-field({
         title: singleTitle,
         name: "stay-dates",
+        readonly: true,
         hasArrow: true,
       }).stay-dates.js-stay-dates
 

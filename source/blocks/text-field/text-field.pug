@@ -1,7 +1,7 @@
 mixin text-field(params)
   -
     const { title = "", type = "text", placeholder, pattern, name = "", value = "",
-      hasArrow = false, hasSubmitBtn = false,
+      hasArrow = false, hasSubmitBtn = false, readonly = false,
       form = {name: "subscribe-form", action: "https://echo.htmlacademy.ru"}
     } = params
 
@@ -15,8 +15,8 @@ mixin text-field(params)
     if (hasSubmitBtn)
       +e("form").form(name = form.name method = "GET" action = form.action enctype = "text/plain")
         +e("input").input(type = type placeholder = placeholder  pattern = pattern
-          name = name  autocomplete = "off" value = value  required)&attributes(attributes)
+          name = name  autocomplete = "off" value = value readonly = readonly required)&attributes(attributes)
         +e("button").btn-submit(type="submit")
     else
       +e("input").input(type = type placeholder = placeholder  pattern = pattern
-        name = name  autocomplete = "off" value = value  required)&attributes(attributes)
+        name = name  autocomplete = "off" value = value readonly = readonly required)&attributes(attributes)
