@@ -3,5 +3,5 @@ mixin image-slider(params)
   +b.image-slider.js-image-slider
     +e.container.js-container
       - for (let i = images.length - 1; i >= 0; i -= 1)
-      +e("a")(href = href).image.js-image.hidden
+      +e("a")(href = href).image.js-image
         +e("img")(src = images[i] alt="room-photo")

@@ -7,7 +7,7 @@
   box-sizing border-box
 
   &:hover
-    .image-slider__arrow-back, .image-slider__arrow-forward
+    .image-slider__arrow
       opacity 1
 
   &__container
@@ -21,6 +21,9 @@
     transition $anim-duration
     box-sizing border-box
     overflow hidden
+
+    &_hidden
+      display none
 
   &__dots
     display flex
@@ -41,15 +44,7 @@
     &_active
       background-color $background-color
 
-  &__arrow-back:after, &__arrow-forward:after
-    display block
-    content ''
-    size(11.5rem, 7.5rem)
-    clip-path $arrow-down
-    background-color $background-color
-    transform rotate(90deg)
-
-  &__arrow-back, &__arrow-forward
+  &__arrow
     display flex
     justify-content center
     align-items center
@@ -61,12 +56,19 @@
     z-index 3
     box-sizing border-box
     opacity 0
-
-  &__arrow-back
-    left 0
     background $slider-gradient
 
-  &__arrow-forward
-    right 0
-    background $slider-gradient
-    transform rotate(-180deg)
+    &:after
+      display block
+      content ''
+      size(11.5rem, 7.5rem)
+      clip-path $arrow-down
+      background-color $background-color
+      transform rotate(90deg)
+
+    &_back
+      left 0
+
+    &_forward
+      right 0
+      transform rotate(-180deg)

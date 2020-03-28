@@ -71,24 +71,24 @@
       position relative
       z-index 1
 
-      [class*='-title']
-        font-size 14rem
-        font-weight bold
-        margin 0
-        margin-bottom 4rem
-        display inline-block
-
-      [class*='-description']
-        font-size 14rem
-        padding 2rem 0 0 0
-        margin 0
-        display inline-block
-
-      [class*='-title'] + [class*='-description']
-        font-size 12rem
-
       &:hover
         color $dark-shade-100
+
+    &__item-title
+      font-size 14rem
+      font-weight bold
+      margin 0
+      margin-bottom 4rem
+      display inline-block
+
+      & + .checkbox-list-content__item-description
+        font-size 12rem
+
+    &__item-description
+      font-size 14rem
+      padding 2rem 0 0 0
+      margin 0
+      display inline-block
 
     &__item-view
       display block
@@ -124,46 +124,46 @@
     .checkbox-list-control__title:after
       display none
 
-@keyframes anim-arrow-close
-  from {
-    clip-path: $arrow-up;
-  }
-  50% {
-    clip-path: $arrow-m;
-  }
-  to {
-    clip-path: $arrow-down;
-  }
+  @keyframes anim-arrow-close
+    from {
+      clip-path: $arrow-up;
+    }
+    50% {
+      clip-path: $arrow-m;
+    }
+    to {
+      clip-path: $arrow-down;
+    }
 
-@keyframes anim-arrow-open
-  from {
-    clip-path: $arrow-down;
-  }
-  50% {
-    clip-path: $arrow-m;
-  }
-  to {
-    clip-path: $arrow-up;
-  }
+  @keyframes anim-arrow-open
+    from {
+      clip-path: $arrow-down;
+    }
+    50% {
+      clip-path: $arrow-m;
+    }
+    to {
+      clip-path: $arrow-up;
+    }
 
-@keyframes anim-check-open
-  from {
-    clip-path: $check0;
-  }
-  50% {
-    clip-path: $check1;
-  }
-  to {
-    clip-path: $check;
-  }
+  @keyframes anim-check-open
+    from {
+      clip-path: $check0;
+    }
+    50% {
+      clip-path: $check1;
+    }
+    to {
+      clip-path: $check;
+    }
 
-@keyframes anim-check-close
-  from {
-    clip-path: $check;
-  }
-  50% {
-    clip-path: $check1;
-  }
-  to {
-    clip-path: $check0;
-  }
+  @keyframes anim-check-close
+    from {
+      clip-path: $check;
+    }
+    50% {
+      clip-path: $check1;
+    }
+    to {
+      clip-path: $check0;
+    }

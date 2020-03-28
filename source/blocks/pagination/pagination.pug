@@ -1,17 +1,12 @@
 mixin pagination
   +b.pagination
     +e.nums-wrapper
-      +e.arrow-back.hidden
-      +e("a")(href="mock.html").page-num._cur-page
-        span 1
-      +e("a")(href="mock.html").page-num
-        span 2
-      +e("a")(href="mock.html").page-num
-        span 3
-      +e.dots
-        span ...
-      +e("a")(href="mock.html").page-num
-        span 15
-      +e.arrow-forward
+      +e.arrow._orientation_back._hidden
+      +e("a")(href="mock.html").page-number._current 1
+      +e("a")(href="mock.html").page-number 2
+      +e("a")(href="mock.html").page-number 3
+      +e.dots ...
+      +e("a")(href="mock.html").page-number 15
+      +e.arrow
 
     +e.description 1 - 12 из 100+ вариантов аренды

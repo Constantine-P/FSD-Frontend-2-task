@@ -11,20 +11,18 @@
   &__nums-wrapper
     display flex
 
-  &__page-num
+  &__page-number
     circle(40rem)
     display flex
     justify-content center
     align-items center
+    font-size 12rem
 
     &:link, &:visited
       text-decoration none
       color $main-text-color
 
-    span
-      font-size 12rem
-
-    &_cur-page
+    &_current
       background $main-gradient
 
       &:link, &:visited
@@ -40,7 +38,7 @@
     justify-content center
     align-items center
 
-  &__arrow-back, &__arrow-forward
+  &__arrow
     circle(40rem)
     display flex
     justify-content center
@@ -48,19 +46,15 @@
     background $secondary-gradient
     cursor pointer
 
-  &__arrow-forward:after
-    display block
-    content ''
-    size(17rem, 18rem)
-    clip-path $arrow-forward
-    background-color $secondary-text-color
+    &:after
+      display block
+      content ''
+      size(17rem, 18rem)
+      clip-path $arrow-forward
+      background-color $secondary-text-color
 
-  &__arrow-back:after
-    display block
-    content ''
-    size(17rem, 18rem)
-    clip-path $arrow-back
-    background-color $secondary-text-color
+    &_orientation_back:after
+      clip-path $arrow-back
 
-  .hidden
-    display none
+    &_hidden
+      display none

@@ -16,8 +16,8 @@ class ImageSlider {
     this.arrowForward = document.createElement('div');
     this.dots = document.createElement('div');
 
-    this.arrowBack.classList.add('image-slider__arrow-back');
-    this.arrowForward.classList.add('image-slider__arrow-forward');
+    this.arrowBack.classList.add('image-slider__arrow', 'image-slider__arrow_back');
+    this.arrowForward.classList.add('image-slider__arrow', 'image-slider__arrow_forward');
     this.dots.classList.add('image-slider__dots');
 
     this.images.forEach(() => {
@@ -50,9 +50,9 @@ class ImageSlider {
   moveImage() {
     this.images.forEach((image, i) => {
       if (this.index !== i) {
-        image.classList.add('hidden');
+        image.classList.add('image-slider__image_hidden');
       } else {
-        image.classList.remove('hidden');
+        image.classList.remove('image-slider__image_hidden');
       }
     });
     this.setDotByIndex();

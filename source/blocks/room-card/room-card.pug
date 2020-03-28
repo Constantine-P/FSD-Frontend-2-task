@@ -43,4 +43,4 @@ mixin room-card(params)
           +rate-button({rate})
         +e.reviews
           +e("span").review-number= reviewNumber
-            +e("span")= ` ${numToWord(reviewNumber, ["отзыв", "отзыва", "отзывов"])}`
+          = ` ${numToWord(reviewNumber, ["отзыв", "отзыва", "отзывов"])}`

@@ -38,7 +38,7 @@ block main
               {title: "Дети", name: "children"},
               {title: "Младенцы", name: "babies", isShow: true, wordForms: "[\"младенец\", \"младенца\", \"младенцев\"]"}
             ]
-          })._card
+          })._inside-card
 
         +e.masked-text-field
           +text-field({title: "Masked text field", placeholder: "ДД.ММ.ГГГГ"}).js-masked
@@ -79,7 +79,7 @@ block main
               }
             ],
             areButtonsVisible: false,
-          })._card
+          })._inside-card
 
         +e.dropdown-narrow-expanded
           +dropdown-control({
@@ -105,7 +105,7 @@ block main
               }
             ],
             areButtonsVisible: false,
-          })._card
+          })._inside-card
 
         +e.checkbox-list-1
           +checkbox-list-control({title: "expandable checkbox list", checked: false})
@@ -254,15 +254,15 @@ block main
             +e.button-item
               +button({ type: "link", value: "click me", href: "mock.html" })._solid
             +e.button-item
-              +button({type: "link", value: "click me", href: "mock.html"})._solid._color_hover
+              +button({type: "link", value: "click me", href: "mock.html"})._solid._transparent
             +e.button-item
               +button({type: "link", value: "click me", href: "mock.html"})
             +e.button-item
-              +button({type: "link", value: "click me", href: "mock.html"})._color_hover
+              +button({type: "link", value: "click me", href: "mock.html"})._transparent
             +e.button-item-small
-              +button({type: "link", value: "click me", href: "mock.html"})._size_s
+              +button({type: "link", value: "click me", href: "mock.html"})._size_small
             +e.button-item-small
-              +button({type: "link", value: "click me", href: "mock.html"})._size_s._color_sec
+              +button({type: "link", value: "click me", href: "mock.html"})._size_small._transparent
           +e.button-item-long
             +button({type: "link", value: "перейти к оплате", href: "mock.html"})._solid._has-arrow
 

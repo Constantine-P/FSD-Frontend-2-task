@@ -19,7 +19,7 @@ mixin booking-card(params)
   +b("form")(name = "booking" method = "GET" action="https://echo.htmlacademy.ru" enctype="text/plain").booking-card
     +e("span").room-number= `№ `
       +e("span").number= roomNumber
-      +e("input").room-number-input.hidden(name = "room-number" value = roomNumber)
+      +e("input").room-number-input(name = "room-number" value = roomNumber)
       if (isLux)
         +e("span").lux= " Люкс"
     +e("span").price= `${format(price.price)}${price.currency}`
@@ -38,7 +38,7 @@ mixin booking-card(params)
           {title: "Дети", name: "children"},
           {title: "Младенцы", name: "babies", isShow: true, wordForms: "[\"младенец\", \"младенца\", \"младенцев\"]"},
         ]
-      })._card
+      })._inside-card
     +e.price-table
       +price-table(price)
     +e.button

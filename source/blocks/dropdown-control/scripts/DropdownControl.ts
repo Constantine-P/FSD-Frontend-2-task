@@ -63,9 +63,9 @@ class DropdownControl {
     const total = this.model
       .reduce((accumulator, currentValue) => accumulator + currentValue.quantity, 0);
     if (total === 0 && this.elements.btnClear) {
-      this.elements.btnClear.classList.add('hidden');
+      this.elements.btnClear.classList.add('dropdown-control__btn-clear_hidden');
     } else if (this.elements.btnClear) {
-      this.elements.btnClear.classList.remove('hidden');
+      this.elements.btnClear.classList.remove('dropdown-control__btn-clear_hidden');
     }
   }
 

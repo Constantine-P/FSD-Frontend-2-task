@@ -30,7 +30,7 @@ mixin stay-selector(params)
         hasArrow: true}).departure-day.js-departure-day
 
   - if (inputsNumber === 1)
-    +b.stay-selector_single-input.js-stay-selector(
+    +b.stay-selector_with-single-input.js-stay-selector(
       data-arrival-date = JSON.stringify(arrivalDate)
       data-departure-date = JSON.stringify(departureDate)
     )
@@ -41,7 +41,7 @@ mixin stay-selector(params)
       }).stay-dates.js-stay-dates
 
   - if (inputsNumber === 0)
-    +b.stay-selector_single-input.js-stay-selector(
+    +b.stay-selector_with-single-input.js-stay-selector(
       data-arrival-date = JSON.stringify(arrivalDate)
       data-departure-date = JSON.stringify(departureDate)
     )

@@ -1,6 +1,9 @@
 mixin text-field(params)
-  - const { title = "", type = "text", placeholder, pattern, name = "", value = "",
-  - hasArrow = false, hasSubmitBtn = false, form = {name: "subscribe-form", action: "https://echo.htmlacademy.ru"} } = params
+  -
+    const { title = "", type = "text", placeholder, pattern, name = "", value = "",
+      hasArrow = false, hasSubmitBtn = false,
+      form = {name: "subscribe-form", action: "https://echo.htmlacademy.ru"}
+    } = params
 
   +b("label").text-field
     if (title !== "")
